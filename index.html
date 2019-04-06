@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="index.css">
-  <title>ADD YOUR OWN TITLE</title>
+  <link rel="stylesheet" href="css/index.css">
+  <title>instruction word</title>
 </head>
+
 <body>
-  
-</div>
-<div class="container">
-  <div class="buttonBar">
-    <input type="button" class="input" id="saveCode" value="save">
-    <input type="button" class="input" id="clearCode" value="clear">
+
   </div>
-  
-  <div class = "output" id="output">
-    Output...
+  <div class="container">
+    <div class="buttonBar">
+      <input type="button" class="input" id="saveCode" value="save">
+      <input type="button" class="input" id="clearCode" value="clear">
+      <div class="login_reg">
+        <input type="text" name="username" id="username" placeholder="username">
+        <input type="password" name="password" id="password" placeholder="password">
+        <button id="login">login</button>
+        <button id="join">join</button>
+      </div>
+    </div>
+
+    <div class="output" id="output" contenteditable="true">
+      Output...
+    </div>
+    <form>
+      <textarea name="input" id="input" placeholder="Type or paste in your code..."></textarea><br>
+    </form>
   </div>
-  <form>
-    <textarea name="input" id="input"  placeholder="Type or paste in your code..."></textarea><br>
-  </form>
-</div>
   <div id="bgOutput"></div>
-  <!-- <script src="index.js"></script> -->
-  <script src="index.js"></script>
+  <script src="modules/vars.js"></script>
+  <script src="modules/funcs.js"></script>
+  <script src="js/index.js"></script>
 </body>
+
 </html>

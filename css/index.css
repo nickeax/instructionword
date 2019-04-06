@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgba(214, 214, 214, 0);
+  color: rgb(209, 227, 220);
+  font-size: 16px;
+}
+
+.keyword {
+  font-style: none;
+  color: rgb(185, 108, 8);
+}
+
+.inSingleQuotes {
+  font-style: italic;
+  color: rgb(43, 199, 111)
+}
+
+.inDoubleQuotes {
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(27, 122, 68)
+}
+
+.math {
+  font-weight: bold;
+  color: firebrick;
+}
+
+.block {
+  font-weight: 100;
+  color: rgb(226, 226, 166);
+}
+
+.other {
+  color: rgb(231, 212, 212);
+}
+
+#saveCode {
+  padding: 1rem;
+  border-style: none;
+  background-color: rgb(33, 214, 111);
+  position: fixed;
+  left: 10rem;
+}
+
+#clearCode {
+  padding: 1rem;
+  border-style: none;
+  background-color: rgb(214, 33, 33);
+  position: fixed;
+  left: 5rem;
+}
+#login, #join, #password, #username {
+  padding: 4px;
+  position: fixed;
+  right: 5rem;
+  background-color: rgb(199, 199, 199);
+  color: rgb(28, 156, 77);
+}
+#login, #join {
+  width: 65px;
+  top: 8rem;
+}
+#login {
+  right: 147px;
+}
+#join {
+  right: 5rem;
+}
+#username {
+  right: 17rem;
+}
+#password {
+  right: 5rem;
+}
+
+#clearCode,
+#saveCode {
+  border-radius: 3px;
+  box-shadow:  0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+#clearCode:hover,
+#saveCode:hover {
+  background-color: #fff;
+}
+input::placeholder {
+  color: rgb(25, 175, 45);
+}
+.container {
+  display: absolute;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  z-index: 666;
+}
+
+.output {
+  opacity: 0.9;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  padding: 1em;
+  background-color: rgb(12, 12, 12);
+  width: 50%;
+  margin: 0 auto;
+  font-family: "Courier New", monospace;
+  font-size: 1.5em;
+  height: 100%;
+  overflow-x: scroll;
+  line-height: 1.4;
+  z-index: 666;
+}
+
+#bgOutput {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  opacity: 0.3;
+  position: fixed;
+  top: 300px;
+  left: 10rem;
+  transform: skewX(30deg);
+  transform: skewY(30deg);
+  font-size: 4.5rem;
+  z-index: -666;
+  width: 200vw;
+  height: 200vh;
+}
+
+form {
+  opacity: .8;
+  display: flex;
+  border-radius: 15px;
+  padding: 1em;
+  background-color: #eee;
+  width: 100%;
+  margin: 2rem auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+textarea {
+  font-size: 1.5rem;
+  color: #55ff55;
+  background-color: #222;
+  width: 60%;
+  height: 40vh;
+  margin: 0 auto;
+}
+
+#github {
+  padding: 3rem;
+  position: relative;
+  top: 20px;
+  width: 100vw;
+  background-color: #fff;
+}
+
+#github img {
+  height: 60px;
+}
+
+@media screen and (max-width: 950px) {
+  .output {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    background-color: rgb(12, 12, 12);
+    width: 90%;
+    font-size: 1em;
+    height: 100%;
+    overflow-x: scroll;
+    line-height: 1.4;
+  }
+
+  form {
+    display: flex;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: #eee;
+    width: 100%;
+    margin: 5px auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  textarea {
+    font-size: 1.5rem;
+    color: #55ff55;
+    background-color: #222;
+    width: 95%;
+    height: 80vh;
+    margin: 0 auto;
+  }
+  .buttonBar {
+    display: flex;
+    width: 100%;
+  }
+  
+}

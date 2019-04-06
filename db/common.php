@@ -6,7 +6,6 @@ function bug($str) {
   echo "<hr><strong>BUG:</strong> <tt>$str</tt><hr>";
 }
 function Query($q, $args) {
-  $i = 0;
   require"config.php";
   if(strpos($q, "SELECT")) {
     try {
@@ -19,7 +18,6 @@ function Query($q, $args) {
     }
   } else {
     try {
-    $i++;
     $conn = new PDO($dsn, $username, $password, $options);  
     $stmt = $conn->prepare($q);
     $stmt->execute($args);
@@ -28,5 +26,8 @@ function Query($q, $args) {
       $error->getMessage();
     }
   }
+}
+function IsRegistered($username) {
+  Query("select * from users where username = ?", $username);
 }
 ?>
