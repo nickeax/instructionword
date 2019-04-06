@@ -7,7 +7,6 @@ function bug($str) {
 }
 function Query($q, $args) {
   require"config/config.php";
-  echo "<script>alert('hello!');</script>";
   if(strpos($q, "SELECT")) {
     try {
       $conn = new PDO($dsn, $username, $password, $options);  
@@ -24,7 +23,7 @@ function Query($q, $args) {
     $stmt->execute($args);
     return $stmt;
     } catch(PDOException $error) {
-      return $error->getMessage();
+      die($error->getMessage()) ;
     }
   }
 }

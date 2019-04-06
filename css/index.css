@@ -76,6 +76,13 @@ body {
   right: 5rem;
 }
 
+#messages {
+  color: #000;
+  position: fixed;
+  right: 5rem;
+  top: 12rem;
+}
+
 #clearCode,
 #saveCode {
   border-radius: 3px;
@@ -95,6 +102,10 @@ input::placeholder {
   margin: 0 auto;
   margin-top: 5rem;
   z-index: 666;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .output {

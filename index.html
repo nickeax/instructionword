@@ -17,8 +17,10 @@
       <input type="button" class="input" id="saveCode" value="save">
       <input type="button" class="input" id="clearCode" value="clear">
       <div class="login_reg">
-        <input type="text" name="username" id="username" placeholder="username">
-        <input type="password" name="password" id="password" placeholder="password">
+        <div id="messages"></div>
+        <input type="text" name="username" id="username" placeholder="username" required>
+        <input type="password" name="password" id="password" placeholder="password" required>
+        <button id="logout" class="hidden">logout</button>
         <button id="login">login</button>
         <button id="join">join</button>
       </div>
@@ -32,8 +34,8 @@
     </form>
   </div>
   <div id="bgOutput"></div>
-  <script src="modules/vars.js"></script>
   <script src="modules/funcs.js"></script>
+  <script src="modules/vars.js"></script>
   <script src="js/index.js"></script>
 </body>
 
