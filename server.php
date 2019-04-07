@@ -5,9 +5,15 @@ include_once("db/common.php");
 if(isset($_POST['mode'])) {
   switch ($_POST['mode']) {
     case 'postSnippet':
+      if(!$_SESSION['loggedIn'] == 1) {
+        die('postSnippet|failure|Please login to post your code');
+      }
+      if($_POST['str'] === "") {
+        die("postSnippet|failure|Your snippet contained no text.");
+      }
       $arr = array(1, 0, time(), $_POST['str'], "A test of the emergency broadcast system");
       $res = Query("INSERT INTO snippets (user_id, lesson, created, snippet, description) VALUES (?, ?, ?, ?, ?)", $arr);
-      die();
+      die("postSnippet|success|Your snippet has been saved to your account.");
     case 'login':
     $subArr = explode("&", $_POST['str']);
     $usernameSub = explode("=", $subArr[0]) ;
@@ -22,8 +28,8 @@ if(isset($_POST['mode'])) {
         die ("login|failure|Your login details were incorrect.");
       } else {
         $_SESSION['id'] = $fa[0]['user_id'];
-        $_SESSION['id'] = 1;
-        die ("login|success|You're now logged in.");
+        $_SESSION['loggedIn'] = 1;
+        die ("login|success|You're now logged in.|".$username);
       }
     } else {
       die("login|failure|Please enter the required info.");
@@ -56,9 +62,9 @@ if(isset($_POST['mode'])) {
       die();
       case 'isLoggedIn':
         if($_SESSION['loggedIn']) {
-          die("loggedIn|success");
+          die("isLoggedIn|success");
         } else {
-          die("loggedIn|failure");
+          die("isLoggedIn|failure");
         }
         break;
     default:
