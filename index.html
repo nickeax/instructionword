@@ -14,10 +14,10 @@
   </div>
   <div class="container">
     <div class="buttonBar">
-      <input type="button" class="input" id="saveCode" value="save">
+      <input type="button" class="input hidden" id="saveCode" value="save">
       <input type="button" class="input" id="clearCode" value="clear">
       <div class="login_reg">
-        <div class = "messages hidden" id="messages"></div>
+        <div class="messages hidden" id="messages"></div>
         <input type="text" name="username" id="username" placeholder="username" required>
         <input type="password" name="password" id="password" placeholder="password" required>
         <button id="logout" class="hidden">logout</button>
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="output" id="output" contenteditable="true">
+    <div class="output" id="output">
       Output...
     </div>
     <form>

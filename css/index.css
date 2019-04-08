@@ -37,6 +37,8 @@ body {
   color: rgb(231, 212, 212);
 }
 
+/* BUTTONS */
+
 #saveCode {
   padding: 1rem;
   border-style: none;
@@ -52,6 +54,7 @@ body {
   position: fixed;
   left: 5rem;
 }
+
 #login, #join, #logout, #password, #username {
   padding: 4px;
   position: fixed;
@@ -59,27 +62,35 @@ body {
   background-color: rgb(255, 255, 255);
   color: rgb(28, 156, 77);
 }
+
 #login, #join, #logout {
   width: 65px;
   top: 8rem;
 }
+
 #login {
   right: 147px;
 }
+
 #join {
   right: 5rem;
   z-index: 15;
 }
+
 #logout {
   right: 15rem;
   z-index: 10;
 }
+
 #username {
   right: 17rem;
 }
+
 #password {
   right: 5rem;
 }
+
+/* UI INTERFACE */
 
 .messages {
   padding: 20px;
@@ -89,25 +100,26 @@ body {
   right: 5rem;
   top: 12rem;
 }
+
 .error {
   padding: 20px;
   color: rgb(180, 28, 28);
   border: 1px solid rgb(212, 70, 34);
 }
 
-#clearCode,
-#saveCode {
+#clearCode, #saveCode {
   border-radius: 3px;
-  box-shadow:  0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
-#clearCode:hover,
-#saveCode:hover {
+#clearCode:hover, #saveCode:hover {
   background-color: #fff;
 }
+
 input::placeholder {
   color: rgb(25, 175, 45);
 }
+
 .container {
   display: absolute;
   width: 90%;
@@ -144,7 +156,7 @@ input::placeholder {
   transform: skewX(30deg);
   transform: skewY(30deg);
   font-size: 4.5rem;
-  z-index: -666;
+  z-index: -10;
   width: 200vw;
   height: 200vh;
 }
@@ -180,7 +192,6 @@ textarea {
     overflow-x: scroll;
     line-height: 1.4;
   }
-
   form {
     display: flex;
     border-radius: 5px;
@@ -190,7 +201,6 @@ textarea {
     margin: 5px auto;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
-
   textarea {
     font-size: 1.5rem;
     color: #55ff55;
@@ -203,5 +213,4 @@ textarea {
     display: flex;
     width: 100%;
   }
-  
 }
