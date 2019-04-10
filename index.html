@@ -6,34 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/utils.css">
+  <link rel="stylesheet" href="css/highlight.css">
+  <link rel="stylesheet" href="css/interface.css">
+  <link rel="stylesheet" href="css/loaders.css">
   <title>instruction word</title>
 </head>
 
 <body>
+  <div class="wrapper">
+    <header class="header">
 
-  </div>
-  <div class="container">
-    <div class="buttonBar">
-      <input type="button" class="input hidden" id="saveCode" value="save">
-      <input type="button" class="input" id="clearCode" value="clear">
-      <div class="login_reg">
-        <div class="messages hidden" id="messages"></div>
-        <input type="text" name="username" id="username" placeholder="username" required>
-        <input type="password" name="password" id="password" placeholder="password" required>
+      <div class="messages hidden" id="messages"></div>
+      <div class="inputs">
+        <input class="headerInputs" type="text" name="username" id="username" placeholder="username" required>
+        <input class="headerInputs" type="password" name="password" id="password" placeholder="password" required>
+        <input class="headerInputs hidden" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
+          required><br>
+        <input class="headerInputs hidden" type="text" name="description" id="snippetDescription"
+          placeholder="quick description">
+      </div>
+      <div class="buttons">
         <button id="logout" class="hidden">logout</button>
         <button id="login">login</button>
         <button id="join">join</button>
+        <input type="button" class="input hidden" id="saveCode" value="save">
+        <input type="button" class="input hidden" id="clearCode" value="clear">
       </div>
+    </header>
+    <div class="sidebarL" id="sidebarL">
+      <h2>snippets loading...</h2>
+
+    </div>
+    <div class="sidebarR">
+      <h2>your snippets</h2>
     </div>
 
-    <div class="output" id="output">
-      Output...
+    <div class="box content">
+      <form>
+        <textarea name="input" id="input" placeholder="Type or paste in your code..."></textarea><br>
+      </form>
+      <div class="output " id="output" placeholder="Waiting for input">
+      </div>
+
     </div>
-    <form>
-      <textarea name="input" id="input" placeholder="Type or paste in your code..."></textarea><br>
-    </form>
+    <div id="bgOutput"></div>
+
+    <div class="box footer">
+
+    </div>
   </div>
-  <div id="bgOutput"></div>
+  <!--END WRAPPER-->
   <script src="modules/funcs.js"></script>
   <script src="modules/vars.js"></script>
   <script src="js/index.js"></script>

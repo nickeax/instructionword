@@ -14,7 +14,7 @@ function Query($q, $args) {
       $stmt->execute($args);
       return $stmt;
     } catch(PDOException $error) {
-      echo $q . "<br>" . $error->getMessage();
+      echo $q . "postSnippet|||failure|||" . $error->getMessage();
     }
   } else {
     try {
@@ -23,7 +23,7 @@ function Query($q, $args) {
     $stmt->execute($args);
     return $stmt;
     } catch(PDOException $error) {
-      die($error->getMessage()) ;
+      die("postSnippet||failure|||".$error->getMessage()) ;
     }
   }
 }

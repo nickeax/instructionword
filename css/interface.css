@@ -1,0 +1,137 @@
+#clearCode, #saveCode {
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+#clearCode:hover, #saveCode:hover, #logout:hover, #login:hover, #join:hover {
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.507);
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
+  transition: all 170ms ease-in-out;
+}
+
+#saveCode {
+  position: absolute;
+  right: 50%;
+  transform: translate(17rem, 0); 
+  padding: 1rem;
+  border-style: none;
+  background-color: rgb(33, 214, 123);
+}
+
+#clearCode {
+  position: absolute;
+  right: 50%;
+  transform: translate(-17rem, 0); 
+  padding: 1rem;
+  border-style: none;
+  background-color: rgb(33, 117, 214);
+}
+
+#clearCode, #saveCode {
+  color: #fff;;
+}
+
+input[type=text], input[type=password] {
+  border-top-style: none;
+  opacity: 0.8;
+  padding: 2rem;
+  background-color: rgba(225, 226, 225, 0.726);
+  color: rgb(27, 218, 59);
+  padding: 5px;
+}
+
+#snippetTitle {
+  margin-left: 1rem;
+  width: 20rem;
+}
+
+#snippetDescription {
+  width: 40rem;
+  height: 2rem;
+  margin: 1rem; 
+}
+
+.headerInputs:hover {
+  opacity: 0.8;
+}
+
+.buttons {
+  padding: 5px;
+}
+
+#login, #join, #logout {
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(28, 156, 77);
+}
+
+#login, #join, #logout {
+  width: 65px;
+}
+
+#login {
+  color: #000;
+  /*  */
+}
+
+#join {
+  z-index: 15;
+}
+
+#logout {
+  position: absolute;
+  right: 0%;
+  top: 0;
+  transform: translate(-3rem, 0); 
+  z-index: 10;
+}
+
+#username {
+  right: 17rem;
+}
+
+#password {
+  right: 5rem;
+}
+
+.messages {
+  background-color: rgba(255, 255, 255, 0.294);
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translate(-50%);
+  max-width: 250px;
+  padding: 20px;
+  color: rgb(46, 27, 27);
+  border: 1px solid rgb(170, 236, 190);
+  
+}
+
+.availableSnippets {
+  text-align: left;
+  border-left: 1px solid #000;
+  padding: 0 1rem 1rem 1rem;
+  background-color: rgba(51, 51, 51, 0);
+  color: rgb(54, 130, 231);
+}
+
+.availableSnippets:hover {
+  border: none;
+  box-shadow: 0 0 8px rgba(24, 155, 231, 0.3);
+  transition: all 300ms ease-in-out;
+}
+
+.loading {
+  background-image: url('../img/ajax-loader.gif');
+}
+
+.error {
+  padding: 20px;
+  color: rgb(88, 32, 25);
+  border: 1px solid rgb(223, 113, 98);
+}
+
+input::placeholder {
+  color: rgb(0, 121, 16);
+}

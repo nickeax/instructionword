@@ -1,175 +1,116 @@
 body {
+  background-color: rgba(233, 233, 233, 0.02);
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: rgba(214, 214, 214, 0);
-  color: rgb(209, 227, 220);
-  font-size: 16px;
+  padding: 15px;
+  box-sizing: border-box;;
 }
 
-.keyword {
-  font-style: none;
-  color: rgb(185, 108, 8);
+/* .sidebarL, .sidebarR {
+  opacity: .8;
+  color: #000;
+} */
+
+.sidebarL {
+  grid-area: sidebarL;
 }
 
-.inSingleQuotes {
-  font-style: italic;
-  color: rgb(43, 199, 111)
+.sidebarR {
+  grid-area: sidebarR;
 }
 
-.inDoubleQuotes {
-  font-weight: bold;
-  font-style: italic;
-  color: rgb(27, 122, 68)
+.sidebarL, .sidebarR {
+  text-align: center;
+  padding: 8px;
+  color: rgba(0, 0, 0, 0.719);
 }
 
-.math {
-  font-weight: bold;
-  color: firebrick;
+.content {
+  background-color: rgba(117, 218, 147, 0);
+  grid-area: content;
+  position: relative;
 }
 
-.block {
-  font-weight: 100;
-  color: rgb(226, 226, 166);
+.header {
+  position: relative;
+  padding: 2rem;
+  grid-area: header;
 }
 
-.other {
-  color: rgb(231, 212, 212);
+.footer {
+  grid-area: footer;
 }
 
-/* BUTTONS */
-
-#saveCode {
-  padding: 1rem;
-  border-style: none;
-  background-color: rgb(33, 214, 111);
-  position: fixed;
-  left: 10rem;
+.header, .footer {
+  font-weight: normal;
 }
-
-#clearCode {
-  padding: 1rem;
-  border-style: none;
-  background-color: rgb(214, 33, 33);
-  position: fixed;
-  left: 5rem;
+img.full {
+  display: flex;
+  margin:  auto;
 }
-
-#login, #join, #logout, #password, #username {
-  padding: 4px;
-  position: fixed;
-  right: 5rem;
-  background-color: rgb(255, 255, 255);
-  color: rgb(28, 156, 77);
-}
-
-#login, #join, #logout {
-  width: 65px;
-  top: 8rem;
-}
-
-#login {
-  right: 147px;
-}
-
-#join {
-  right: 5rem;
-  z-index: 15;
-}
-
-#logout {
-  right: 15rem;
-  z-index: 10;
-}
-
-#username {
-  right: 17rem;
-}
-
-#password {
-  right: 5rem;
-}
-
-/* UI INTERFACE */
-
-.messages {
-  padding: 20px;
-  color: rgb(11, 116, 42);
-  border: 1px solid rgb(11, 116, 42);
-  position: fixed;
-  right: 5rem;
-  top: 12rem;
-}
-
-.error {
-  padding: 20px;
-  color: rgb(180, 28, 28);
-  border: 1px solid rgb(212, 70, 34);
-}
-
-#clearCode, #saveCode {
-  border-radius: 3px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
-
-#clearCode:hover, #saveCode:hover {
-  background-color: #fff;
-}
-
-input::placeholder {
-  color: rgb(25, 175, 45);
-}
-
-.container {
-  display: absolute;
-  width: 90%;
+.wrapper {
+  font-family: sans-serif;
+  background-color: rgba(255, 255, 255, 0);
+  display: grid;
+  width: 80vw;
   margin: 0 auto;
-  margin-top: 5rem;
-  z-index: 666;
+  grid-gap: 8px;
+  grid-template-columns: 2fr 4fr 1fr;
+  grid-template-rows: 200px auto 100px;
+  grid-template-areas: "sidebarL  header  sidebarR" 
+  "sidebarL content sidebarR" 
+  "sidebarL  footer  sidebarR";
+  color: rgba(206, 198, 198, 0);
 }
 
-.hidden {
-  visibility: hidden;
+/* .box {
+  min-height: 40vh;
+  font-size: 1.2rem;
+  : 0 0 4px rgba(0, 0, 0, 0.2)
+} */
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.topright {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .output {
-  opacity: 0.9;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-  padding: 1em;
-  background-color: rgb(12, 12, 12);
-  width: 50%;
-  margin: 0 auto;
-  font-family: "Courier New", monospace;
-  font-size: 1.5em;
-  height: 100%;
-  overflow-x: scroll;
-  line-height: 1.4;
-  z-index: 666;
-}
-
-#bgOutput {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  opacity: 0.3;
-  position: fixed;
-  top: 300px;
-  left: 10rem;
-  transform: skewX(30deg);
-  transform: skewY(30deg);
-  font-size: 4.5rem;
-  z-index: -10;
-  width: 200vw;
-  height: 200vh;
+  color: #eee;
+  background-color: rgba(4, 5, 5, 0.856);
+  padding: 3rem;
+  margin: 3rem auto 1rem auto;
+  /* min-height: 30vh; */
+  /* width: 95%; */
+  overflow: scroll;
 }
 
 form {
-  opacity: .8;
-  display: flex;
-  border-radius: 15px;
-  padding: 10px;
-  background-color: #eee;
-  width: 60%;
-  margin: 2rem auto;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 3px;
+  border-radius: 0;
+  /* padding: 1rem; */
+  margin: 0 auto;
+}
+
+input.headerInputs{
+  background-color: #333;
 }
 
 textarea {
@@ -177,13 +118,29 @@ textarea {
   color: #55ff55;
   background-color: #222;
   width: 100%;
-  height: 40vh;
+  height: 30vh;
   margin: 0 auto;
+}
+
+#bgOutput {
+  color: #000;
+  filter: blur(5px);
+  font-family: sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
+  opacity: 0.35;
+  position: fixed;
+  top: 300px;
+  left: -10rem;
+  top:  -10rem;
+  transform: skew(30deg, 10deg);
+  /* transform: skew(30deg); */
+  font-size: 3.5rem;
+  z-index: -10;
+  width: 200vw;
+  height: 200vh;
 }
 
 @media screen and (max-width: 950px) {
   .output {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
     padding: 1em;
     background-color: rgb(12, 12, 12);
     width: 90%;
@@ -199,7 +156,6 @@ textarea {
     background-color: #eee;
     width: 100%;
     margin: 5px auto;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
   textarea {
     font-size: 1.5rem;
