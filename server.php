@@ -29,7 +29,7 @@ if (isset($_POST['mode'])) {
       die("postSnippet|||success|||Snippet saved.");
     case 'getSnippets':
       $arr = [];
-      $res = Query('SELECT snippets.title, snippets.description, snippets.snippet, users.username 
+      $res = Query('SELECT snippets.snippet_id, snippets.title, snippets.description, snippets.snippet, users.username 
       FROM snippets INNER JOIN users ON snippets.user_id = users.user_id', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       echo "getSnippets|||success|||data retrieved|||" . $data;
@@ -106,6 +106,10 @@ if (isset($_POST['mode'])) {
 } else {
   echo "No data sent.";
 }
-//mode=getUsername&str=22&title=&description=
-//str.username = [{"user_id":"22","username":"nickeax","password":"$2y$10$gZPxBJ5YDejF3Z.tcgbECuvrcdWn9GBo6iq2MKrL\/yvWDUwu4kgES","created":"1554691373","rating":"0"}]
-//str.username = [{"user_id":"22","username":"nickeax","password":"$2y$10$gZPxBJ5YDejF3Z.tcgbECuvrcdWn9GBo6iq2MKrL\/yvWDUwu4kgES","created":"1554691373","rating":"0"}]
+/* 
+const article = document.querySelector('#electric-cars');
+
+article.dataset.columns // "3"
+article.dataset.indexNumber // "12314"
+article.dataset.parent // "cars"
+*/

@@ -28,14 +28,13 @@ btnSaveCode.addEventListener('click', () => {
   data = postOutput();
   messages.classList.add("loading");
   checkServer("postSnippet", data, setResp);
-  console.log("calling checkServer");
-
 })
 
 // CLEAR CODE BUTTON
 const btnClearCode = document.querySelector('#clearCode');
 btnClearCode.addEventListener('click', ev => {
   input.value = "";
+  clearMessages();
   showOutput();
 })
 // INPUT
@@ -67,8 +66,8 @@ window.addEventListener('load', autoLoad);
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
 function autoLoad() { // Populate UI with available Project data (just snippets ATM)
   window.setInterval(() => {
-    getSnippets(checkServer('getSnippets', "", setResp));
-  }, 1000);
+    checkServer('getSnippets', "", setResp);
+  }, 3000);
 }
 function elementActive(el, yes) {
   if (!yes) {
@@ -91,9 +90,7 @@ function getFormattedTime(timestamp) {
   let formattedTime = `${day} - ${year}`;
   return formattedTime;
 }
-function getSnippets() {
-  console.log("TODO: Get snippets");
-}
+
 function getInput(id) {
   let inputData = document.querySelector(`#${id}`).value;
   return inputData;
@@ -156,6 +153,12 @@ function showMessage(str) {
   // }, 500);
 }
 
+function clearMessages() {
+  messages.classList.remove('error');
+  messages.classList.add('hidden');
+  messages.innerHTML = "";
+}
+
 function setResp(str) { // Process any UI changes here, certain that RESPONSE is ready.
   // updateUI();
   let arr = str.split('|||');
@@ -165,6 +168,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
   // arr[0] == MODE arr[1] == SUCCESS/FAIL arr[2] == MESSAGE arr[3] == DATA
   switch (arr[0]) { //switch on mode
     case 'login':
+      clearMessages();
       if (arr[1] == 'success') {
         loggedIn = true;
         theUser = arr[3];
@@ -192,7 +196,6 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         messages.classList.add('hidden');
         messages.innerHTML = "";
       } else {
-        console.log(arr[2]);
         snippetDescription.value = "";
         snippetTitle.value = "";
       }
@@ -223,19 +226,29 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
     case 'getSnippets':
       let formattedTime = "";
       if (arr[1] == 'success') {
-        console.log(arr[3]);
         let str = JSON.parse(arr[3]);
         sidebarL.innerHTML = `<h2>snippets (${str.length})</h2>\n`;
 
         for (let i = 0; i < str.length; i++) {
-          sidebarL.innerHTML += `<div class = 'availableSnippets'><strong>${str[i].title}</strong> <span class = "username">${str[i].username}</span><br>
-            <em>${str[i].description}</em></div><br>\n`;
+          sidebarL.innerHTML += `
+          <div class = 'availableSnippets'>
+          
+          <span class = "view" data-snippet_id = "${str[i].snippet_id}">VIEW</span>
+          <span class = "edit" data-snippet_id = "${str[i].snippet_id}">EDIT</span>
+          <span class = "share" data-snippet_id = "${str[i].snippet_id}">SHARE</span>
+          
+          <strong class="snippetTitle">${str[i].title}</strong> by 
+          <span id = "listed_snippet" class = "username">${str[i].username}</span>
+          
+          <br>
+            <em>${str[i].description}</em><br>
+            </div>`;
         }
         sidebarL.innerHTML += "\n";
       }
       break;
     case 'getSnippet':
-      
+
       break;
     default:
       break;
@@ -259,7 +272,6 @@ function checkServer(mode, str, cb) {
   }
   str = encodeURIComponent(str);
   params = `mode=${mode}&str=${str}&title=${title}&description=${description}`; // build the POST query string
-  console.log(params);
 
   const xhr = new XMLHttpRequest();
   xhr.open('POST', 'server.php', true);

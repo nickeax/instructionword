@@ -1,13 +1,19 @@
 #clearCode, #saveCode {
+  color: #000;
   border-radius: 6px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #clearCode:hover, #saveCode:hover, #logout:hover, #login:hover, #join:hover {
+  cursor: pointer;
   color: #000;
-  background-color: rgba(255, 255, 255, 0.507);
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.027);
   transition: all 170ms ease-in-out;
+}
+
+#clearCode:active, #saveCode:active {
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.123);
 }
 
 #saveCode {
@@ -15,8 +21,8 @@
   right: 50%;
   transform: translate(17rem, 0); 
   padding: 1rem;
-  border-style: none;
-  background-color: rgb(33, 214, 123);
+  border: 2px solid rgb(21, 138, 79);
+  background-color: rgba(33, 214, 123, 0.061);
 }
 
 #clearCode {
@@ -24,13 +30,10 @@
   right: 50%;
   transform: translate(-17rem, 0); 
   padding: 1rem;
-  border-style: none;
-  background-color: rgb(33, 117, 214);
+  border: 2px solid rgb(33, 117, 214);
+  background-color: rgba(33, 117, 214, 0.089);
 }
 
-#clearCode, #saveCode {
-  color: #fff;;
-}
 
 input[type=text], input[type=password] {
   border-top-style: none;
@@ -110,18 +113,72 @@ input[type=text], input[type=password] {
 
 .availableSnippets {
   text-align: left;
-  border-left: 1px solid #000;
-  padding: 0 1rem 1rem 1rem;
+  border-left: 1px solid rgba(54, 131, 231, 0.691);
+  padding: 0 7px 11px 7px;
   background-color: rgba(51, 51, 51, 0);
   color: rgb(54, 130, 231);
+  line-height: 1.4;
 }
 
-.availableSnippets:hover {
-  border: none;
-  box-shadow: 0 0 8px rgba(24, 155, 231, 0.3);
-  transition: all 300ms ease-in-out;
+.snippetTitle:hover, .username {
+  cursor: pointer;
 }
 
+.availableSnippets em {
+  color: #333;
+}
+
+.view, .edit, .share {
+  font-size: .5rem;
+  margin: 2px;
+  padding: 4px;
+}
+
+.view:hover, .edit:hover, .share:hover {
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+}
+
+.view:hover {
+  background-color: rgb(24, 107, 28);
+  color: #eee;
+}
+
+.edit:hover {
+  background-color: rgb(231, 73, 0);
+  color: #eee;
+}
+
+.share:hover {
+  background-color: rgb(22, 113, 199);
+  color: #eee;
+}
+
+.view:active, .edit:active, .share:active {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+}
+
+.view {
+  color: rgb(24, 107, 28);
+  border: 1px solid rgb(24, 107, 28);
+}
+
+.edit {
+  color: rgb(231, 73, 0);
+  border: 1px solid rgb(231, 73, 0);
+}
+
+.share {
+  color: rgb(22, 113, 199);
+  border: 1px solid rgb(22, 113, 199);
+}
+
+.username {
+  padding: 2px;
+  background-color: rgba(177, 166, 166, 0.137);
+  font-family: monospace;
+  color: #000;
+}
 .loading {
   background-image: url('../img/ajax-loader.gif');
 }
@@ -133,5 +190,5 @@ input[type=text], input[type=password] {
 }
 
 input::placeholder {
-  color: rgb(0, 121, 16);
+  color: rgb(2, 15, 3);
 }
