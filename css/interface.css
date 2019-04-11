@@ -1,4 +1,5 @@
 #clearCode, #saveCode {
+  padding: 5px 9px;
   color: #000;
   border-radius: 6px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -19,8 +20,7 @@
 #saveCode {
   position: absolute;
   right: 50%;
-  transform: translate(17rem, 0); 
-  padding: 1rem;
+  transform: translate(17rem, 0);
   border: 2px solid rgb(21, 138, 79);
   background-color: rgba(33, 214, 123, 0.061);
 }
@@ -28,31 +28,48 @@
 #clearCode {
   position: absolute;
   right: 50%;
-  transform: translate(-17rem, 0); 
-  padding: 1rem;
+  transform: translate(-17rem, 0);
   border: 2px solid rgb(33, 117, 214);
   background-color: rgba(33, 117, 214, 0.089);
 }
 
-
 input[type=text], input[type=password] {
   border-top-style: none;
   opacity: 0.8;
-  padding: 2rem;
+  /* padding: 2rem; */
   background-color: rgba(225, 226, 225, 0.726);
   color: rgb(27, 218, 59);
   padding: 5px;
 }
 
+.availableSnippets {
+  text-align: left;
+  border-left: 3px solid rgba(54, 131, 231, 0.691);
+  border-right: 1px solid rgba(231, 73, 0, 0.28);
+  padding: 3px 7px 10px 7px;
+  margin-bottom: 1rem;
+  border-radius: 0 14px 14px 0;
+  background-color: rgba(97, 172, 243, 0.013);
+  color: rgb(54, 130, 231);
+  line-height: 1.4;
+}
+
+.snippetTitle:hover, .username {
+  cursor: pointer;
+}
+
+.availableSnippets em {
+  color: #333;
+}
+
 #snippetTitle {
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   width: 20rem;
 }
 
 #snippetDescription {
-  width: 40rem;
-  height: 2rem;
-  margin: 1rem; 
+  width: 30rem;
+  /* margin: 1rem;  */
 }
 
 .headerInputs:hover {
@@ -86,7 +103,7 @@ input[type=text], input[type=password] {
   position: absolute;
   right: 0%;
   top: 0;
-  transform: translate(-3rem, 0); 
+  transform: translate(-3rem, 0);
   z-index: 10;
 }
 
@@ -108,24 +125,6 @@ input[type=text], input[type=password] {
   padding: 20px;
   color: rgb(46, 27, 27);
   border: 1px solid rgb(170, 236, 190);
-  
-}
-
-.availableSnippets {
-  text-align: left;
-  border-left: 1px solid rgba(54, 131, 231, 0.691);
-  padding: 0 7px 11px 7px;
-  background-color: rgba(51, 51, 51, 0);
-  color: rgb(54, 130, 231);
-  line-height: 1.4;
-}
-
-.snippetTitle:hover, .username {
-  cursor: pointer;
-}
-
-.availableSnippets em {
-  color: #333;
 }
 
 .view, .edit, .share {
@@ -179,6 +178,7 @@ input[type=text], input[type=password] {
   font-family: monospace;
   color: #000;
 }
+
 .loading {
   background-image: url('../img/ajax-loader.gif');
 }

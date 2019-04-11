@@ -12,6 +12,7 @@ body {
 
 .sidebarL {
   grid-area: sidebarL;
+  background-color: rgba(255, 255, 255, 0.591);
 }
 
 .sidebarR {
@@ -32,12 +33,13 @@ body {
 
 .header {
   position: relative;
-  padding: 2rem;
+  /* padding: 2rem; */
   grid-area: header;
 }
 
 .footer {
   grid-area: footer;
+  background-color: rgba(240, 135, 135, 0.37);
 }
 
 .header, .footer {
@@ -55,7 +57,7 @@ img.full {
   margin: 0 auto;
   grid-gap: 8px;
   grid-template-columns: 2fr 4fr 1fr;
-  grid-template-rows: 200px auto 100px;
+  grid-template-rows: 120px auto 100px;
   grid-template-areas: "sidebarL  header  sidebarR" 
   "sidebarL content sidebarR" 
   "sidebarL  footer  sidebarR";

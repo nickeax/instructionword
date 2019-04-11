@@ -9,6 +9,9 @@ const bgOutput = document.querySelector('#bgOutput');
 const sidebarL = document.querySelector('#sidebarL');
 const snippetTitle = document.querySelector('#snippetTitle');
 const snippetDescription = document.querySelector('#snippetDescription');
+const handle = document.querySelector('#username');
+const password = document.querySelector('#password');
+
 sidebarL.innerHTML = `<h2>snippets loading...</h2><div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>`;
 let col = "";
 col = ['#cceecc', '#eeccee', '#ccccee', '#eeeeccc'];
@@ -25,7 +28,7 @@ if (loggedIn) {
 const btnSaveCode = document.querySelector('#saveCode');
 btnSaveCode.addEventListener('click', () => {
   elementActive(btnSaveCode, false);
-  data = postOutput();
+  data = input.value;
   messages.classList.add("loading");
   checkServer("postSnippet", data, setResp);
 })
@@ -41,7 +44,12 @@ btnClearCode.addEventListener('click', ev => {
 const input = document.querySelector('#input');
 input.addEventListener('keyup', showOutput);
 
-
+const snippetsSidebar = document.querySelector('.sidebarL');
+snippetsSidebar.addEventListener('click', (e) => {
+  if (!e.target.hasAttribute('data-snippet_id')) return;
+  output.innerHTML = "What the fuck is going on?";
+  checkServer('getSnippet', e.target.dataset.snippet_id, setResp);
+});
 
 // USER ACCOUNT
 const logout = document.querySelector('#logout');
@@ -116,7 +124,7 @@ function updateUI(str) {
     btnClearCode.classList.remove('hidden');
     login.classList.add('hidden');
     logout.classList.remove('hidden');
-    username.classList.add("hidden");
+    handle.classList.add("hidden");
     password.classList.add("hidden");
     snippetDescription.classList.remove('hidden');
     snippetTitle.classList.remove('hidden');
@@ -133,7 +141,7 @@ function updateUI(str) {
     btnClearCode.classList.add('hidden');
     login.classList.remove('hidden');
     logout.classList.add('hidden');
-    username.classList.remove("hidden");
+    handle.classList.remove("hidden");
     password.classList.remove("hidden");
     join.classList.remove('hidden');
   }
@@ -148,9 +156,6 @@ function showError(str) {
 function showMessage(str) {
   messages.classList.remove('hidden');
   messages.innerHTML = str;
-  // document.setTimeout(() => {
-  //   messages.classList.add('hidden');
-  // }, 500);
 }
 
 function clearMessages() {
@@ -160,7 +165,6 @@ function clearMessages() {
 }
 
 function setResp(str) { // Process any UI changes here, certain that RESPONSE is ready.
-  // updateUI();
   let arr = str.split('|||');
 
   elementActive(btnSaveCode, true);
@@ -223,32 +227,47 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         updateUI('loggedIn');
       }
       break;
+    case 'getSnippet':
+      if(arr[1] != "success") {
+        console.log("Couldn't get the snippet.");
+        break;
+      }
+      let str = JSON.parse(arr[3]);
+      console.log(`Got the snippet and it's value is ${str[0].snippet}`);
+      input.innerHTML = str[0].snippet;
+      output.innerHTML = postOutput();
+      break;
     case 'getSnippets':
-      let formattedTime = "";
       if (arr[1] == 'success') {
         let str = JSON.parse(arr[3]);
-        sidebarL.innerHTML = `<h2>snippets (${str.length})</h2>\n`;
+        bgOutput.innerHTML = str[0].snippet;
+        sidebarL.innerHTML = `<h3>snippets (${str.length})</h3>\n`;
 
         for (let i = 0; i < str.length; i++) {
+          let d = new Date(str[i].created * 1000);
+          let monthDay = d.getDate();
+          let month = d.getMonth();
+          let h = d.getHours();
+          let m = d.getMinutes();
+          let hoursMinutes = `${h}:${m}`;
           sidebarL.innerHTML += `
           <div class = 'availableSnippets'>
           
-          <span class = "view" data-snippet_id = "${str[i].snippet_id}">VIEW</span>
-          <span class = "edit" data-snippet_id = "${str[i].snippet_id}">EDIT</span>
-          <span class = "share" data-snippet_id = "${str[i].snippet_id}">SHARE</span>
+          <span class = "view" id="view_snippet" data-snippet_id = "${str[i].snippet_id}">VIEW</span>
+          <span class = "edit" id="edit_snippet" data-snippet_id = "${str[i].snippet_id}">EDIT</span>
+          <span class = "share" id="share_snippet" data-snippet_id = "${str[i].snippet_id}">SHARE</span>
           
           <strong class="snippetTitle">${str[i].title}</strong> by 
           <span id = "listed_snippet" class = "username">${str[i].username}</span>
           
           <br>
-            <em>${str[i].description}</em><br>
+            <em>${str[i].description}</em>
+            <span id="timestamp" class = "username">${hoursMinutes}-${monthDay + 1}/${month + 1}</span>
+              
             </div>`;
         }
         sidebarL.innerHTML += "\n";
       }
-      break;
-    case 'getSnippet':
-
       break;
     default:
       break;

@@ -17,10 +17,10 @@ if (isset($_POST['mode'])) {
       if (!isset($_POST['title'])) {
         die("postSnippet|||failure|||Please enter a title.");
       }
-      if($_POST['title'] == "") {
+      if ($_POST['title'] == "") {
         die("postSnippet|||failure|||Please enter a title.");
       }
-      if($_POST['description'] == "") {
+      if ($_POST['description'] == "") {
         die("postSnippet|||failure|||Please enter a description.");
       }
       $arr = array($_SESSION['id'], 0, time(), $_POST['str'], $_POST['description'], $_POST['title']);
@@ -29,10 +29,16 @@ if (isset($_POST['mode'])) {
       die("postSnippet|||success|||Snippet saved.");
     case 'getSnippets':
       $arr = [];
-      $res = Query('SELECT snippets.snippet_id, snippets.title, snippets.description, snippets.snippet, users.username 
-      FROM snippets INNER JOIN users ON snippets.user_id = users.user_id', $arr);
+      $res = Query('SELECT snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet, users.username 
+      FROM snippets INNER JOIN users ON snippets.user_id = users.user_id ORDER BY snippets.snippet_id DESC', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       echo "getSnippets|||success|||data retrieved|||" . $data;
+      break;
+    case 'getSnippet': // JUST ONE SNIPPET
+      $arr = array($_POST['str']);
+      $res = Query('SELECT snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet FROM snippets WHERE snippet_id = ?', $arr);
+      $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
+      echo "getSnippet|||success|||data retrieved|||" . $data;
       break;
     case 'login':
       $subArr = explode("&", $_POST['str']);
@@ -88,17 +94,17 @@ if (isset($_POST['mode'])) {
       } else {
         die("isLoggedIn|||failure");
       }
-      case 'getUsername':
-        if(!$_SESSION['loggedIn']) {
-          die();
-        }
-        // die("getUsername|||success|||".$_POST['str']);
-        // $arr1 = explode("&",$_POST['str']); // sent from snippet information
-        // $arr2 = explode("=", $arr1[1]);
-        $arr = array((int)$_POST['str']);
-        $res = Query("SELECT * FROM users WHERE user_id = ? LIMIT 1", $arr);
-        $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
-        die("getUsername|||success|||recieved|||".$data);
+    case 'getUsername':
+      if (!$_SESSION['loggedIn']) {
+        die();
+      }
+      // die("getUsername|||success|||".$_POST['str']);
+      // $arr1 = explode("&",$_POST['str']); // sent from snippet information
+      // $arr2 = explode("=", $arr1[1]);
+      $arr = array((int)$_POST['str']);
+      $res = Query("SELECT * FROM users WHERE user_id = ? LIMIT 1", $arr);
+      $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
+      die("getUsername|||success|||recieved|||" . $data);
     default:
       # code...
       break;

@@ -29,6 +29,7 @@ function buildMarkers(str) {
         markers.push(marker);
       } else if (str[i] == "\n") {
         tmp += str[i];
+        tmp += "\n";
         let marker = new Marker(start, "NWL", 1, tmp);
         markers.push(marker);
       } else if (str[i] == "{") {
