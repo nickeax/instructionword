@@ -1,3 +1,126 @@
+function elementActive(el, yes) {
+  if (!yes) {
+    el.classList.add('disabled');
+    el.disabled = true;
+  } else {
+    el.classList.remove('disabled');
+    el.disabled = false;
+  }
+}
+
+function autoLoad() { // Populate UI with available Project data (just snippets ATM)
+  window.setInterval(() => {
+    checkServer('getSnippets', "", setResp);
+  }, 3000);
+}
+
+function showError(str) {
+  messages.classList.remove('hidden');
+  messages.classList.add('error');
+  messages.innerHTML = str;
+}
+
+function showMessage(str) {
+  messages.classList.remove('hidden');
+  messages.innerHTML = str;
+}
+
+function clearMessages() {
+  messages.classList.remove('error');
+  messages.classList.add('hidden');
+  messages.innerHTML = "";
+}
+
+function postOutput() {
+  markers = [];
+  let op = "";
+  buildMarkers(getInput('input'));
+  op = processMarkers(markers);
+  return op;
+}
+
+function showOutput(ev) {
+  markers = [];
+  let op = "";
+  buildMarkers(getInput('input'));
+  op = processMarkers(markers);
+  output.innerHTML = op;
+  bgOutput.innerHTML = op;
+}
+
+function getInput(id) {
+  let inputData = document.querySelector(`#${id}`).value;
+  return inputData;
+}
+
+function checkServer(mode, str, cb) {
+  let st = "";
+  let sd = "";
+  let title = "";
+  let description = "";
+  let params = "";
+  if (snippetTitle.value != "") {
+    st = snippetTitle.value;
+    title = encodeURIComponent(st);
+  }
+  if (snippetDescription.value != "") {
+    sd = snippetDescription.value;
+    description = encodeURIComponent(sd);
+  }
+  str = encodeURIComponent(str);
+  params = `mode=${mode}&str=${str}&title=${title}&description=${description}`; // build the POST query string
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', 'server.php', true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhr.onload = function () {
+    resp = this.responseText;
+    cb(resp);
+  }
+  xhr.send(params);
+}
+
+function updateUI(str) {
+  if (str == 'loggedIn') {
+    btnSaveCode.classList.remove('hidden');
+    btnClearCode.classList.remove('hidden');
+    login.classList.add('hidden');
+    logout.classList.remove('hidden');
+    handle.classList.add("hidden");
+    password.classList.add("hidden");
+    snippetDescription.classList.remove('hidden');
+    snippetTitle.classList.remove('hidden');
+    join.classList.add('hidden');
+    logout.textContent = `logout [${theUser}]`;
+    document.title = theUser + "@IW";
+    document.title = theUser + " @ IW";
+    logout.textContent = `logout [${theUser}]`;
+  }
+  if (str == 'loggedOut') {
+    snippetDescription.classList.add('hidden');
+    snippetTitle.classList.add('hidden');
+    btnSaveCode.classList.add('hidden');
+    btnClearCode.classList.add('hidden');
+    login.classList.remove('hidden');
+    logout.classList.add('hidden');
+    handle.classList.remove("hidden");
+    password.classList.remove("hidden");
+    join.classList.remove('hidden');
+  }
+}
+
+
+function getFormattedTime(timestamp) {
+  var date = new Date(timestamp * 1000);
+  var hours = date.getHours();
+  var minutes = "0" + date.getMinutes();
+  var seconds = "0" + date.getSeconds();
+  var day = date.getDay;
+  var year = date.getFullYear;
+  // var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+  let formattedTime = `${day} - ${year}`;
+  return formattedTime;
+}
+
 function buildMarkers(str) {
   let start = 0;
   let tmp = "";
@@ -103,11 +226,11 @@ function processMarkers(markers) {
     } else if (element.word == '`') {
       tmp += `&#96;`;
     } else if (element.type == 'MTH') {
-      tmp += `<span class = 'math'>${element.word}</span>`;    
+      tmp += `<span class = 'math'>${element.word}</span>`;
     } else if (element.type == 'BLK') {
-      tmp += `<span class = 'block'>${element.word}</span>`;    
+      tmp += `<span class = 'block'>${element.word}</span>`;
     } else {
-      if(element.word == "'" || element.word == "`") tmp += "&#34;"; else tmp += `${element.word}`;
+      if (element.word == "'" || element.word == "`") tmp += "&#34;"; else tmp += `${element.word}`;
     }
   });
   return tmp;

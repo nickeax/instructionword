@@ -29,6 +29,7 @@ body {
   background-color: rgba(117, 218, 147, 0);
   grid-area: content;
   position: relative;
+  overflow: scroll;
 }
 
 .header {
@@ -56,7 +57,7 @@ img.full {
   width: 80vw;
   margin: 0 auto;
   grid-gap: 8px;
-  grid-template-columns: 2fr 4fr 1fr;
+  grid-template-columns: 2fr 60% 1fr;
   grid-template-rows: 120px auto 100px;
   grid-template-areas: "sidebarL  header  sidebarR" 
   "sidebarL content sidebarR" 
