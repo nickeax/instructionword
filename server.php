@@ -23,6 +23,9 @@ if (isset($_POST['mode'])) {
       if ($_POST['description'] == "") {
         die("postSnippet|||failure|||Please enter a description.");
       }
+      if(strlen($_POST['str']) >= 360000) {
+        die("postSnippet|||failure|||Maximum snippet length exceeded.");
+      }
       $arr = array($_SESSION['id'], 0, time(), $_POST['str'], $_POST['description'], $_POST['title']);
       $res = Query("INSERT INTO snippets (user_id, lesson, created, snippet, description, title) VALUES (?, ?, ?, ?, ?, ?)", $arr);
 

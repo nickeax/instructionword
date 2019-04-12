@@ -1,15 +1,16 @@
 function elementActive(el, yes) {
   if (!yes) {
-    el.classList.add('disabled');
+    el.classList.add('hidden');
     el.disabled = true;
   } else {
-    el.classList.remove('disabled');
+    el.classList.remove('hidden');
     el.disabled = false;
   }
 }
 
 function autoLoad() { // Populate UI with available Project data (just snippets ATM)
   window.setInterval(() => {
+    elementActive(btnSaveCode, edited);
     checkServer('getSnippets', "", setResp);
   }, 3000);
 }
@@ -34,22 +35,28 @@ function clearMessages() {
 function postOutput() {
   markers = [];
   let op = "";
-  buildMarkers(getInput('input'));
+  buildMarkers(getInput('#input'));
   op = processMarkers(markers);
   return op;
+}
+
+function keyPress() {
+  edited = true;
+  elementActive(btnSaveCode, edited);
+  showOutput();
 }
 
 function showOutput(ev) {
   markers = [];
   let op = "";
-  buildMarkers(getInput('input'));
+  buildMarkers(getInput('#input'));
   op = processMarkers(markers);
-  output.innerHTML = op;
+  document.querySelector('#output').innerHTML = op;
   bgOutput.innerHTML = op;
 }
 
 function getInput(id) {
-  let inputData = document.querySelector(`#${id}`).value;
+  let inputData = document.querySelector(`${id}`).value;
   return inputData;
 }
 
@@ -107,7 +114,6 @@ function updateUI(str) {
     join.classList.remove('hidden');
   }
 }
-
 
 function getFormattedTime(timestamp) {
   var date = new Date(timestamp * 1000);

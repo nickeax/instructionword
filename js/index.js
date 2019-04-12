@@ -4,6 +4,7 @@ let resp = "";
 let loggedIn = false;
 let theUser = "anon";
 let snippetOwner = "";
+let edited = false;
 const output = document.querySelector('#output');
 const bgOutput = document.querySelector('#bgOutput');
 const sidebarL = document.querySelector('#sidebarL');
@@ -13,7 +14,7 @@ const handle = document.querySelector('#username');
 const password = document.querySelector('#password');
 // INPUT
 const input = document.querySelector('#input');
-input.addEventListener('keyup', showOutput);
+input.addEventListener('keyup', keyPress);
 
 sidebarL.innerHTML = `<h2>snippets loading...</h2><div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>`;
 let col = "";
@@ -35,10 +36,14 @@ btnSaveCode.addEventListener('click', () => {
   messages.classList.add("loading");
   checkServer("postSnippet", data, setResp);
 })
+btnSaveCode.classList.add('hidden');
 
 // CLEAR CODE BUTTON
 const btnClearCode = document.querySelector('#clearCode');
 btnClearCode.addEventListener('click', ev => {
+  edited = false;
+  snippetDescription.value = "";
+  snippetTitle.value = "";
   input.value = "";
   output.innerHTML = "";
   clearMessages();
@@ -48,8 +53,8 @@ btnClearCode.addEventListener('click', ev => {
 // EDIT ONE SNIPPET
 // const snippetsSidebar = document.querySelector('.sidebarL');
 sidebarL.addEventListener('click', (e) => {
-  if (!e.target.hasAttribute('data-snippet_id')) return;
-  checkServer('getSnippet', e.target.dataset.snippet_id, setResp);
+  if (!e.target.hasAttribute('data-snippet_edit_id')) return;
+  checkServer('getSnippet', e.target.dataset.snippet_edit_id, setResp);
 });
 
 // USER ACCOUNT
@@ -72,7 +77,7 @@ join.addEventListener("click", ev => {
 // MAIN UI UPDATE AREA
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
 window.addEventListener('load', autoLoad);
-//  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
+//  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 
 
 

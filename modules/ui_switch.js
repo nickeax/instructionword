@@ -1,6 +1,6 @@
 function setResp(str) { // Process any UI changes here, certain that RESPONSE is ready.
   let arr = str.split('|||');
-  elementActive(btnSaveCode, true);
+  // elementActive(btnSaveCode, true);
   switch (arr[0]) { //switch on mode
     case 'login':
       clearMessages();
@@ -58,13 +58,14 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       break;
     case 'getSnippet':
       if (arr[1] != "success") {
-        console.log("Couldn't get the snippet.");
         break;
       }
       let str = JSON.parse(arr[3]);
-      input.innerHTML = str[0].snippet;
-      output.innerHTML = postOutput();
-      break;
+      edited = false;
+      snippetTitle.value = str[0].title;
+      snippetDescription.value = str[0].description;
+      input.value = str[0].snippet;
+      showOutput();
     case 'getSnippets':
       if (arr[1] == 'success') {
         let str = JSON.parse(arr[3]);
@@ -81,9 +82,9 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
           sidebarL.innerHTML += `
           <div class = 'availableSnippets'>
           
-          <span class = "view" id="view_snippet" data-snippet_id = "${str[i].snippet_id}">VIEW</span>
-          <span class = "edit" id="edit_snippet" data-snippet_id = "${str[i].snippet_id}">EDIT</span>
-          <span class = "share" id="share_snippet" data-snippet_id = "${str[i].snippet_id}">SHARE</span>
+          <span class = "view" id="view_snippet" data-snippet_view_id = "${str[i].snippet_id}">VIEW</span>
+          <span class = "edit" id="edit_snippet" data-snippet_edit_id = "${str[i].snippet_id}">EDIT</span>
+          <span class = "share" id="share_snippet" data-snippet_share_id = "${str[i].snippet_id}">SHARE</span>
           
           <strong class="snippetTitle">${str[i].title}</strong> by 
           <span id = "listed_snippet" class = "username">${str[i].username}</span>
