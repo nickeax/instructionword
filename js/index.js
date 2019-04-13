@@ -5,6 +5,9 @@ let loggedIn = false;
 let theUser = "anon";
 let snippetOwner = "";
 let edited = false;
+const home = document.querySelector('#home');
+console.log(home);
+
 const output = document.querySelector('#output');
 const bgOutput = document.querySelector('#bgOutput');
 const sidebarL = document.querySelector('#sidebarL');
@@ -53,14 +56,10 @@ btnClearCode.addEventListener('click', ev => {
 // EDIT ONE SNIPPET
 // const snippetsSidebar = document.querySelector('.sidebarL');
 sidebarL.addEventListener('click', (e) => {
-  if (!e.target.hasAttribute('data-snippet_edit_id') ||
-    !e.target.hasAttribute('data-snippet_view_id') ||
-    !e.target.hasAttribute('data-snippet_share_id')) {
-    return;
-  }
-  if (e.target.hasAttribute('data-snippet_edit_id')) {
+  if(e.target.hasAttribute('data-snippet_edit_id')) {
     checkServer('getSnippet', e.target.dataset.snippet_edit_id, setResp);
   }
+  
 });
 
 // USER ACCOUNT
