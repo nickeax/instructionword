@@ -53,8 +53,14 @@ btnClearCode.addEventListener('click', ev => {
 // EDIT ONE SNIPPET
 // const snippetsSidebar = document.querySelector('.sidebarL');
 sidebarL.addEventListener('click', (e) => {
-  if (!e.target.hasAttribute('data-snippet_edit_id')) return;
-  checkServer('getSnippet', e.target.dataset.snippet_edit_id, setResp);
+  if (!e.target.hasAttribute('data-snippet_edit_id') ||
+    !e.target.hasAttribute('data-snippet_view_id') ||
+    !e.target.hasAttribute('data-snippet_share_id')) {
+    return;
+  }
+  if (e.target.hasAttribute('data-snippet_edit_id')) {
+    checkServer('getSnippet', e.target.dataset.snippet_edit_id, setResp);
+  }
 });
 
 // USER ACCOUNT
