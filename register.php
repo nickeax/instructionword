@@ -10,7 +10,7 @@ $header = "
   <body>
   <header class=\no-padding \"><div class=\navbar-fixed\>  
   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js\"></script>
-  <h1 class=\"center-align\">Join <em class = 'red-text lighten-5'>Instruction</em><strong class='blue-text'>WORD</strong> !</h1>
+  <h1 class=\"center-align\">Join<em class = 'red-text lighten-5'>Instruction</em><strong class='blue-text'>WORD</strong> !</h1>
   </div></header>
   <div class = 'container'>
   
