@@ -58,7 +58,7 @@ img.full {
   margin: 0 auto;
   grid-gap: 8px;
   grid-template-columns: 2fr 60% 1fr;
-  grid-template-rows: 120px auto 100px;
+  grid-template-rows: 170px auto 100px;
   grid-template-areas: "sidebarL  header  sidebarR" 
   "sidebarL content sidebarR" 
   "sidebarL  footer  sidebarR";

@@ -1,11 +1,12 @@
-#clearCode, #saveCode {
+#clearCode, #saveCode, .homeButton:hover {
   padding: 5px 9px;
   color: #000;
   border-radius: 6px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-#clearCode:hover, #saveCode:hover, #logout:hover, #login:hover, #join:hover {
+#clearCode:hover, #saveCode:hover, #logout:hover, #login:hover, #join:hover,
+.homeButton:hover {
   cursor: pointer;
   color: #000;
   background-color: rgba(0, 0, 0, 0.027);
@@ -15,6 +16,14 @@
 #clearCode:active, #saveCode:active {
   box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
   background-color: rgba(0, 0, 0, 0.123);
+}
+
+.homeButton {
+  position: absolute;
+  left: 15%;
+  transform: translate(-10rem, 0);
+  border: 2px solid rgb(21, 138, 79);
+  background-color: rgba(33, 214, 123, 0.061);
 }
 
 #saveCode {
@@ -122,9 +131,14 @@ input[type=text], input[type=password] {
   bottom: 5px;
   transform: translate(-50%);
   max-width: 250px;
-  padding: 20px;
+  padding: 3px;
   color: rgb(46, 27, 27);
   border: 1px solid rgb(170, 236, 190);
+}
+
+.error {
+  color: rgb(88, 32, 25);
+  border: 1px solid rgb(223, 113, 98);
 }
 
 .view, .edit, .share {
@@ -181,12 +195,6 @@ input[type=text], input[type=password] {
 
 .loading {
   background-image: url('../img/ajax-loader.gif');
-}
-
-.error {
-  padding: 20px;
-  color: rgb(88, 32, 25);
-  border: 1px solid rgb(223, 113, 98);
 }
 
 input::placeholder, input {
