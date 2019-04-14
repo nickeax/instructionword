@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', true);
 session_start();
 include_once("db/common.php");
 
@@ -53,8 +54,11 @@ if (isset($_POST['mode'])) {
         $arr = array($username);
         $res = Query("SELECT * FROM users WHERE username = ?", $arr);
         $fa = $res->fetchAll();
-        if (!password_verify($pw, $fa[0]['password'])) {
-          die("login|||failure|||Your login details were incorrect.");
+        
+        $check = password_verify($pw, $fa[0]['password']);
+        if (!$check) {
+          $testPW = $pw;
+          die("login|||failure|||Your login details were incorrect. <hr>P1:".$testPW."<br>P2:".$fa[0]['password']);
         } else {
           $_SESSION['id'] = $fa[0]['user_id'];
           $_SESSION['loggedIn'] = 1;

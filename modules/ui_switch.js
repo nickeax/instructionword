@@ -82,14 +82,10 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
           let hoursMinutes = `${h}:${m}`;
           sidebarL.innerHTML += `
           <div class = 'availableSnippets'>
-          
-          <span class = "view" id="view_snippet" data-snippet_view_id = "${str[i].snippet_id}">VIEW</span>
           <span class = "edit" id="edit_snippet" data-snippet_edit_id = "${str[i].snippet_id}">EDIT</span>
           <span class = "share" id="share_snippet"><a href=index.html?sid=${str[i].snippet_id}>SHARE</span></a>
-          
           <strong class="snippetTitle">${str[i].title}</strong> by 
           <span id = "listed_snippet" class = "username">${str[i].username}</span>
-          
           <br>
             <em>${str[i].description}</em>
             <span id="timestamp" class = "username">${hoursMinutes}-${monthDay + 1}/${month + 1}</span>
