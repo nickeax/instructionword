@@ -4,17 +4,23 @@ let resp = "";
 let loggedIn = false;
 let theUser = "anon";
 let snippetOwner = "";
+let snippetID = 0;
 let edited = false;
+var displayEdit = "hidden";
 const home = document.querySelector('#home');
-console.log(home);
-
 const output = document.querySelector('#output');
 const bgOutput = document.querySelector('#bgOutput');
 const sidebarL = document.querySelector('#sidebarL');
+const snippetSideBarTitle = document.querySelector('#snippetSideBarTitle');
 const snippetTitle = document.querySelector('#snippetTitle');
 const snippetDescription = document.querySelector('#snippetDescription');
 const handle = document.querySelector('#username');
 const password = document.querySelector('#password');
+
+let snippetEditSnippetID;
+let snippetEditUsername;
+let snippetEditTitle;
+
 // INPUT
 const input = document.querySelector('#input');
 input.addEventListener('keyup', keyPress);
@@ -33,12 +39,14 @@ if (loggedIn) {
 }
 // SAVE CODE BUTTON
 const btnSaveCode = document.querySelector('#saveCode');
-btnSaveCode.addEventListener('click', () => {
+btnSaveCode.addEventListener('click', (e) => {
   elementActive(btnSaveCode, false);
   data = input.value;
   messages.classList.add("loading");
-  checkServer("postSnippet", data, setResp);
-})
+  checkServer('postSnippet', data, setResp);
+  console.log("Going to saveSnippet");
+});
+
 btnSaveCode.classList.add('hidden');
 
 // CLEAR CODE BUTTON
@@ -53,18 +61,20 @@ btnClearCode.addEventListener('click', ev => {
   showOutput();
 })
 
-// EDIT ONE SNIPPET
-// const snippetsSidebar = document.querySelector('.sidebarL');
 sidebarL.addEventListener('click', (e) => {
-  if(e.target.hasAttribute('data-snippet_edit_id')) {
+  if (e.target.hasAttribute('data-snippet_edit_id')) {
+    let snippetSnippetID = e.target.dataset.snippet_edit_id;
+    let snippetUsername = e.target.dataset.snippet_edit_username;
+    let snippetTitle = e.target.dataset.snippet_edit_title;
     checkServer('getSnippet', e.target.dataset.snippet_edit_id, setResp);
   }
-  
 });
+
 
 // USER ACCOUNT
 const logout = document.querySelector('#logout');
 logout.addEventListener("click", ev => {
+  displayEdit = "hidden";
   checkServer('logout', "", setResp);
 });
 const login = document.querySelector('#login');

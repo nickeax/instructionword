@@ -62,6 +62,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       }
       let str = JSON.parse(arr[3]);
       edited = false;
+      snippetID = str[0].snippet_id;
       snippetTitle.value = str[0].title;
       snippetDescription.value = str[0].description;
       input.value = str[0].snippet;
@@ -69,11 +70,15 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
     case 'getSnippets':
       if (arr[1] == 'success') {
         let str = JSON.parse(arr[3]);
-        bgOutput.innerHTML = str[0].snippet;
+        // bgOutput.innerHTML = str[0].snippet;
         let existing = sidebarL.innerHTML;
         sidebarL.innerHTML = `<h3>snippets (${str.length})</h3>\n`;
-
         for (let i = 0; i < str.length; i++) {
+          if(!loggedIn) {
+            displayEdit = "hidden";
+          } else {
+            displayEdit = "";
+          }
           let d = new Date(str[i].created * 1000);
           let monthDay = d.getDate();
           let month = d.getMonth();
@@ -82,9 +87,14 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
           let hoursMinutes = `${h}:${m}`;
           sidebarL.innerHTML += `
           <div class = 'availableSnippets'>
-          <span class = "edit" id="edit_snippet" data-snippet_edit_id = "${str[i].snippet_id}">EDIT</span>
+          <span class = "edit ${displayEdit}" id="edit_snippet" 
+            data-snippet_edit_id = "${str[i].snippet_id}"
+            data-snippet_edit_title = "${str[i].title}"
+            data-snippet_edit_username = "${str[i].username}"
+            data-snippet_edit_user_id = "${str[i].user_id}">EDIT
+          </span>
           <span class = "share" id="share_snippet"><a href=index.html?sid=${str[i].snippet_id}>SHARE</span></a>
-          <strong class="snippetTitle">${str[i].title}</strong> by 
+          <strong class="snippetTitle id="snippetSideBarTitle" data-snippet_edit_id = "${str[i].snippet_id}" >${str[i].title}</strong> by 
           <span id = "listed_snippet" class = "username">${str[i].username}</span>
           <br>
             <em>${str[i].description}</em>

@@ -4,6 +4,7 @@ session_start();
 include_once("db/common.php");
 
 if (isset($_POST['mode'])) {
+  $message = "";
   switch ($_POST['mode']) {
     case 'postSnippet':
       if (!$_SESSION['loggedIn'] == 1) {
@@ -24,23 +25,40 @@ if (isset($_POST['mode'])) {
       if ($_POST['description'] == "") {
         die("postSnippet|||failure|||Please enter a description.");
       }
-      if(strlen($_POST['str']) >= 360000) {
+      if (strlen($_POST['str']) >= 360000) {
         die("postSnippet|||failure|||Maximum snippet length exceeded.");
       }
-      $arr = array($_SESSION['id'], 0, time(), $_POST['str'], $_POST['description'], $_POST['title']);
-      $res = Query("INSERT INTO snippets (user_id, lesson, created, snippet, description, title) VALUES (?, ?, ?, ?, ?, ?)", $arr);
+      if (!isset($_POST['snippetID'])) {
+        die("postSnippet|||failure|||The snippet ID wasn't supplied.");
+      }
+      // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+      /* Either add the snippet as new one, or create an edit entry into the snippet edits table  */
+      $arr = array($_POST['snippetID']);
+      $res = Query("SELECT * FROM snippets WHERE snippet_id = ?", $arr);
 
-      die("postSnippet|||success|||Snippet saved.");
+      if ($res->rowCount() === 0) { // There is no snippetID, so this will be an edit.
+        $message = "Edit process will be carried out.";
+        die("postSnippet|||success|||" . $message);
+      } else {
+        $message = "Your snippet has been <strong>saved</strong>, thanks!";
+        $arr = array($_SESSION['id'], 0, time(), $_POST['str'], $_POST['description'], $_POST['title']);
+        $res = Query("INSERT INTO snippets (user_id, lesson, created, snippet, description, title) VALUES (?, ?, ?, ?, ?, ?)", $arr);
+        die("postSnippet|||success|||" . $message);
+      }
+
+
+      // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+      break; // just here during development, to prevent accidental fall through
     case 'getSnippets':
       $arr = [];
-      $res = Query('SELECT snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet, users.username 
+      $res = Query('SELECT snippets.user_id, snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet, users.username 
       FROM snippets INNER JOIN users ON snippets.user_id = users.user_id ORDER BY snippets.snippet_id DESC', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       echo "getSnippets|||success|||data retrieved|||" . $data;
       break;
     case 'getSnippet': // JUST ONE SNIPPET
       $arr = array($_POST['str']);
-      $res = Query('SELECT snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet FROM snippets WHERE snippet_id = ?', $arr);
+      $res = Query('SELECT user_id, snippet_id, title, created, description, snippet FROM snippets WHERE snippet_id = ?', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       echo "getSnippet|||success|||data retrieved|||" . $data;
       break;
@@ -54,11 +72,11 @@ if (isset($_POST['mode'])) {
         $arr = array($username);
         $res = Query("SELECT * FROM users WHERE username = ?", $arr);
         $fa = $res->fetchAll();
-        
+
         $check = password_verify($pw, $fa[0]['password']);
         if (!$check) {
           $testPW = $pw;
-          die("login|||failure|||Your login details were incorrect. <hr>P1:".$testPW."<br>P2:".$fa[0]['password']);
+          die("login|||failure|||Your login details were incorrect. <hr>P1:" . $testPW . "<br>P2:" . $fa[0]['password']);
         } else {
           $_SESSION['id'] = $fa[0]['user_id'];
           $_SESSION['loggedIn'] = 1;

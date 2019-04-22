@@ -30,4 +30,3 @@ function Query($q, $args) {
 function IsRegistered($username) {
   Query("select * from users where username = ?", $username);
 }
-?>

@@ -18,7 +18,7 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
     window.setInterval(() => {
       elementActive(btnSaveCode, edited);
       checkServer('getSnippets', "", setResp);
-    }, 3000);
+    }, 1000);
   }
 }
   function showError(str) {
@@ -76,12 +76,19 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
       st = snippetTitle.value;
       title = encodeURIComponent(st);
     }
+
     if (snippetDescription.value != "") {
-      sd = snippetDescription.value;
-      description = encodeURIComponent(sd);
+      st = snippetDescription.value;
+      description = encodeURIComponent(st);
     }
+    if (snippetEditUsername != "") {
+      snippetEditUsername = encodeURIComponent(snippetEditUsername);
+    }
+
     str = encodeURIComponent(str);
-    params = `mode=${mode}&str=${str}&title=${title}&description=${description}`; // build the POST query string
+    console.log(`The snippet ID is ${snippetID}`);
+    
+    params = `mode=${mode}&str=${str}&title=${title}&description=${description}&username=${snippetEditUsername}&snippetID=${snippetID}`; // build the POST query string
     const xhr = new XMLHttpRequest();
     xhr.open("POST", 'server.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -118,6 +125,7 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
       handle.classList.remove("hidden");
       password.classList.remove("hidden");
       join.classList.remove('hidden');
+      displayEdit = "hidden";
     }
   }
 
