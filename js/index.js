@@ -63,9 +63,9 @@ btnClearCode.addEventListener('click', ev => {
 
 sidebarL.addEventListener('click', (e) => {
   if (e.target.hasAttribute('data-snippet_edit_id')) {
-    let snippetSnippetID = e.target.dataset.snippet_edit_id;
+    let snippetEditSnippetID = e.target.dataset.snippet_edit_id;
     let snippetUsername = e.target.dataset.snippet_edit_username;
-    let snippetTitle = e.target.dataset.snippet_edit_title;
+    let snippetEditTitle = e.target.dataset.snippet_edit_title;
     checkServer('getSnippet', e.target.dataset.snippet_edit_id, setResp);
   }
 });
