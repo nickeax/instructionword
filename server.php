@@ -29,48 +29,61 @@ if (isset($_POST['mode'])) {
         die("postSnippet|||failure|||Maximum snippet length exceeded.");
       }
       if (!isset($_POST['snippetID'])) {
-        $_POST['snippetID'] == 0;
+        $_POST['snippetID'] = 0;
       }
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       /* Either add the snippet as new one, or create an edit entry into the snippet edits table  */
-      if ($_POST['snippetID'] === NULL || $_POST['snippetID'] == 0) {
+      $arr = array($_POST['snippetID']);
+      $res = Query("SELECT * FROM snippets WHERE snippet_id = ?", $arr);
+      $rows = $res->rowCount();
+      $obj = $res->fetchAll(PDO::FETCH_OBJ);
+      // ($_POST['snippetID'] === NULL || $_POST['snippetID'] == 0) || ($_SESSION['id'] === $obj[0]->user_id)
+      if ($rows == 0) {
         $message = "Your snippet has been <strong>saved</strong>, thanks!";
         $arr = array($_SESSION['id'], 0, time(), $_POST['str'], $_POST['description'], $_POST['title']);
         $res = Query("INSERT INTO snippets (user_id, lesson, created, snippet, description, title) VALUES (?, ?, ?, ?, ?, ?)", $arr);
         die("postSnippet|||success|||" . $message);
       } else {
-        $arr = array($_POST['snippetID']);
-        $res = Query("SELECT * FROM snippets WHERE snippet_id = ?", $arr);
-        $obj = $res->fetchAll(PDO::FETCH_OBJ);
-        if ($obj->user_id != $_SESSION['id']) {
-          $originalSnippetArr = explode("\n", $obj->snippet);
-          $editTextArr = explode("\n", $_POST['str']);
-          if (count($editTextArr) >= count($originalSnippetArr)) {
-            for ($i = 0; $i < count($editTextArr); $i++) {
-              // compare first line of editArr to every line in originalSnippetArr
-              for ($j = 0; $j < count($originalSnippetArr); $j++) {
-                if ($originalSnippetArr[$j] != $editTextArr[$i]) { // If the lines are different, add the edit to the edits table
-                  $userID = $_SESSION['id'];
-                  $arr = array($userID, $obj->snippet_id, time(), $editTextArr[$i], $_POST['description'], $i);
-                  $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
-                }
+        $originalSnippet = $obj[0]->snippet;
+        $editSnippet = $_POST['str'];
+        $originalSnippetArr = explode("\n", $originalSnippet);
+        $editTextArr = explode("\n", $editSnippet);
+
+        if (count($editTextArr) >= count($originalSnippetArr)) { // The edit didn't alter the line count or added to it 
+          
+          $indexNum = 0;
+          for ($i = 0; $i < count($editTextArr); $i++) {
+            $inOriginal = false;
+            for ($j = 0; $j < count($originalSnippetArr); $j++) {
+              if ($editTextArr[$i] == $originalSnippetArr[$j]) {
+                // This edit line is in the original snippet, flagged to not add it to the snippet_edit table.
+                $inOriginal = true;
               }
             }
-          } else {
-            for ($i = 0; i < count($originalSnippetArr); $i++) {
-              for ($j = 0; $j < count($editTextArr); $j++) {
-                if ($editTextArr[$j] != $originalSnippetArr[$i]) { // If the lines are different, add the edit to the edits table
-                  $userID = $_SESSION['id'];
-                  $arr = array($userID, $obj->snippet_id, time(), $$editTextArr[$i], $_POST['description'], $i);
-                  $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
-                }
-              }
+            if (!$inOriginal) {
+              $userID = $_SESSION['id'];
+              $arr = array($userID, $obj[0]->snippet_id, time(), $editTextArr[$i], $_POST['description'], $i);
+              $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
             }
           }
-
-          $message = "Thanks, your edit has been added.";
-          die("postSnippet|||success|||" . $message);
+        } else { // The edited version has fewer lines than the original
+          for ($i = 0; $i < count($originalSnippetArr); $i++) {
+            $inOriginal = false;
+            $indexNum = 0;
+            for ($j = 0; $j < count($editTextArr); $j++) {
+              if ($editTextArr[$j] == $originalSnippetArr[$i]) {
+                $inOriginal = true;
+              }
+            }
+            if (!$inOriginal) {
+              $userID = $_SESSION['id'];
+              $arr = array($userID, $obj[0]->snippet_id, time(), $$editTextArr[$i], $_POST['description'], $i);
+              $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
+            }
+          }
         }
+        $message = "Thanks, your edit has been added to this snippet.";
+        die("postSnippet|||success|||" . $message);
       }
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       break; // just here during development, to prevent accidental fall through

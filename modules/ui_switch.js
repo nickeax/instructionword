@@ -35,6 +35,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       }
       break;
     case 'postSnippet':
+      snippetID = 0;
       snippetDescription.textContent = "";
       snippetTitle.textContent = "";
 
@@ -67,6 +68,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       snippetDescription.value = str[0].description;
       input.value = str[0].snippet;
       showOutput();
+      break;
     case 'getSnippets':
       if (arr[1] == 'success') {
         let str = JSON.parse(arr[3]);
@@ -74,7 +76,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         let existing = sidebarL.innerHTML;
         sidebarL.innerHTML = `<h3>snippets (${str.length})</h3>\n`;
         for (let i = 0; i < str.length; i++) {
-          if(!loggedIn) {
+          if (!loggedIn) {
             displayEdit = "hidden";
           } else {
             displayEdit = "";

@@ -44,7 +44,6 @@ btnSaveCode.addEventListener('click', (e) => {
   data = input.value;
   messages.classList.add("loading");
   checkServer('postSnippet', data, setResp);
-  console.log("Going to saveSnippet");
 });
 
 btnSaveCode.classList.add('hidden');

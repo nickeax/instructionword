@@ -86,7 +86,6 @@ function checkServer(mode, str, cb) {
   }
 
   str = encodeURIComponent(str);
-  console.log(`The snippet ID is ${snippetID}`);
 
   params = `mode=${mode}&str=${str}&title=${title}&description=${description}&username=${snippetEditUsername}&snippetID=${snippetID}`; // build the POST query string
   const xhr = new XMLHttpRequest();
