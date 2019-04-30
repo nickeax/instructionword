@@ -3,7 +3,6 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
   // elementActive(btnSaveCode, true);
   switch (arr[0]) { //switch on mode
     case 'login':
-      clearMessages();
       if (arr[1] == 'success') {
         loggedIn = true;
         theUser = arr[3];
@@ -51,6 +50,26 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         snippetTitle.value = "";
       }
       break;
+    case 'getEdits':
+      let editsStr = JSON.parse(arr[3]);
+      editsList.innerHTML = '<ul>';
+      if (editsStr.length == 0) {
+        editsList.innerHTML = '<em>no edits to display</em>';
+        editsList.classList.add('noEdits');
+      } else {
+        editsList.innerHTML = "";
+        editsList.classList.remove('noEdits');
+      }
+      for (let i = 0; i < editsStr.length; i++) {
+        editsList.innerHTML +=
+          `<p><strong class="snippetTitle id="snippetSideBarTitle" 
+            data-snippet_edit_id = "${editsStr[i].snippet_id}" >
+            ${editsStr[i].description}</strong> by 
+            ${editsStr[i].username}
+          </p>`;
+      }
+      editsList.innerHTML += "</ul>";
+      break;
     case 'isLoggedIn':
       if (arr[1] == 'success') {
         theUser = arr[2];
@@ -95,7 +114,8 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             data-snippet_edit_username = "${str[i].username}"
             data-snippet_edit_user_id = "${str[i].user_id}">EDIT
           </span>
-          <span class = "share" id="share_snippet"><a href=index.html?sid=${str[i].snippet_id}>SHARE</span></a>
+          <span class = "share" id="share_snippet">
+            <a href=index.html?sid=${str[i].snippet_id}>SHARE</span></a>
           <strong class="snippetTitle id="snippetSideBarTitle" data-snippet_edit_id = "${str[i].snippet_id}" >${str[i].title}</strong> by 
           <span id = "listed_snippet" class = "username">${str[i].username}</span>
           <br>

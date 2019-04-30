@@ -10,7 +10,7 @@ function elementActive(el, yes) {
 
 function autoLoad() { // Populate UI with available Project data (just snippets ATM)
   let loc = window.location.href;
-  if (loc.indexOf('=') != -1) {
+  if (loc.indexOf('=') != -1) { // Don't poll if this is a 'share' operation
     checkServer('getSnippet', loc.split("=")[1], setResp);
     elementActive(home, true);
     // window.location.href = "";
@@ -18,7 +18,7 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
     window.setInterval(() => {
       elementActive(btnSaveCode, edited);
       checkServer('getSnippets', "", setResp);
-    }, 1000);
+    }, pollingInterval);
   }
 }
 function showError(str) {

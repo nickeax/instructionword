@@ -1,8 +1,7 @@
 #clearCode, #saveCode, .homeButton:hover {
+  position: absolute;
   padding: 5px 9px;
   color: #000;
-  border-radius: 6px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #clearCode:hover, #saveCode:hover, #logout:hover, #login:hover, #join:hover,
@@ -27,19 +26,17 @@
 }
 
 #saveCode {
-  position: absolute;
   right: 50%;
   transform: translate(17rem, 0);
   border: 2px solid rgb(21, 138, 79);
-  background-color: rgba(33, 214, 123, 0.061);
+  background-color: rgba(33, 214, 123, 0);
 }
 
 #clearCode {
-  position: absolute;
   right: 50%;
   transform: translate(-17rem, 0);
   border: 2px solid rgb(33, 117, 214);
-  background-color: rgba(33, 117, 214, 0.089);
+  background-color: rgba(33, 117, 214, 0);
 }
 
 input[type=text], input[type=password] {
@@ -51,10 +48,16 @@ input[type=text], input[type=password] {
   padding: 8px;
 }
 
+.noEdits {
+  padding-top: 10rem;
+  color: rgb(211, 127, 18);
+  text-align: center;
+}
+
 .availableSnippets {
   text-align: left;
   border-left: 3px solid rgba(54, 131, 231, 0.691);
-  border-right: 1px solid rgba(231, 73, 0, 0.28);
+  border-right: 1px solid rgba(107, 100, 100, 0.28);
   padding: 3px 7px 10px 7px;
   margin-bottom: 1rem;
   border-radius: 0 14px 14px 0;

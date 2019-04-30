@@ -16,13 +16,24 @@ body {
 }
 
 .sidebarR {
+  background-color: rgb(228, 228, 228);
   grid-area: sidebarR;
+}
+
+.editsList {
+ text-align: left;
 }
 
 .sidebarL, .sidebarR {
   text-align: center;
   padding: 8px;
   color: rgba(0, 0, 0, 0.719);
+}
+
+p tt {
+  border: rgba(51, 51, 51, 0.137) solid 1px;
+  padding: 5px;
+  color: rgb(109, 62, 0);
 }
 
 .content {
@@ -54,10 +65,10 @@ img.full {
   font-family: sans-serif;
   background-color: rgba(255, 255, 255, 0);
   display: grid;
-  width: 80vw;
+  width: 90vw;
   margin: 0 auto;
   grid-gap: 8px;
-  grid-template-columns: 2fr 60% 1fr;
+  grid-template-columns: 2fr 50% 2fr;
   grid-template-rows: 170px auto 100px;
   grid-template-areas: "sidebarL  header  sidebarR" 
   "sidebarL content sidebarR" 

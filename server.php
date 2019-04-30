@@ -8,25 +8,25 @@ if (isset($_POST['mode'])) {
   switch ($_POST['mode']) {
     case 'postSnippet':
       if (!$_SESSION['loggedIn'] == 1) {
-        die('postSnippet|||failure|||Please login to post your code');
+        die("postSnippet" . $sym . "failure" . $sym . "Please login to post your code");
       }
       if ($_POST['str'] === "") {
-        die("postSnippet|||failure|||The snippet was blank.");
+        die("postSnippet" . $sym . "failure" . $sym . "The snippet was blank.");
       }
       if (!isset($_POST['description'])) {
-        die("postSnippet|||failure|||Please enter a description.");
+        die("postSnippet" . $sym . "failure" . $sym . "Please enter a description.");
       }
       if (!isset($_POST['title'])) {
-        die("postSnippet|||failure|||Please enter a title.");
+        die("postSnippet" . $sym . "failure" . $sym . "Please enter a title.");
       }
       if ($_POST['title'] == "") {
-        die("postSnippet|||failure|||Please enter a title.");
+        die("postSnippet" . $sym . "failure" . $sym . "Please enter a title.");
       }
       if ($_POST['description'] == "") {
-        die("postSnippet|||failure|||Please enter a description.");
+        die("postSnippet" . $sym . "failure" . $sym . "Please enter a description.");
       }
       if (strlen($_POST['str']) >= 360000) {
-        die("postSnippet|||failure|||Maximum snippet length exceeded.");
+        die("postSnippet" . $sym . "failure" . $sym . "Maximum snippet length exceeded.");
       }
       if (!isset($_POST['snippetID'])) {
         $_POST['snippetID'] = 0;
@@ -42,7 +42,7 @@ if (isset($_POST['mode'])) {
         $message = "Your snippet has been <strong>saved</strong>, thanks!";
         $arr = array($_SESSION['id'], 0, time(), $_POST['str'], $_POST['description'], $_POST['title']);
         $res = Query("INSERT INTO snippets (user_id, lesson, created, snippet, description, title) VALUES (?, ?, ?, ?, ?, ?)", $arr);
-        die("postSnippet|||success|||" . $message);
+        die("postSnippet" . $sym . "success" . $sym . "" . $message);
       } else {
         $originalSnippet = $obj[0]->snippet;
         $editSnippet = $_POST['str'];
@@ -50,7 +50,7 @@ if (isset($_POST['mode'])) {
         $editTextArr = explode("\n", $editSnippet);
 
         if (count($editTextArr) >= count($originalSnippetArr)) { // The edit didn't alter the line count or added to it 
-          
+
           $indexNum = 0;
           for ($i = 0; $i < count($editTextArr); $i++) {
             $inOriginal = false;
@@ -83,23 +83,42 @@ if (isset($_POST['mode'])) {
           }
         }
         $message = "Thanks, your edit has been added to this snippet.";
-        die("postSnippet|||success|||" . $message);
+        die("postSnippet" . $sym . "success" . $sym . "" . $message);
       }
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       break; // just here during development, to prevent accidental fall through
     case 'getSnippets':
       $arr = [];
       $res = Query('SELECT snippets.user_id, snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet, users.username 
-      FROM snippets INNER JOIN users ON snippets.user_id = users.user_id ORDER BY snippets.snippet_id DESC', $arr);
+      FROM snippets INNER JOIN users ON snippets.user_id = users.user_id AND snippets.deleted != 1 ORDER BY snippets.snippet_id DESC', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
-      echo "getSnippets|||success|||data retrieved|||" . $data;
+      echo "getSnippets" . $sym . "success" . $sym . "data retrieved" . $sym . "" . $data;
       break;
     case 'getSnippet': // JUST ONE SNIPPET
       $arr = array($_POST['str']);
       $res = Query('SELECT user_id, snippet_id, title, created, description, snippet FROM snippets WHERE snippet_id = ?', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
-      echo "getSnippet|||success|||data retrieved|||" . $data;
+      echo "getSnippet" . $sym . "success" . $sym . "data retrieved" . $sym . "" . $data;
       break;
+    case 'getEdits':
+      $arr = array($_POST['str']);
+      $res = Query('SELECT 
+        snippet_edits.edit_id,
+        snippet_edits.snippet_id,
+        snippet_edits.created, 
+        snippet_edits.edit_text, 
+        snippet_edits.description, 
+        snippet_edits.line_index,
+        users.username FROM
+        snippet_edits INNER JOIN users ON snippet_edits.user_id = users.user_id
+        WHERE snippet_edits.snippet_id = ? GROUP BY snippet_edits.description', $arr);
+      $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
+      echo "getEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data;
+      break;
+      case 'displayWithEdits':
+        // Fetch original snippet
+        // Fetch edits associated with snippet based on 
+        break;
     case 'login':
       $subArr = explode("&", $_POST['str']);
       $usernameSub = explode("=", $subArr[0]);
@@ -114,22 +133,22 @@ if (isset($_POST['mode'])) {
         $check = password_verify($pw, $fa[0]['password']);
         if (!$check) {
           $testPW = $pw;
-          die("login|||failure|||Your login details were incorrect. <hr>P1:" . $testPW . "<br>P2:" . $fa[0]['password']);
+          die("login" . $sym . "failure" . $sym . "Your login details were incorrect. <hr>P1:" . $testPW . "<br>P2:" . $fa[0]['password']);
         } else {
           $_SESSION['id'] = $fa[0]['user_id'];
           $_SESSION['loggedIn'] = 1;
           $_SESSION['username'] = $username;
-          die("login|||success|||You're now logged in.|||" . $username);
+          die("login" . $sym . "success" . $sym . "You're now logged in." . $sym . "" . $username);
         }
       } else {
-        die("login|||failure|||Please enter the required info.");
+        die("login" . $sym . "failure" . $sym . "Please enter the required info.");
       }
       die();
     case 'logout':
       $_SESSION['id'] = null;
       $_SESSION['loggedIn'] = 0;
       $_SESSION['username'] = "";
-      die("logout|||success");
+      die("logout" . $sym . "success");
       break;
     case 'join':
       $subArr = explode("&", $_POST['str']);
@@ -138,36 +157,36 @@ if (isset($_POST['mode'])) {
       $passwordSub = explode("=", $subArr[1]);
       $pw = $passwordSub[1];
       if (!$pw || !$username) {
-        die("join|||failure|||Please make sure you provided enough information.");
+        die("join" . $sym . "failure" . $sym . "Please make sure you provided enough information.");
       }
       $arr2 = array($username);
       $res = Query("SELECT * FROM users WHERE username = ?", $arr2);
       if (count($res->fetchAll())) {
-        die("join|||failure|||Unable to register that username");
+        die("join" . $sym . "failure" . $sym . "Unable to register that username");
       } else {
         $pw = password_hash($pw, PASSWORD_DEFAULT);
         $arr3 = array($username, $pw, time());
         $res = Query("INSERT INTO users (username, password, created) VALUES(?, ?, ?)", $arr3);
-        die("join|||success|||You joined successfully!");
+        die("join" . $sym . "success" . $sym . "You joined successfully!");
       }
       die();
     case 'isLoggedIn':
       if ($_SESSION['loggedIn']) {
-        die("isLoggedIn|||success|||" . $_SESSION['username']);
+        die("isLoggedIn" . $sym . "success" . $sym . "" . $_SESSION['username']);
       } else {
-        die("isLoggedIn|||failure");
+        die("isLoggedIn" . $sym . "failure");
       }
     case 'getUsername':
       if (!$_SESSION['loggedIn']) {
         die();
       }
-      // die("getUsername|||success|||".$_POST['str']);
+      // die("getUsername".$sym."success".$sym."".$_POST['str']);
       // $arr1 = explode("&",$_POST['str']); // sent from snippet information
       // $arr2 = explode("=", $arr1[1]);
       $arr = array((int)$_POST['str']);
       $res = Query("SELECT * FROM users WHERE user_id = ? LIMIT 1", $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
-      die("getUsername|||success|||recieved|||" . $data);
+      die("getUsername" . $sym . "success" . $sym . "recieved" . $sym . "" . $data);
     default:
       # code...
       break;
