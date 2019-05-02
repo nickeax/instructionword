@@ -50,8 +50,9 @@ if (isset($_POST['mode'])) {
         $editTextArr = explode("\n", $editSnippet);
 
         if (count($editTextArr) >= count($originalSnippetArr)) { // The edit didn't alter the line count or added to it 
+          $indexNum = "";
+          $editSerial = "";
 
-          $indexNum = 0;
           for ($i = 0; $i < count($editTextArr); $i++) {
             $inOriginal = false;
             for ($j = 0; $j < count($originalSnippetArr); $j++) {
@@ -61,11 +62,18 @@ if (isset($_POST['mode'])) {
               }
             }
             if (!$inOriginal) {
-              $userID = $_SESSION['id'];
-              $arr = array($userID, $obj[0]->snippet_id, time(), $editTextArr[$i], $_POST['description'], $i);
-              $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
+              if (strlen($editSerial) === 0) {
+                $editSerial = $editTextArr[$i];
+                $indexNum = $i;
+              } else {
+                $editSerial .= $EDSYM . $editTextArr[$i];
+                $indexNum .= $EDSYM . $i;
+              }
             }
           }
+          $userID = $_SESSION['id'];
+          $arr = array($userID, $obj[0]->snippet_id, time(), $editSerial, $_POST['description'], $indexNum);
+          $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
         } else { // The edited version has fewer lines than the original
           for ($i = 0; $i < count($originalSnippetArr); $i++) {
             $inOriginal = false;
@@ -76,11 +84,18 @@ if (isset($_POST['mode'])) {
               }
             }
             if (!$inOriginal) {
-              $userID = $_SESSION['id'];
-              $arr = array($userID, $obj[0]->snippet_id, time(), $$editTextArr[$i], $_POST['description'], $i);
-              $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
+              if (strlen($editSerial) === 0) {
+                $editSerial = $editTextArr[$i];
+                $indexNum = $i;
+              } else {
+                $editSerial .= $EDSYM . $editTextArr[$i];
+                $indexNum .= $EDSYM . $i;
+              }
             }
           }
+          $userID = $_SESSION['id'];
+          $arr = array($userID, $obj[0]->snippet_id, time(), $editSerial, $_POST['description'], $indexNum);
+          $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
         }
         $message = "Thanks, your edit has been added to this snippet.";
         die("postSnippet" . $sym . "success" . $sym . "" . $message);
@@ -115,10 +130,34 @@ if (isset($_POST['mode'])) {
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       echo "getEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data;
       break;
-      case 'displayWithEdits':
-        // Fetch original snippet
-        // Fetch edits associated with snippet based on 
-        break;
+    case 'displayWithEdits':
+      if ($_POST['snippetID']) {
+        $arr = array($_POST['editID']);
+        $res = Query("SELECT * FROM snippet_edits WHERE edit_id = ?", $arr);
+        if(!$res) {
+          die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
+        }
+        $obj = $res->fetchAll(PDO::FETCH_ASSOC);
+        $editedArray = explode($obj[0]->edit_text, "^^^");
+        $lineNumbers = explode($obj[0]->line_index, "^^^");
+        $arr2 = array($obj[0]->snipper_id);
+        $res = Query("SELECT snippet FROM snippets WHERE snippet_id = ?", $arr2);
+
+        $obj2 = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        $origSnippetArr = explode($obj2[0]->snippet, "");
+
+        for($i = 0; $i < count($lineNumbers); $i++) {
+          $origSnippetArr[$lineNumbers[$i]] = "<strong>".$editedArray[$i]."</strong>";
+        }
+        $output = join("", $editedArray);
+        die("displayWithEdits" . $sym . "success" . $sym . "Viewing edited snippet." . $sym . $output);
+
+
+      } else {
+        die("displayWithEdits" . $sym . "failure" . $sym . "Snippet ID was not set.");
+      }
+      break;
     case 'login':
       $subArr = explode("&", $_POST['str']);
       $usernameSub = explode("=", $subArr[0]);

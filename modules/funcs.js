@@ -85,9 +85,13 @@ function checkServer(mode, str, cb) {
     snippetEditUsername = encodeURIComponent(snippetEditUsername);
   }
 
+  if(editID !== 0) {
+    editID = encodeURIComponent(editID);
+  }
+
   str = encodeURIComponent(str);
 
-  params = `mode=${mode}&str=${str}&title=${title}&description=${description}&username=${snippetEditUsername}&snippetID=${snippetID}`; // build the POST query string
+  params = `mode=${mode}&str=${str}&title=${title}&description=${description}&username=${snippetEditUsername}&snippetID=${snippetID}&editID=${editID}`; // build the POST query string
   const xhr = new XMLHttpRequest();
   xhr.open("POST", 'server.php', true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');

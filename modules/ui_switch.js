@@ -63,12 +63,26 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       for (let i = 0; i < editsStr.length; i++) {
         editsList.innerHTML +=
           `<p><strong class="snippetTitle id="snippetSideBarTitle" 
-            data-snippet_edit_id = "${editsStr[i].snippet_id}" >
+            data-snippet_edit_id = "${editsStr[i].edit_id}" 
+            data-snippet_snippet_id = "${editsStr[i].snippet_id}">
             ${editsStr[i].description}</strong> by 
             ${editsStr[i].username}
           </p>`;
       }
       editsList.innerHTML += "</ul>";
+      break;
+    case 'displayWithEdits':
+      if (arr[1] != "success") {
+        messages.innerHTML = arr[2];
+        break;
+      }
+      let stred = JSON.parse(arr[3]);
+      edited = false;
+      snippetID = stred[0].snippet_id;
+      snippetTitle.value = stred[0].title;
+      snippetDescription.value = stred[0].description;
+      input.value = stred[0].snippet;
+      showOutput();
       break;
     case 'isLoggedIn':
       if (arr[1] == 'success') {

@@ -5,6 +5,7 @@ let loggedIn = false;
 let theUser = "anon";
 let snippetOwner = "";
 let snippetID = 0;
+let editID = 0;
 let edited = false;
 let pollingInterval = 1000;
 var displayEdit = "hidden";
@@ -66,7 +67,7 @@ btnClearCode.addEventListener('click', ev => {
 sidebarL.addEventListener('click', (e) => {
   clearMessages();
   console.log("sideBarL triggered...");
-  
+
   if (e.target.hasAttribute('data-snippet_edit_id')) {
     let snippetEditSnippetID = e.target.dataset.snippet_edit_id;
     let snippetUsername = e.target.dataset.snippet_edit_username;
@@ -75,6 +76,13 @@ sidebarL.addEventListener('click', (e) => {
     checkServer('getEdits', e.target.dataset.snippet_edit_id, setResp);
   }
 });
+
+sidebarR.addEventListener('click', (e) => {
+  if (e.target.hasAttribute('data-snippet_edit_id')) {
+    editID = e.target.dataset.snippet_edit_id;
+    checkServer('displayWithEdits', e.target.dataset.snippet_edit_id, setResp);
+  }
+})
 
 // USER ACCOUNT
 const logout = document.querySelector('#logout');
