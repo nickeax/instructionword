@@ -56,8 +56,10 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       if (editsStr.length == 0) {
         editsList.innerHTML = '<em>no edits to display</em>';
         editsList.classList.add('noEdits');
+        editsList.classList.remove('editsList');
       } else {
         editsList.innerHTML = "";
+        editsList.classList.add('editsList');
         editsList.classList.remove('noEdits');
       }
       for (let i = 0; i < editsStr.length; i++) {
@@ -107,7 +109,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         let str = JSON.parse(arr[3]);
         // bgOutput.innerHTML = str[0].snippet;
         let existing = sidebarL.innerHTML;
-        sidebarL.innerHTML = `<h3>snippets (${str.length})</h3>\n`;
+        sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length})</tt>\n`;
         for (let i = 0; i < str.length; i++) {
           if (!loggedIn) {
             displayEdit = "hidden";

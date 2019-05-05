@@ -38,9 +38,7 @@ const messages = document.querySelector('#messages');
 
 checkServer('isLoggedIn', "", setResp);
 
-if (loggedIn) {
-  updateUI('loggedIn');
-}
+
 // SAVE CODE BUTTON
 const btnSaveCode = document.querySelector('#saveCode');
 btnSaveCode.addEventListener('click', (e) => {
@@ -66,8 +64,6 @@ btnClearCode.addEventListener('click', ev => {
 
 sidebarL.addEventListener('click', (e) => {
   clearMessages();
-  console.log("sideBarL triggered...");
-
   if (e.target.hasAttribute('data-snippet_edit_id')) {
     let snippetEditSnippetID = e.target.dataset.snippet_edit_id;
     let snippetUsername = e.target.dataset.snippet_edit_username;
@@ -90,11 +86,13 @@ logout.addEventListener("click", ev => {
   displayEdit = "hidden";
   checkServer('logout', "", setResp);
 });
+
 const login = document.querySelector('#login');
 login.addEventListener("click", ev => {
   let str = `username=${document.querySelector('#username').value}&password=${document.querySelector('#password').value}`;
   checkServer('login', str, setResp);
 });
+
 const join = document.querySelector('#join');
 join.addEventListener("click", ev => {
   let str = `username=${document.querySelector('#username').value}&password=${document.querySelector('#password').value}`;
@@ -102,10 +100,13 @@ join.addEventListener("click", ev => {
 
 });
 
+if (loggedIn) {
+  updateUI('loggedIn');
+} else {
+  updateUI('loggedOut');
+}
+
 // MAIN UI UPDATE AREA
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
 window.addEventListener('load', autoLoad);
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
-
-
-

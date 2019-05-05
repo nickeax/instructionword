@@ -1,3 +1,5 @@
 config
 
+*.scss
+main.css.map
 test.php

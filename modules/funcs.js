@@ -12,8 +12,9 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
   let loc = window.location.href;
   if (loc.indexOf('=') != -1) { // Don't poll if this is a 'share' operation
     checkServer('getSnippet', loc.split("=")[1], setResp);
-    elementActive(home, true);
-    // window.location.href = "";
+    elementActive(homeButton, true);
+    // elementActive(input, false);
+    // input.classList.add('hidden');
   } else {
     window.setInterval(() => {
       elementActive(btnSaveCode, edited);
