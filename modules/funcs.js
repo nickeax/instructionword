@@ -53,13 +53,18 @@ function keyPress() {
   showOutput();
 }
 
-function showOutput(ev) {
-  markers = [];
-  let op = "";
-  buildMarkers(getInput('#input'));
-  op = processMarkers(markers);
-  document.querySelector('#output').innerHTML = op;
-  bgOutput.innerHTML = op;
+function showOutput(str) {
+  console.log(str);
+  
+  if(str === null) {
+    markers = [];
+    let op = "";
+    buildMarkers(getInput('#input'));
+    op = processMarkers(markers);
+    bgOutput.innerHTML = op;
+  } else {
+    document.querySelector('#output').innerHTML = str;
+  }
 }
 
 function getInput(id) {

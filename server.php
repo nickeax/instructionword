@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors', true);
 session_start();
 include_once("db/common.php");
 
@@ -131,26 +130,27 @@ if (isset($_POST['mode'])) {
       echo "getEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data;
       break;
     case 'displayWithEdits':
-      if ($_POST['snippetID']) {
+      if ($_POST['editID']) {
         $arr = array($_POST['editID']);
         $res = Query("SELECT * FROM snippet_edits WHERE edit_id = ?", $arr);
         if(!$res) {
           die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
         }
-        $obj = $res->fetchAll(PDO::FETCH_ASSOC);
-        $editedArray = explode($obj[0]->edit_text, "^^^");
-        $lineNumbers = explode($obj[0]->line_index, "^^^");
-        $arr2 = array($obj[0]->snipper_id);
+        $obj = $res->fetchAll(PDO::FETCH_OBJ);
+        $editedArray = explode("^^^", $obj[0]->edit_text);
+        $lineNumbers = explode("^^^", $obj[0]->line_index);
+        $arr2 = array($obj[0]->snippet_id);
         $res = Query("SELECT snippet FROM snippets WHERE snippet_id = ?", $arr2);
 
-        $obj2 = $res->fetchAll(PDO::FETCH_ASSOC);
+        $obj2 = $res->fetchAll(PDO::FETCH_OBJ);
 
-        $origSnippetArr = explode($obj2[0]->snippet, "");
+        $origSnippetArr = explode("", $obj2[0]->snippet);
 
         for($i = 0; $i < count($lineNumbers); $i++) {
           $origSnippetArr[$lineNumbers[$i]] = "<strong>".$editedArray[$i]."</strong>";
         }
         $output = join("", $editedArray);
+        el($output);
         die("displayWithEdits" . $sym . "success" . $sym . "Viewing edited snippet." . $sym . $output);
 
 
@@ -172,7 +172,7 @@ if (isset($_POST['mode'])) {
         $check = password_verify($pw, $fa[0]['password']);
         if (!$check) {
           $testPW = $pw;
-          die("login" . $sym . "failure" . $sym . "Your login details were incorrect. <hr>P1:" . $testPW . "<br>P2:" . $fa[0]['password']);
+          die("login" . $sym . "failure" . $sym . "Your login details were incorrect.");
         } else {
           $_SESSION['id'] = $fa[0]['user_id'];
           $_SESSION['loggedIn'] = 1;

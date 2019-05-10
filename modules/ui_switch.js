@@ -78,13 +78,13 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         messages.innerHTML = arr[2];
         break;
       }
-      let stred = JSON.parse(arr[3]);
+      let stred = arr[3];
       edited = false;
-      snippetID = stred[0].snippet_id;
-      snippetTitle.value = stred[0].title;
-      snippetDescription.value = stred[0].description;
-      input.value = stred[0].snippet;
-      showOutput();
+      snippetID = arr[0];
+      snippetTitle.value = stred;
+      snippetDescription.value = stred;
+      input.value = stred;
+      showOutput(stred);
       break;
     case 'isLoggedIn':
       if (arr[1] == 'success') {

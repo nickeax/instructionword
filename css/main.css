@@ -23,11 +23,6 @@ $colour2: rgba(255, 105, 120, 1);
 $colour3: rgba(255, 252, 249, 1);
 $colour4: rgba(177, 237, 232, 1);
 $colour5: rgba(109, 67, 90, 1); */
-/* $colour1: rgba(244, 241, 222, 1);
-$colour2: rgba(224, 122, 95, 1);
-$colour3: rgba(61, 64, 91, 1);
-$colour4: rgba(129, 178, 154, 1);
-$colour5: rgba(242, 204, 143, 1); */
 /* $colour1: rgba(80, 81, 79, 1);
 $colour2: rgba(242, 95, 92, 1);
 $colour3: rgba(255, 224, 102, 1);
@@ -38,12 +33,17 @@ $colour2: rgba(255, 192, 159, 1);
 $colour3: rgba(255, 238, 147, 1);
 $colour4: rgba(252, 245, 199, 1);
 $colour5: rgba(173, 247, 182, 1); */
-/* $colour1: rgba(121, 173, 220, 1);     // 1
+/* 
+$colour1: rgba(121, 173, 220, 1);     // 1
 $colour2: rgba(41, 51, 155, 1);       // 2
 $colour3: rgba(182, 214, 204, 1);     // 3
 $colour4: rgba(241, 254, 198, 1);     // 4
-$colour5: rgb(226, 42, 17);       // 5
- */
+$colour5: rgb(226, 42, 17);       // 5 */
+/* $colour1: rgba(121, 173, 220, 0.8); 
+$colour2: rgba(230, 57, 70, 1);
+$colour3: rgba(241, 250, 238, 1); // background
+$colour4: rgba(69, 123, 157, 1); // highlight save
+$colour5: rgba(29, 53, 87, 0.9); // output */
 .spinner {
   width: 40px;
   height: 40px;
@@ -91,32 +91,32 @@ $colour5: rgb(226, 42, 17);       // 5
 
 .keyword {
   font-style: none;
-  color: #e63946;
+  color: #e07a5f;
 }
 
 .inSingleQuotes {
   font-style: italic;
-  color: #457b9d;
+  color: #81b29a;
 }
 
 .inDoubleQuotes {
   font-weight: bold;
   font-style: italic;
-  color: rgba(121, 173, 220, 0.8);
+  color: #f4f1de;
 }
 
 .math {
   font-weight: bold;
-  color: #e63946;
+  color: #e07a5f;
 }
 
 .block {
   font-weight: 100;
-  color: #e63946;
+  color: #e07a5f;
 }
 
 .other {
-  color: #457b9d;
+  color: #81b29a;
 }
 
 .hidden {
@@ -131,85 +131,85 @@ $colour5: rgb(226, 42, 17);       // 5
   border-style: none;
   position: absolute;
   padding: 5px 9px;
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
 }
 
 #clearCode:hover, #saveCode:hover, #logout:hover, #login:hover, #join:hover,
 #homeButton:hover {
   cursor: pointer;
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
   -webkit-transition: all 170ms ease-in-out;
   transition: all 170ms ease-in-out;
 }
 
 #clearCode:active, #saveCode:active {
-  background-color: #e63946;
+  background-color: #e07a5f;
 }
 
 #saveCode {
   right: 50%;
-  -webkit-transform: translate(17rem, -2rem);
-          transform: translate(17rem, -2rem);
-  background-color: #457b9d;
+  -webkit-transform: translate(12rem, 3rem);
+          transform: translate(12rem, 3rem);
+  background-color: #81b29a;
 }
 
 #clearCode {
   right: 50%;
-  -webkit-transform: translate(14rem, -2rem);
-          transform: translate(14rem, -2rem);
-  background-color: #e63946;
+  -webkit-transform: translate(8.5rem, 3rem);
+          transform: translate(8.5rem, 3rem);
+  background-color: #e07a5f;
 }
 
 .homeButton {
   position: absolute;
-  left: 50%;
-  -webkit-transform: translate(-50%, 2rem);
-          transform: translate(-50%, 2rem);
-  background-color: rgba(29, 53, 87, 0.9);
+  left: 0%;
+  -webkit-transform: translate(5px, 5px);
+          transform: translate(5px, 5px);
+  background-color: #f4f1de;
 }
 
 .homeButton a {
-  color: #457b9d;
+  color: #81b29a;
   text-decoration: none;
 }
 
 input[type=text], input[type=password] {
   border-style: none;
   opacity: 0.8;
-  background-color: #e63946;
-  color: rgba(29, 53, 87, 0.9);
+  background-color: #e07a5f;
+  color: #f2cc8f;
   padding: 8px;
+  margin: 5px;
 }
 
 #login, #join, #logout {
   border-style: none;
-  background-color: #e63946;
+  background-color: #e07a5f;
   padding: 5px 9px;
-  color: #457b9d;
+  color: #81b29a;
   width: 65px;
   z-index: 15;
 }
 
 #login {
-  background-color: rgba(29, 53, 87, 0.9);
+  background-color: #f2cc8f;
 }
 
 #join {
-  background-color: #e63946;
+  background-color: #e07a5f;
 }
 
 #logout {
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
   position: absolute;
   right: 0%;
-  top: 2rem;
-  -webkit-transform: translate(-3rem, 0);
-          transform: translate(-3rem, 0);
+  -webkit-transform: translate(-5px, 3rem);
+          transform: translate(-5px, 3rem);
   z-index: 10;
 }
 
 #username, #password {
-  background-color: #e63946;
+  background-color: #e07a5f;
 }
 
 #username {
@@ -229,7 +229,7 @@ input[type=text], input[type=password] {
 }
 
 .messages {
-  background-color: rgba(29, 53, 87, 0.9);
+  background-color: #f2cc8f;
   position: absolute;
   left: 50%;
   bottom: 5px;
@@ -237,66 +237,66 @@ input[type=text], input[type=password] {
           transform: translate(-50%);
   max-width: 250px;
   padding: 3px;
-  color: #457b9d;
+  color: #81b29a;
 }
 
 .error {
-  color: #e63946;
-  background-color: rgba(29, 53, 87, 0.9);
+  color: #e07a5f;
+  background-color: #f2cc8f;
 }
 
 input::-webkit-input-placeholder, input {
   font-size: 0.9rem;
-  color: rgba(29, 53, 87, 0.9);
-  background-color: #e63946;
+  color: #f2cc8f;
+  background-color: #e07a5f;
 }
 
 input:-ms-input-placeholder, input {
   font-size: 0.9rem;
-  color: rgba(29, 53, 87, 0.9);
-  background-color: #e63946;
+  color: #f2cc8f;
+  background-color: #e07a5f;
 }
 
 input::-ms-input-placeholder, input {
   font-size: 0.9rem;
-  color: rgba(29, 53, 87, 0.9);
-  background-color: #e63946;
+  color: #f2cc8f;
+  background-color: #e07a5f;
 }
 
 input::placeholder, input {
   font-size: 0.9rem;
-  color: rgba(29, 53, 87, 0.9);
-  background-color: #e63946;
+  color: #f2cc8f;
+  background-color: #e07a5f;
 }
 
 tt.snippetsHeading {
   display: block;
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
   padding: 3px;
   margin-bottom: 20px;
 }
 
 h3.usersSnippets {
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
 }
 
 .availableSnippets {
   text-align: left;
   padding: 3px 7px 10px 7px;
   margin-bottom: 4px;
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
   line-height: 1.4;
 }
 
 .snippetTitle:hover, .username:hover {
   cursor: pointer;
-  color: #457b9d;
+  color: #81b29a;
   -webkit-transition: color .2s ease-out;
   transition: color .2s ease-out;
 }
 
 .availableSnippets em {
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
 }
 
 .view, .edit, .share {
@@ -312,25 +312,25 @@ h3.usersSnippets {
 }
 
 .edit:hover {
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
 }
 
 .share:hover {
-  background-color: #457b9d;
-  color: rgba(29, 53, 87, 0.9);
+  background-color: #81b29a;
+  color: #f2cc8f;
 }
 
 .edit {
-  color: #457b9d;
+  color: #81b29a;
 }
 
 .share {
-  color: #457b9d;
-  background-color: rgba(29, 53, 87, 0.9);
+  color: #81b29a;
+  background-color: #f2cc8f;
 }
 
 a {
-  color: #e63946;
+  color: #e07a5f;
   text-decoration: none;
 }
 
@@ -351,12 +351,12 @@ tt {
 
 .noEdits {
   padding-top: 10rem;
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
   text-align: center;
 }
 
 body {
-  background-color: #f1faee;
+  background-color: #81b29a;
   margin: 0;
   padding: 15px;
   -webkit-box-sizing: border-box;
@@ -364,7 +364,7 @@ body {
 }
 
 .sidebarL {
-  background-color: rgba(121, 173, 220, 0.8);
+  background-color: #f4f1de;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 1;
@@ -372,7 +372,7 @@ body {
 }
 
 .sidebarR {
-  background-color: rgba(121, 173, 220, 0.8);
+  background-color: #f4f1de;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 3;
@@ -380,11 +380,11 @@ body {
 }
 
 .sidebarL h3 {
-  color: rgba(29, 53, 87, 0.9);
+  color: #f2cc8f;
 }
 
 .sidebarL h2 {
-  color: #f1faee;
+  color: #3d405b;
 }
 
 .editsList {
@@ -394,13 +394,13 @@ body {
 .sidebarL, .sidebarR {
   text-align: center;
   padding: 8px;
-  color: #457b9d;
+  color: #81b29a;
 }
 
 tt {
   display: block;
   padding: 3px;
-  color: #e63946;
+  color: #e07a5f;
 }
 
 .content {
@@ -421,7 +421,7 @@ tt {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: footer;
-  background-color: rgba(29, 53, 87, 0.9);
+  background-color: #f2cc8f;
 }
 
 .header, .footer {
@@ -473,8 +473,8 @@ img.full {
 }
 
 .output {
-  color: #457b9d;
-  background-color: rgba(29, 53, 87, 0.9);
+  color: #81b29a;
+  background-color: #f2cc8f;
   padding: 3rem;
   margin: 3rem auto 1rem auto;
   overflow: scroll;
@@ -492,8 +492,8 @@ textarea {
   font-size: 1.5rem;
   padding: 1rem;
   border-style: none;
-  color: #e63946;
-  background-color: rgba(121, 173, 220, 0.8);
+  color: #e07a5f;
+  background-color: #f4f1de;
   width: 96%;
   height: 30vh;
   margin: 0 auto;

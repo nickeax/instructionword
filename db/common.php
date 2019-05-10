@@ -7,6 +7,11 @@ function escape ($html) {
 function bug($str) {
   echo "<hr><strong>BUG:</strong> <tt>$str</tt><hr>";
 }
+
+function el($str) {
+  error_log("**".$str."**", 0);
+}
+
 function Query($q, $args) {
   require"config/config.php";
   if(strpos($q, "SELECT")) {
