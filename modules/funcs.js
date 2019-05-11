@@ -54,18 +54,13 @@ function keyPress() {
 }
 
 function showOutput(str) {
-  console.log(str);
-  
-  if(str !== null) {
-    document.querySelector('#output').innerHTML = str;
-  } else {
-    markers = [];
-    let op = "";
-    buildMarkers(getInput('#input'));
-    op = processMarkers(markers);
-    document.querySelector('#output').innerHTML = op;
-    bgOutput.innerHTML = op;
-  }
+  markers = [];
+  let op = "";
+  buildMarkers(getInput('#input'));
+  op = processMarkers(markers);
+  document.querySelector('#output').innerHTML = op;
+  bgOutput.innerHTML = op;
+
 }
 
 function getInput(id) {
@@ -92,7 +87,7 @@ function checkServer(mode, str, cb) {
     snippetEditUsername = encodeURIComponent(snippetEditUsername);
   }
 
-  if(editID !== 0) {
+  if (editID !== 0) {
     editID = encodeURIComponent(editID);
   }
 

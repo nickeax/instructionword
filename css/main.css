@@ -45,11 +45,6 @@ $colour2: rgba(41, 51, 155, 1);       // 2
 $colour3: rgba(182, 214, 204, 1);     // 3
 $colour4: rgba(241, 254, 198, 1);     // 4
 $colour5: rgb(226, 42, 17);       // 5 */
-/* $colour1: rgba(121, 173, 220, 0.8); 
-$colour2: rgba(230, 57, 70, 1);
-$colour3: rgba(241, 250, 238, 1); // background
-$colour4: rgba(69, 123, 157, 1); // highlight save
-$colour5: rgba(29, 53, 87, 0.9); // output */
 .spinner {
   width: 40px;
   height: 40px;
@@ -97,32 +92,32 @@ $colour5: rgba(29, 53, 87, 0.9); // output */
 
 .keyword {
   font-style: none;
-  color: black;
+  color: #d34f5a;
 }
 
 .inSingleQuotes {
   font-style: italic;
-  color: #111111;
+  color: #f1fec6;
 }
 
 .inDoubleQuotes {
   font-weight: bold;
   font-style: italic;
-  color: #79addc;
+  color: rgba(121, 173, 220, 0.8);
 }
 
 .math {
   font-weight: bold;
-  color: black;
+  color: #d34f5a;
 }
 
 .block {
   font-weight: 100;
-  color: black;
+  color: #d34f5a;
 }
 
 .other {
-  color: #111111;
+  color: #f1fec6;
 }
 
 .hidden {
@@ -137,33 +132,33 @@ $colour5: rgba(29, 53, 87, 0.9); // output */
   border-style: none;
   position: absolute;
   padding: 5px 9px;
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
 }
 
 #clearCode:hover, #saveCode:hover, #logout:hover, #login:hover, #join:hover,
 #homeButton:hover {
   cursor: pointer;
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
   -webkit-transition: all 170ms ease-in-out;
   transition: all 170ms ease-in-out;
 }
 
 #clearCode:active, #saveCode:active {
-  background-color: black;
+  background-color: #d34f5a;
 }
 
 #saveCode {
   right: 50%;
   -webkit-transform: translate(12rem, 3rem);
           transform: translate(12rem, 3rem);
-  background-color: #111111;
+  background-color: #f1fec6;
 }
 
 #clearCode {
   right: 50%;
   -webkit-transform: translate(8.5rem, 3rem);
           transform: translate(8.5rem, 3rem);
-  background-color: black;
+  background-color: #d34f5a;
 }
 
 .homeButton {
@@ -171,42 +166,42 @@ $colour5: rgba(29, 53, 87, 0.9); // output */
   left: 0%;
   -webkit-transform: translate(5px, 5px);
           transform: translate(5px, 5px);
-  background-color: #79addc;
+  background-color: rgba(121, 173, 220, 0.8);
 }
 
 .homeButton a {
-  color: #111111;
+  color: #f1fec6;
   text-decoration: none;
 }
 
 input[type=text], input[type=password] {
   border-style: none;
   opacity: 0.8;
-  background-color: black;
-  color: #f1fec6;
+  background-color: #d34f5a;
+  color: rgba(29, 53, 87, 0.9);
   padding: 8px;
   margin: 5px;
 }
 
 #login, #join, #logout {
   border-style: none;
-  background-color: black;
+  background-color: #d34f5a;
   padding: 5px 9px;
-  color: #111111;
+  color: #f1fec6;
   width: 65px;
   z-index: 15;
 }
 
 #login {
-  background-color: #f1fec6;
+  background-color: rgba(29, 53, 87, 0.9);
 }
 
 #join {
-  background-color: black;
+  background-color: #d34f5a;
 }
 
 #logout {
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
   position: absolute;
   right: 0%;
   -webkit-transform: translate(-5px, 3rem);
@@ -215,7 +210,7 @@ input[type=text], input[type=password] {
 }
 
 #username, #password {
-  background-color: black;
+  background-color: #d34f5a;
 }
 
 #username {
@@ -235,7 +230,7 @@ input[type=text], input[type=password] {
 }
 
 .messages {
-  background-color: #f1fec6;
+  background-color: rgba(29, 53, 87, 0.9);
   position: absolute;
   left: 50%;
   bottom: 5px;
@@ -243,66 +238,66 @@ input[type=text], input[type=password] {
           transform: translate(-50%);
   max-width: 250px;
   padding: 3px;
-  color: #111111;
+  color: #f1fec6;
 }
 
 .error {
-  color: black;
-  background-color: #f1fec6;
+  color: #d34f5a;
+  background-color: rgba(29, 53, 87, 0.9);
 }
 
 input::-webkit-input-placeholder, input {
   font-size: 0.9rem;
-  color: #f1fec6;
-  background-color: black;
+  color: rgba(29, 53, 87, 0.9);
+  background-color: #d34f5a;
 }
 
 input:-ms-input-placeholder, input {
   font-size: 0.9rem;
-  color: #f1fec6;
-  background-color: black;
+  color: rgba(29, 53, 87, 0.9);
+  background-color: #d34f5a;
 }
 
 input::-ms-input-placeholder, input {
   font-size: 0.9rem;
-  color: #f1fec6;
-  background-color: black;
+  color: rgba(29, 53, 87, 0.9);
+  background-color: #d34f5a;
 }
 
 input::placeholder, input {
   font-size: 0.9rem;
-  color: #f1fec6;
-  background-color: black;
+  color: rgba(29, 53, 87, 0.9);
+  background-color: #d34f5a;
 }
 
 tt.snippetsHeading {
   display: block;
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
   padding: 3px;
   margin-bottom: 20px;
 }
 
 h3.usersSnippets {
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
 }
 
 .availableSnippets {
   text-align: left;
   padding: 3px 7px 10px 7px;
   margin-bottom: 4px;
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
   line-height: 1.4;
 }
 
 .snippetTitle:hover, .username:hover {
   cursor: pointer;
-  color: #111111;
+  color: #f1fec6;
   -webkit-transition: color .2s ease-out;
   transition: color .2s ease-out;
 }
 
 .availableSnippets em {
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
 }
 
 .view, .edit, .share {
@@ -318,25 +313,25 @@ h3.usersSnippets {
 }
 
 .edit:hover {
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
 }
 
 .share:hover {
-  background-color: #111111;
-  color: #f1fec6;
+  background-color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
 }
 
 .edit {
-  color: #111111;
+  color: #f1fec6;
 }
 
 .share {
-  color: #111111;
-  background-color: #f1fec6;
+  color: #f1fec6;
+  background-color: rgba(29, 53, 87, 0.9);
 }
 
 a {
-  color: black;
+  color: #d34f5a;
   text-decoration: none;
 }
 
@@ -357,20 +352,37 @@ tt {
 
 .noEdits {
   padding-top: 10rem;
-  color: #f1fec6;
+  color: #d34f5a;
   text-align: center;
 }
 
 body {
-  background-color: #111111;
+  font-size: 14px;
+  background-color: #f1fec6;
   margin: 0;
   padding: 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
+.header {
+  border-top: 3px solid #d34f5a;
+  position: relative;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: header;
+}
+
+.sidebarL, .sidebarR {
+  text-align: center;
+  padding: 8px;
+  color: #f1fec6;
+}
+
 .sidebarL {
-  background-color: #79addc;
+  border-top: 3px solid #d34f5a;
+  border-left: 3px solid #d34f5a;
+  background-color: #eee;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 1;
@@ -378,7 +390,9 @@ body {
 }
 
 .sidebarR {
-  background-color: #79addc;
+  border-top: 3px solid #d34f5a;
+  border-right: 3px solid #d34f5a;
+  background-color: #333;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 3;
@@ -386,27 +400,21 @@ body {
 }
 
 .sidebarL h3 {
-  color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
 }
 
 .sidebarL h2 {
-  color: #f1fec6;
+  color: #457b9d;
 }
 
 .editsList {
   text-align: left;
 }
 
-.sidebarL, .sidebarR {
-  text-align: center;
-  padding: 8px;
-  color: #111111;
-}
-
 tt {
   display: block;
   padding: 3px;
-  color: black;
+  color: #d34f5a;
 }
 
 .content {
@@ -416,18 +424,11 @@ tt {
   position: relative;
 }
 
-.header {
-  position: relative;
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: header;
-}
-
 .footer {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: footer;
-  background-color: #f1fec6;
+  background-color: rgba(29, 53, 87, 0.9);
 }
 
 .header, .footer {
@@ -479,8 +480,8 @@ img.full {
 }
 
 .output {
-  color: #111111;
-  background-color: #f1fec6;
+  color: rgba(121, 173, 220, 0.8);
+  background-color: #111;
   padding: 3rem;
   margin: 3rem auto 1rem auto;
   overflow: scroll;
@@ -495,11 +496,10 @@ form {
 }
 
 textarea {
-  font-size: 1.5rem;
   padding: 1rem;
   border-style: none;
-  color: black;
-  background-color: #79addc;
+  color: #d34f5a;
+  background-color: #111;
   width: 96%;
   height: 30vh;
   margin: 0 auto;

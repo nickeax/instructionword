@@ -74,9 +74,12 @@ sidebarL.addEventListener('click', (e) => {
 });
 
 sidebarR.addEventListener('click', (e) => {
-  if (e.target.hasAttribute('data-snippet_edit_id')) {
+  if (e.target.hasAttribute('data-snippet_edit_id') && e.target.hasAttribute('data-edit-clicked')) {
     editID = e.target.dataset.snippet_edit_id;
     checkServer('displayWithEdits', e.target.dataset.snippet_edit_id, setResp);
+  }
+  else {
+    console.log("Didn't send request for displayWithEdits.");
   }
 })
 

@@ -47,11 +47,9 @@ if (isset($_POST['mode'])) {
         $editSnippet = $_POST['str'];
         $originalSnippetArr = explode("\n", $originalSnippet);
         $editTextArr = explode("\n", $editSnippet);
-
         if (count($editTextArr) >= count($originalSnippetArr)) { // The edit didn't alter the line count or added to it 
           $indexNum = "";
           $editSerial = "";
-
           for ($i = 0; $i < count($editTextArr); $i++) {
             $inOriginal = false;
             for ($j = 0; $j < count($originalSnippetArr); $j++) {
@@ -130,37 +128,31 @@ if (isset($_POST['mode'])) {
       echo "getEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data;
       break;
     case 'displayWithEdits':
-      if ($_POST['editID']) {
-        $arr = array($_POST['editID']);
-        $res = Query("SELECT * FROM snippet_edits WHERE edit_id = ?", $arr);
-        if (!$res) {
-          die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
-        }
-        $obj = $res->fetchAll(PDO::FETCH_OBJ);
-        $editedArray = explode("^^^", $obj[0]->edit_text);
-        $lineNumbers = explode("^^^", $obj[0]->line_index);
-        $arr2 = array($obj[0]->snippet_id);
-        $res = Query("SELECT snippet FROM snippets WHERE snippet_id = ?", $arr2);
-
-        $obj2 = $res->fetchAll(PDO::FETCH_OBJ);
-        if ($res->rowCount() == 0) {
-          el("There were no results");
-          die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
-        }
-        if (!$obj2[0]->snippet) {
-          die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
-        }
-        $origSnippetArr = explode("", $obj2[0]->snippet);
-
-        for ($i = 0; $i < count($lineNumbers); $i++) {
-          $origSnippetArr[$lineNumbers[$i]] = "<strong>" . $editedArray[$i] . "</strong>";
-        }
-        $output = join("", $editedArray);
-        el($output);
-        die("displayWithEdits" . $sym . "success" . $sym . "Viewing edited snippet." . $sym . $output);
-      } else {
+      if (!$_POST['editID']) {
         die("displayWithEdits" . $sym . "failure" . $sym . "Snippet ID was not set.");
       }
+      $arr = array($_POST['editID']);
+      $res = Query("SELECT * FROM snippet_edits WHERE edit_id = ?", $arr);
+      $obj = $res->fetchAll(PDO::FETCH_OBJ);
+      if (!$res) {
+        el("res was empty, ending script.");
+        die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
+      }
+      $editedArray = explode($EDSYM, $obj[0]->edit_text);
+      $lineNumbers = explode($EDSYM, $obj[0]->line_index);
+      $arr2 = array($obj[0]->snippet_id);
+      $res2 = Query("SELECT * FROM snippets WHERE snippet_id = ?", $arr2);
+      if (!$res2) {
+        el("res was empty, ending script.");
+        die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
+      }
+      $obj2 = $res2->fetchAll(PDO::FETCH_OBJ);
+      $originalSnippetArr = explode(PHP_EOL, $obj2[0]->snippet);
+      for ($i = 0; $i < count($editedArray); $i++) {
+        $originalSnippetArr[intval($lineNumbers[$i])] = $editedArray[$i];
+      }
+      $retString = implode("\n", $originalSnippetArr);
+      die("displayWithEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $retString);
       break;
     case 'login':
       $subArr = explode("&", $_POST['str']);

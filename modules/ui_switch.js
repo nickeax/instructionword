@@ -66,7 +66,8 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         editsList.innerHTML +=
           `<p><strong class="snippetTitle id="snippetSideBarTitle" 
             data-snippet_edit_id = "${editsStr[i].edit_id}" 
-            data-snippet_snippet_id = "${editsStr[i].snippet_id}">
+            data-snippet_snippet_id = "${editsStr[i].snippet_id}"
+            data-edit-clicked = "1">
             ${editsStr[i].description}</strong> by 
             ${editsStr[i].username}
           </p>`;
@@ -81,8 +82,8 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       let stred = arr[3];
       edited = false;
       snippetID = arr[0];
-      snippetTitle.value = stred;
-      snippetDescription.value = stred;
+      // snippetTitle.value = stred;
+      // snippetDescription.value = stred;
       input.value = stred;
       showOutput(stred);
       break;
