@@ -9,7 +9,7 @@ function bug($str) {
 }
 
 function el($str) {
-  error_log("**".$str."**", 0);
+  error_log("-            [".$str."]             -", 0);
 }
 
 function Query($q, $args) {

@@ -56,14 +56,15 @@ function keyPress() {
 function showOutput(str) {
   console.log(str);
   
-  if(str === null) {
+  if(str !== null) {
+    document.querySelector('#output').innerHTML = str;
+  } else {
     markers = [];
     let op = "";
     buildMarkers(getInput('#input'));
     op = processMarkers(markers);
+    document.querySelector('#output').innerHTML = op;
     bgOutput.innerHTML = op;
-  } else {
-    document.querySelector('#output').innerHTML = str;
   }
 }
 
