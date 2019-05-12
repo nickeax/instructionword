@@ -149,15 +149,15 @@ $colour5: rgb(226, 42, 17);       // 5 */
 
 #saveCode {
   right: 50%;
-  -webkit-transform: translate(12rem, 3rem);
-          transform: translate(12rem, 3rem);
+  -webkit-transform: translate(12rem, 1rem);
+          transform: translate(12rem, 1rem);
   background-color: #f1fec6;
 }
 
 #clearCode {
   right: 50%;
-  -webkit-transform: translate(8.5rem, 3rem);
-          transform: translate(8.5rem, 3rem);
+  -webkit-transform: translate(8.5rem, 1rem);
+          transform: translate(8.5rem, 1rem);
   background-color: #d34f5a;
 }
 
@@ -174,10 +174,15 @@ $colour5: rgb(226, 42, 17);       // 5 */
   text-decoration: none;
 }
 
+input {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 input[type=text], input[type=password] {
   border-style: none;
+  border: 1px solid #d34f5a;
   opacity: 0.8;
-  background-color: #d34f5a;
+  background-color: rgba(0, 0, 0, 0);
   color: rgba(29, 53, 87, 0.9);
   padding: 8px;
   margin: 5px;
@@ -236,7 +241,7 @@ input[type=text], input[type=password] {
   bottom: 5px;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
-  max-width: 250px;
+  min-width: 250px;
   padding: 3px;
   color: #f1fec6;
 }
@@ -360,7 +365,6 @@ body {
   font-size: 14px;
   background-color: #f1fec6;
   margin: 0;
-  padding: 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -387,6 +391,7 @@ body {
   -ms-grid-row-span: 3;
   -ms-grid-column: 1;
   grid-area: sidebarL;
+  z-index: 666;
 }
 
 .sidebarR {
@@ -431,6 +436,24 @@ tt {
   background-color: rgba(29, 53, 87, 0.9);
 }
 
+.leftLogo {
+  position: fixed;
+  display: block;
+  width: 100px;
+  height: 100vh;
+}
+
+.llText {
+  color: #d34f5a;
+  text-shadow: 0 0 7px #d34f5a;
+  font-size: 5rem;
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transform: translate(-5px, 600px) rotateZ(-90deg);
+          transform: translate(-5px, 600px) rotateZ(-90deg);
+  z-index: -2;
+}
+
 .header, .footer {
   font-weight: normal;
 }
@@ -443,16 +466,18 @@ img.full {
 }
 
 .wrapper {
+  -webkit-box-shadow: 0 0 5px #d34f5a;
+          box-shadow: 0 0 5px #d34f5a;
   font-family: sans-serif;
   display: -ms-grid;
   display: grid;
   width: 90vw;
-  margin: 0 auto;
+  margin: 20px auto;
   -ms-grid-columns: 2fr 50% 2fr;
       grid-template-columns: 2fr 50% 2fr;
   -ms-grid-rows: 170px auto auto;
       grid-template-rows: 170px auto auto;
-      grid-template-areas: "sidebarL  header  sidebarR"  "sidebarL content sidebarR"  "sidebarL  footer  sidebarR";
+      grid-template-areas: "sidebarL  header  sidebarR"  "sidebarL content sidebarR "  "sidebarL  footer  sidebarR ";
 }
 
 .topleft {
@@ -498,8 +523,8 @@ form {
 textarea {
   padding: 1rem;
   border-style: none;
-  color: #d34f5a;
-  background-color: #111;
+  color: rgba(29, 53, 87, 0.9);
+  background-color: white;
   width: 96%;
   height: 30vh;
   margin: 0 auto;
