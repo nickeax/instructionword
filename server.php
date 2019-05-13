@@ -123,7 +123,7 @@ if (isset($_POST['mode'])) {
         snippet_edits.line_index,
         users.username FROM
         snippet_edits INNER JOIN users ON snippet_edits.user_id = users.user_id
-        WHERE snippet_edits.snippet_id = ? GROUP BY snippet_edits.description', $arr);
+        WHERE snippet_edits.snippet_id = ?', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       echo "getEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data;
       break;
