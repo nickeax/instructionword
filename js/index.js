@@ -64,12 +64,12 @@ btnClearCode.addEventListener('click', ev => {
 
 sidebarL.addEventListener('click', (e) => {
   clearMessages();
-  if (e.target.hasAttribute('data-snippet_edit_id')) {
+  if (e.target.dataset.snippet_snippet_id) {
     let snippetEditSnippetID = e.target.dataset.snippet_edit_id;
     let snippetUsername = e.target.dataset.snippet_edit_username;
     let snippetEditTitle = e.target.dataset.snippet_edit_title;
-    checkServer('getSnippet', e.target.dataset.snippet_edit_id, setResp);
-    checkServer('getEdits', e.target.dataset.snippet_edit_id, setResp);
+    checkServer('getSnippet', e.target.dataset.snippet_snippet_id, setResp);
+    checkServer('getEdits', e.target.dataset.snippet_snippet_id, setResp);
   }
 });
 

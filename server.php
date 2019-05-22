@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once("db/common.php");
-
 if (isset($_POST['mode'])) {
   $message = "";
   switch ($_POST['mode']) {
@@ -36,8 +35,7 @@ if (isset($_POST['mode'])) {
       $res = Query("SELECT * FROM snippets WHERE snippet_id = ?", $arr);
       $rows = $res->rowCount();
       $obj = $res->fetchAll(PDO::FETCH_OBJ);
-      // ($_POST['snippetID'] === NULL || $_POST['snippetID'] == 0) || ($_SESSION['id'] === $obj[0]->user_id)
-      if ($rows == 0) {
+      if ($rows === 0) {
         $message = "Your snippet has been <strong>saved</strong>, thanks!";
         $arr = array($_SESSION['id'], 0, time(), $_POST['str'], $_POST['description'], $_POST['title']);
         $res = Query("INSERT INTO snippets (user_id, lesson, created, snippet, description, title) VALUES (?, ?, ?, ?, ?, ?)", $arr);
@@ -45,55 +43,8 @@ if (isset($_POST['mode'])) {
       } else {
         $originalSnippet = $obj[0]->snippet;
         $editSnippet = $_POST['str'];
-        $originalSnippetArr = explode("\n", $originalSnippet);
-        $editTextArr = explode("\n", $editSnippet);
-        if (count($editTextArr) >= count($originalSnippetArr)) { // The edit didn't alter the line count or added to it 
-          $indexNum = "";
-          $editSerial = "";
-          for ($i = 0; $i < count($editTextArr); $i++) {
-            $inOriginal = false;
-            for ($j = 0; $j < count($originalSnippetArr); $j++) {
-              if ($editTextArr[$i] == $originalSnippetArr[$j]) {
-                // This edit line is in the original snippet, flagged to not add it to the snippet_edit table.
-                $inOriginal = true;
-              }
-            }
-            if (!$inOriginal) {
-              if (strlen($editSerial) === 0) {
-                $editSerial = $editTextArr[$i];
-                $indexNum = $i;
-              } else {
-                $editSerial .= $EDSYM . $editTextArr[$i];
-                $indexNum .= $EDSYM . $i;
-              }
-            }
-          }
-          $userID = $_SESSION['id'];
-          $arr = array($userID, $obj[0]->snippet_id, time(), $editSerial, $_POST['description'], $indexNum);
-          $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
-        } else { // The edited version has fewer lines than the original
-          for ($i = 0; $i < count($originalSnippetArr); $i++) {
-            $inOriginal = false;
-            $indexNum = 0;
-            for ($j = 0; $j < count($editTextArr); $j++) {
-              if ($editTextArr[$j] == $originalSnippetArr[$i]) {
-                $inOriginal = true;
-              }
-            }
-            if (!$inOriginal) {
-              if (strlen($editSerial) === 0) {
-                $editSerial = $editTextArr[$i];
-                $indexNum = $i;
-              } else {
-                $editSerial .= $EDSYM . $editTextArr[$i];
-                $indexNum .= $EDSYM . $i;
-              }
-            }
-          }
-          $userID = $_SESSION['id'];
-          $arr = array($userID, $obj[0]->snippet_id, time(), $editSerial, $_POST['description'], $indexNum);
-          $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
-        }
+        $arr = array($_SESSION['id'], $obj[0]->snippet_id, time(), $editSnippet, $_POST['description'], 1);
+        $res = Query("INSERT INTO snippet_edits (user_id, snippet_id, created, edit_text, description, line_index) VALUES (?, ?, ?, ?, ?, ?)", $arr);
         $message = "Thanks, your edit has been added to this snippet.";
         die("postSnippet" . $sym . "success" . $sym . "" . $message);
       }
@@ -113,7 +64,8 @@ if (isset($_POST['mode'])) {
       echo "getSnippet" . $sym . "success" . $sym . "data retrieved" . $sym . "" . $data;
       break;
     case 'getEdits':
-      $arr = array($_POST['str']);
+      $arr = array(intval($_POST['str']));
+      el("The converted str is: " . $arr[0]);
       $res = Query('SELECT 
         snippet_edits.edit_id,
         snippet_edits.snippet_id,
@@ -121,38 +73,30 @@ if (isset($_POST['mode'])) {
         snippet_edits.edit_text, 
         snippet_edits.description, 
         snippet_edits.line_index,
-        users.username FROM
-        snippet_edits INNER JOIN users ON snippet_edits.user_id = users.user_id
+        users.username
+         FROM
+         snippet_edits INNER JOIN users ON snippet_edits.user_id = users.user_id
         WHERE snippet_edits.snippet_id = ?', $arr);
-      $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
+      el("Rowcount: " . $res->rowCount());
+      $data = $res->fetchAll(PDO::FETCH_OBJ);
+      // $serial = implode("", $data);
+      el("THE EDIT TEXT: " . $data[0]->edit_text);
+      $data = json_encode($data);
       echo "getEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data;
       break;
     case 'displayWithEdits':
       if (!$_POST['editID']) {
-        die("displayWithEdits" . $sym . "failure" . $sym . "Snippet ID was not set.");
+        die("displayWithEdits" . $sym . "failure" . $sym . "Edit ID was not set.");
       }
       $arr = array($_POST['editID']);
       $res = Query("SELECT * FROM snippet_edits WHERE edit_id = ?", $arr);
       $obj = $res->fetchAll(PDO::FETCH_OBJ);
+      $data = $obj[0]->edit_text;
       if (!$res) {
         el("res was empty, ending script.");
         die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
       }
-      $editedArray = explode($EDSYM, $obj[0]->edit_text);
-      $lineNumbers = explode($EDSYM, $obj[0]->line_index);
-      $arr2 = array($obj[0]->snippet_id);
-      $res2 = Query("SELECT * FROM snippets WHERE snippet_id = ?", $arr2);
-      if (!$res2) {
-        el("res was empty, ending script.");
-        die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
-      }
-      $obj2 = $res2->fetchAll(PDO::FETCH_OBJ);
-      $originalSnippetArr = explode(PHP_EOL, $obj2[0]->snippet);
-      for ($i = 0; $i < count($editedArray); $i++) {
-        $originalSnippetArr[intval($lineNumbers[$i])] = $editedArray[$i];
-      }
-      $retString = implode("\n", $originalSnippetArr);
-      die("displayWithEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $retString);
+      die("displayWithEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data);
       break;
     case 'login':
       $subArr = explode("&", $_POST['str']);

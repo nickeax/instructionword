@@ -21,6 +21,7 @@ function Query($q, $args) {
       $stmt->execute($args);
       return $stmt;
     } catch(PDOException $error) {
+      el($q . "Something went REALLY wrong!" . $error->getMessage());
       echo $q . "Something went REALLY wrong!" . $error->getMessage();
     }
   } else {
@@ -30,6 +31,7 @@ function Query($q, $args) {
     $stmt->execute($args);
     return $stmt;
     } catch(PDOException $error) {
+      el($q . "Something went REALLY wrong!" . $error->getMessage());
       die("Oops... Please refresh the page.".$error->getMessage()) ;
     }
   }

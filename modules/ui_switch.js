@@ -129,11 +129,11 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             data-snippet_edit_id = "${str[i].snippet_id}"
             data-snippet_edit_title = "${str[i].title}"
             data-snippet_edit_username = "${str[i].username}"
-            data-snippet_edit_user_id = "${str[i].user_id}">EDIT
+            data-snippet_edit_user_id = "${str[i].user_id}">
           </span>
           <span class = "share" id="share_snippet">
             <a href=index.html?sid=${str[i].snippet_id}>SHARE</span></a>
-          <strong class="snippetTitle id="snippetSideBarTitle" data-snippet_edit_id = "${str[i].snippet_id}" >${str[i].title}</strong> by 
+          <strong class="snippetTitle id="snippetSideBarTitle" data-snippet_snippet_id = "${str[i].snippet_id}" >${str[i].title}</strong> by 
           <span id = "listed_snippet" class = "username">${str[i].username}</span>
           <br>
             <em>${str[i].description}</em>

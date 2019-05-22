@@ -190,7 +190,6 @@ input[type=text], input[type=password] {
 
 #login, #join, #logout {
   border-style: none;
-  background-color: #d34f5a;
   padding: 5px 9px;
   color: #f1fec6;
   width: 65px;
@@ -227,6 +226,7 @@ input[type=text], input[type=password] {
 }
 
 #snippetDescription, #snippetTitle {
+  background-color: rgba(0, 0, 0, 0);
   width: 27rem;
 }
 
@@ -254,25 +254,21 @@ input[type=text], input[type=password] {
 input::-webkit-input-placeholder, input {
   font-size: 0.9rem;
   color: rgba(29, 53, 87, 0.9);
-  background-color: #d34f5a;
 }
 
 input:-ms-input-placeholder, input {
   font-size: 0.9rem;
   color: rgba(29, 53, 87, 0.9);
-  background-color: #d34f5a;
 }
 
 input::-ms-input-placeholder, input {
   font-size: 0.9rem;
   color: rgba(29, 53, 87, 0.9);
-  background-color: #d34f5a;
 }
 
 input::placeholder, input {
   font-size: 0.9rem;
   color: rgba(29, 53, 87, 0.9);
-  background-color: #d34f5a;
 }
 
 tt.snippetsHeading {
@@ -397,7 +393,7 @@ body {
 .sidebarR {
   border-top: 3px solid #d34f5a;
   border-right: 3px solid #d34f5a;
-  background-color: #333;
+  background-color: rgba(29, 53, 87, 0.9);
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 3;
