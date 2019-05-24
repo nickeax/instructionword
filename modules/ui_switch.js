@@ -70,20 +70,17 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             data-edit-clicked = "1">
             ${editsStr[i].description}</strong> by 
             ${editsStr[i].username}
-          </p>`;
+            </p>`;
+        editsList.innerHTML += "</ul>";
       }
     case 'removeSnippet':
-      messages.classList.add('hidden');
+      // messages.classList.add('hidden');
       if (arr[1] != "success") {
         messages.innerHTML = arr[2];
-        elementActive(messages, "yes");
-        break;
       } else {
         messages.innerHTML = arr[2];
-        elementActive(messages, "yes");
       }
-      break;
-      editsList.innerHTML += "</ul>";
+      elementActive(messages, "yes");
       break;
     case 'displayWithEdits':
       if (arr[1] != "success") {
@@ -105,6 +102,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       }
       break;
     case 'getSnippet':
+      elementActive(messages, "no");
       if (arr[1] != "success") {
         break;
       }

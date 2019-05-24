@@ -128,19 +128,27 @@ $colour5: rgb(226, 42, 17);       // 5 */
   display: none;
 }
 
-#clearCode, #saveCode, #removeSnippet.homeButton {
+.buttons {
+  padding: 7px;
+  position: relative;
+  top: 3rem;
+}
+
+#clearCode, #saveCode, #removeSnippet, .homeButton {
   border-style: none;
   position: absolute;
   padding: 5px 9px;
   color: rgba(29, 53, 87, 0.9);
 }
 
-#clearCode:hover, #saveCode:hover, #removeSnippet, #logout:hover, #login:hover, #join:hover,
+#clearCode:hover, #saveCode:hover, #removeSnippet:hover, #logout:hover, #login:hover, #join:hover,
 #homeButton:hover {
   cursor: pointer;
   color: rgba(29, 53, 87, 0.9);
   -webkit-transition: all 170ms ease-in-out;
   transition: all 170ms ease-in-out;
+  -webkit-box-shadow: 0 0 12px #d34f5a;
+          box-shadow: 0 0 12px #d34f5a;
 }
 
 #clearCode:active, #saveCode:active {
@@ -148,31 +156,25 @@ $colour5: rgb(226, 42, 17);       // 5 */
 }
 
 #saveCode {
-  right: 50%;
-  -webkit-transform: translate(12rem, 1rem);
-          transform: translate(12rem, 1rem);
-  background-color: #f1fec6;
+  position: absolute;
+  right: 3px;
+  background-color: rgba(121, 173, 220, 0.8);
 }
 
 #clearCode {
-  right: 50%;
-  -webkit-transform: translate(8.5rem, 1rem);
-          transform: translate(8.5rem, 1rem);
+  position: absolute;
+  left: 3px;
   background-color: #d34f5a;
 }
 
 #removeSnippet {
+  position: absolute;
   right: 50%;
-  -webkit-transform: translate(13rem, 1rem);
-          transform: translate(13rem, 1rem);
+  text-align: center;
   background-color: #d34f5a;
 }
 
 .homeButton {
-  position: absolute;
-  left: 0%;
-  -webkit-transform: translate(5px, 5px);
-          transform: translate(5px, 5px);
   background-color: rgba(121, 173, 220, 0.8);
 }
 
@@ -214,9 +216,7 @@ input[type=text], input[type=password] {
 #logout {
   color: rgba(29, 53, 87, 0.9);
   position: absolute;
-  right: 0%;
-  -webkit-transform: translate(-65px, 1rem);
-          transform: translate(-65px, 1rem);
+  right: 50px;
   z-index: 10;
 }
 
@@ -567,7 +567,7 @@ textarea {
         grid-template-columns: 1fr;
     -ms-grid-rows: 300px auto auto;
         grid-template-rows: 300px auto auto;
-        grid-template-areas: "header"  "content"  "sidebarL" "sidebarR";
+        grid-template-areas: "header"  "sidebarR" "content"  "sidebarL";
   }
   .leftLogo {
     display: none;
