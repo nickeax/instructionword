@@ -55,17 +55,29 @@ if (isset($_POST['mode'])) {
       $res = Query('SELECT snippets.user_id, snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet, users.username 
       FROM snippets INNER JOIN users ON snippets.user_id = users.user_id AND snippets.deleted != 1 ORDER BY snippets.snippet_id DESC', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
-      echo "getSnippets" . $sym . "success" . $sym . "data retrieved" . $sym . "" . $data;
+      echo "getSnippets" . $sym . "success" . $sym . "" . $sym . "" . $data;
       break;
     case 'getSnippet': // JUST ONE SNIPPET
       $arr = array($_POST['str']);
       $res = Query('SELECT user_id, snippet_id, title, created, description, snippet FROM snippets WHERE snippet_id = ?', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
-      echo "getSnippet" . $sym . "success" . $sym . "data retrieved" . $sym . "" . $data;
+      echo "getSnippet" . $sym . "success" . $sym . "" . $sym . "" . $data;
+      break;
+    case 'removeSnippet':
+      $arr = array($_POST['str']);
+      $res = Query("SELECT user_id FROM snippets WHERE snippet_id = ?", $arr);
+      $data = $res->fetchAll(PDO::FETCH_OBJ);
+      if ($_SESSION['id'] !== $data[0]->user_id) {
+        el("This snippet isn't yours.".$data[0]->user_id);
+        echo "removeSnippet" . $sym . "failure" . $sym . "This is not your snippet." . $sym . "";
+        die();
+      } else {
+        Query("UPDATE snippets SET deleted = 1 WHERE snippet_id = ?", $arr);
+        echo "removeSnippet" . $sym . "success" . $sym . "Your snippet has been removed, but it can be restored by the site admin." . $sym . "";
+      }
       break;
     case 'getEdits':
       $arr = array(intval($_POST['str']));
-      el("The converted str is: " . $arr[0]);
       $res = Query('SELECT 
         snippet_edits.edit_id,
         snippet_edits.snippet_id,
@@ -77,12 +89,10 @@ if (isset($_POST['mode'])) {
          FROM
          snippet_edits INNER JOIN users ON snippet_edits.user_id = users.user_id
         WHERE snippet_edits.snippet_id = ?', $arr);
-      el("Rowcount: " . $res->rowCount());
       $data = $res->fetchAll(PDO::FETCH_OBJ);
       // $serial = implode("", $data);
-      el("THE EDIT TEXT: " . $data[0]->edit_text);
       $data = json_encode($data);
-      echo "getEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data;
+      echo "getEdits" . $sym . "success" . $sym . "" . $sym . $data;
       break;
     case 'displayWithEdits':
       if (!$_POST['editID']) {
@@ -93,10 +103,9 @@ if (isset($_POST['mode'])) {
       $obj = $res->fetchAll(PDO::FETCH_OBJ);
       $data = $obj[0]->edit_text;
       if (!$res) {
-        el("res was empty, ending script.");
         die("displayWithEdits" . $sym . "failure" . $sym . "Could not fetch the edited version, please try again later.");
       }
-      die("displayWithEdits" . $sym . "success" . $sym . "data retrieved" . $sym . $data);
+      die("displayWithEdits" . $sym . "success" . $sym . "" . $sym . $data);
       break;
     case 'login':
       $subArr = explode("&", $_POST['str']);

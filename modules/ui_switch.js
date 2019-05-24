@@ -72,6 +72,17 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             ${editsStr[i].username}
           </p>`;
       }
+    case 'removeSnippet':
+      messages.classList.add('hidden');
+      if (arr[1] != "success") {
+        messages.innerHTML = arr[2];
+        elementActive(messages, "yes");
+        break;
+      } else {
+        messages.innerHTML = arr[2];
+        elementActive(messages, "yes");
+      }
+      break;
       editsList.innerHTML += "</ul>";
       break;
     case 'displayWithEdits':
@@ -103,6 +114,9 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       snippetTitle.value = str[0].title;
       snippetDescription.value = str[0].description;
       input.value = str[0].snippet;
+      btnRemoveSnippet.setAttribute("data-snippet_snippet_id", snippetID);
+      elementActive(btnRemoveSnippet, "yes");
+      messages.classList.add('hidden');
       showOutput();
       break;
     case 'getSnippets':

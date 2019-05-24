@@ -128,14 +128,14 @@ $colour5: rgb(226, 42, 17);       // 5 */
   display: none;
 }
 
-#clearCode, #saveCode, .homeButton {
+#clearCode, #saveCode, #removeSnippet.homeButton {
   border-style: none;
   position: absolute;
   padding: 5px 9px;
   color: rgba(29, 53, 87, 0.9);
 }
 
-#clearCode:hover, #saveCode:hover, #logout:hover, #login:hover, #join:hover,
+#clearCode:hover, #saveCode:hover, #removeSnippet, #logout:hover, #login:hover, #join:hover,
 #homeButton:hover {
   cursor: pointer;
   color: rgba(29, 53, 87, 0.9);
@@ -158,6 +158,13 @@ $colour5: rgb(226, 42, 17);       // 5 */
   right: 50%;
   -webkit-transform: translate(8.5rem, 1rem);
           transform: translate(8.5rem, 1rem);
+  background-color: #d34f5a;
+}
+
+#removeSnippet {
+  right: 50%;
+  -webkit-transform: translate(13rem, 1rem);
+          transform: translate(13rem, 1rem);
   background-color: #d34f5a;
 }
 
@@ -208,8 +215,8 @@ input[type=text], input[type=password] {
   color: rgba(29, 53, 87, 0.9);
   position: absolute;
   right: 0%;
-  -webkit-transform: translate(-5px, 3rem);
-          transform: translate(-5px, 3rem);
+  -webkit-transform: translate(-65px, 1rem);
+          transform: translate(-65px, 1rem);
   z-index: 10;
 }
 
@@ -471,8 +478,8 @@ img.full {
   margin: 20px auto;
   -ms-grid-columns: 2fr 50% 2fr;
       grid-template-columns: 2fr 50% 2fr;
-  -ms-grid-rows: 170px auto auto;
-      grid-template-rows: 170px auto auto;
+  -ms-grid-rows: 200px auto auto;
+      grid-template-rows: 200px auto auto;
       grid-template-areas: "sidebarL  header  sidebarR"  "sidebarL content sidebarR "  "sidebarL  footer  sidebarR ";
 }
 

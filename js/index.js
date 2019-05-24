@@ -62,6 +62,12 @@ btnClearCode.addEventListener('click', ev => {
   showOutput();
 })
 
+const btnRemoveSnippet = document.querySelector('#removeSnippet');
+btnRemoveSnippet.addEventListener('click', ev => {
+  clearMessages();
+  showOutput();
+})
+
 sidebarL.addEventListener('click', (e) => {
   clearMessages();
   if (e.target.dataset.snippet_snippet_id) {
@@ -82,6 +88,17 @@ sidebarR.addEventListener('click', (e) => {
     console.log("Didn't send request for displayWithEdits.");
   }
 })
+
+btnRemoveSnippet.addEventListener('click', (e) => {
+  clearMessages();
+  if (e.target.dataset.snippet_snippet_id) {
+    checkServer('removeSnippet', e.target.dataset.snippet_snippet_id, setResp);
+  } else {
+    console.log("No snippet ID");
+  }
+  btnRemoveSnippet.classList.add("hidden");
+  autoLoad();
+});
 
 // USER ACCOUNT
 const logout = document.querySelector('#logout');
