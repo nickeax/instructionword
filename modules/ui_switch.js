@@ -116,7 +116,6 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       input.value = str[0].snippet;
       btnRemoveSnippet.setAttribute("data-snippet_snippet_id", snippetID);
       elementActive(btnRemoveSnippet, "yes");
-      messages.classList.add('hidden');
       showOutput();
       break;
     case 'getSnippets':
