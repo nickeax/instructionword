@@ -154,6 +154,8 @@ function processMarkers(markers) {
   let tmp = "";
   let inSingleQuotes = false;
   let inDoubleQuotes = false;
+  let language = detectLanguage(markers);
+
   markers.forEach(element => {
     if (element.type == "SQT" && !inDoubleQuotes) {
       inSingleQuotes = !inSingleQuotes;
@@ -173,7 +175,7 @@ function processMarkers(markers) {
       tmp += "<br>";
     } else if (element.type == 'SPC') {
       tmp += "&nbsp;";
-    } else if (isKeyword(element.word)) {
+    } else if (isKeyword(element.word, language)) {
       tmp += `<span class='keyword'>${element.word}</span>`;
     } else if (element.word == '`') {
       tmp += `&#96;`;
@@ -187,63 +189,207 @@ function processMarkers(markers) {
   });
   return tmp;
 }
+// languagesArray holds to arrays which each hold 26 arrays with various keywords
+// To check all of the JavaScript keywords, I need to first select the JavaScript array
+// languagesArray[0]
+// languagesArray[0] contains 26 sub arrays
+function detectLanguage(arr) {
+  let keyWordsPercent = 10;
+  let total = 0;
+  let lan = "";
+  detected = [0, 0]; //0 = JS/C/CPP   1 = PHP  2 = unkown
+  for (let i = 0; i < arr.length; i++) { // go through every marker
+    for (let j = 0; j < languagesArray[0].length; j++) { // go though every word array
+      if (languagesArray[0][j].includes(arr[i].word)) {
+        detected[0]++;
+      }
+    }
 
-function isKeyword(str) {
+    for (let k = 0; k < languagesArray[1].length; k++) { // go though every word array
+      if (languagesArray[1][k].indexOf(arr[i].word) != -1) {
+        detected[1]++;
+      }
+    }
+  }
+  total = detected[0] + detected[1];
+  let wholePercent = Math.floor(total/arr.length*100);
+  console.log(wholePercent);
+  
+  if(wholePercent < keyWordsPercent) {
+    lan = "text";
+    return lan;
+  }
+  detected[0] > detected[1] ? lan = "JavaScript" : lan = "PHP";
+  return lan;
+}
+
+function isKeyword(str, language) {
   let firstLetter = str.toLowerCase().charAt(0);
-  switch (firstLetter) {
-    case 'a':
-      if (keyWordsA.indexOf(str) != -1) return true;
-      return false;
-    case 'b':
-      if (keyWordsB.indexOf(str) != -1) return true;
-      return false;
-    case 'c':
-      if (keyWordsC.indexOf(str) != -1) return true;
-      return false;
-    case 'd':
-      if (keyWordsD.indexOf(str) != -1) return true;
-      return false;
-    case 'e':
-      if (keyWordsE.indexOf(str) != -1) return true;
-      return false;
-    case 'f':
-      if (keyWordsF.indexOf(str) != -1) return true;
-      return false;
-    case 'g':
-      if (keyWordsG.indexOf(str) != -1) return true;
-      return false;
-    case 'i':
-      if (keyWordsI.indexOf(str) != -1) return true;
-      return false;
-    case 'l':
-      if (keyWordsL.indexOf(str) != -1) return true;
-      return false;
-    case 'n':
-      if (keyWordsN.indexOf(str) != -1) return true;
-      return false;
-    case 'p':
-      if (keyWordsP.indexOf(str) != -1) return true;
-      return false;
-    case 'q':
-      if (keyWordsQ.indexOf(str) != -1) return true;
-      return false;
-    case 'r':
-      if (keyWordsR.indexOf(str) != -1) return true;
-      return false;
-    case 's':
-      if (keyWordsS.indexOf(str) != -1) return true;
-      return false;
-    case 't':
-      if (keyWordsT.indexOf(str) != -1) return true;
-      return false;
-    case 'v':
-      if (keyWordsV.indexOf(str) != -1) return true;
-      return false;
-    case 'w':
-      if (keyWordsW.indexOf(str) != -1) return true;
-      return false;
-    case 'y':
-      if (keyWordsY.indexOf(str) != -1) return true;
-      return false;
+  if(language === "text") {
+    return false;
+  }
+  if (language === "JavaScript") {
+    switch (firstLetter) {
+      case 'a':
+        if (JSkeyWordsA.indexOf(str) != -1) return true;
+        return false;
+      case 'b':
+        if (JSkeyWordsB.indexOf(str) != -1) return true;
+        return false;
+      case 'c':
+        if (JSkeyWordsC.indexOf(str) != -1) return true;
+        return false;
+      case 'd':
+        if (JSkeyWordsD.indexOf(str) != -1) return true;
+        return false;
+      case 'e':
+        if (JSkeyWordsE.indexOf(str) != -1) return true;
+        return false;
+      case 'f':
+        if (JSkeyWordsF.indexOf(str) != -1) return true;
+        return false;
+      case 'g':
+        if (JSkeyWordsG.indexOf(str) != -1) return true;
+        return false;
+      case 'h':
+        if (JSkeyWordsH.indexOf(str) != -1) return true;
+        return false;
+      case 'i':
+        if (JSkeyWordsI.indexOf(str) != -1) return true;
+        return false;
+      case 'j':
+        if (JSkeyWordsJ.indexOf(str) != -1) return true;
+        return false;
+      case 'k':
+        if (JSkeyWordsK.indexOf(str) != -1) return true;
+        return false;
+      case 'l':
+        if (JSkeyWordsL.indexOf(str) != -1) return true;
+        return false;
+      case 'm':
+        if (JSkeyWordsM.indexOf(str) != -1) return true;
+        return false;
+      case 'n':
+        if (JSkeyWordsN.indexOf(str) != -1) return true;
+        return false;
+      case 'o':
+        if (JSkeyWordsO.indexOf(str) != -1) return true;
+        return false;
+      case 'p':
+        if (JSkeyWordsP.indexOf(str) != -1) return true;
+        return false;
+      case 'q':
+        if (JSkeyWordsQ.indexOf(str) != -1) return true;
+        return false;
+      case 'r':
+        if (JSkeyWordsR.indexOf(str) != -1) return true;
+        return false;
+      case 's':
+        if (JSkeyWordsS.indexOf(str) != -1) return true;
+        return false;
+      case 't':
+        if (JSkeyWordsT.indexOf(str) != -1) return true;
+        return false;
+      case 'u':
+        if (JSkeyWordsU.indexOf(str) != -1) return true;
+        return false;
+      case 'v':
+        if (JSkeyWordsV.indexOf(str) != -1) return true;
+        return false;
+      case 'w':
+        if (JSkeyWordsW.indexOf(str) != -1) return true;
+        return false;
+      case 'x':
+        if (JSkeyWordsX.indexOf(str) != -1) return true;
+        return false;
+      case 'y':
+        if (JSkeyWordsY.indexOf(str) != -1) return true;
+        return false;
+      case 'z':
+        if (JSkeyWordsZ.indexOf(str) != -1) return true;
+        return false;
+    }
+  }
+  if (language === "PHP") {
+    switch (firstLetter) {
+      case 'a':
+        if (PHPkeyWordsA.indexOf(str) != -1) return true;
+        return false;
+      case 'b':
+        if (PHPkeyWordsB.indexOf(str) != -1) return true;
+        return false;
+      case 'c':
+        if (PHPkeyWordsC.indexOf(str) != -1) return true;
+        return false;
+      case 'd':
+        if (PHPkeyWordsD.indexOf(str) != -1) return true;
+        return false;
+      case 'e':
+        if (PHPkeyWordsE.indexOf(str) != -1) return true;
+        return false;
+      case 'f':
+        if (PHPkeyWordsF.indexOf(str) != -1) return true;
+        return false;
+      case 'g':
+        if (PHPkeyWordsG.indexOf(str) != -1) return true;
+        return false;
+      case 'h':
+        if (PHPkeyWordsH.indexOf(str) != -1) return true;
+        return false;
+      case 'i':
+        if (PHPkeyWordsI.indexOf(str) != -1) return true;
+        return false;
+      case 'j':
+        if (PHPkeyWordsJ.indexOf(str) != -1) return true;
+        return false;
+      case 'k':
+        if (PHPkeyWordsK.indexOf(str) != -1) return true;
+        return false;
+      case 'l':
+        if (PHPkeyWordsL.indexOf(str) != -1) return true;
+        return false;
+      case 'm':
+        if (PHPkeyWordsM.indexOf(str) != -1) return true;
+        return false;
+      case 'n':
+        if (PHPkeyWordsN.indexOf(str) != -1) return true;
+        return false;
+      case 'o':
+        if (PHPkeyWordsO.indexOf(str) != -1) return true;
+        return false;
+      case 'p':
+        if (PHPkeyWordsP.indexOf(str) != -1) return true;
+        return false;
+      case 'q':
+        if (PHPkeyWordsQ.indexOf(str) != -1) return true;
+        return false;
+      case 'r':
+        if (PHPkeyWordsR.indexOf(str) != -1) return true;
+        return false;
+      case 's':
+        if (PHPkeyWordsS.indexOf(str) != -1) return true;
+        return false;
+      case 't':
+        if (PHPkeyWordsT.indexOf(str) != -1) return true;
+        return false;
+      case 'u':
+        if (PHPkeyWordsU.indexOf(str) != -1) return true;
+        return false;
+      case 'v':
+        if (PHPkeyWordsV.indexOf(str) != -1) return true;
+        return false;
+      case 'w':
+        if (PHPkeyWordsW.indexOf(str) != -1) return true;
+        return false;
+      case 'x':
+        if (PHPkeyWordsX.indexOf(str) != -1) return true;
+        return false;
+      case 'y':
+        if (PHPkeyWordsY.indexOf(str) != -1) return true;
+        return false;
+      case 'z':
+        if (PHPkeyWordsZ.indexOf(str) != -1) return true;
+        return false;
+    }
   }
 }
