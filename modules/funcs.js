@@ -194,7 +194,7 @@ function processMarkers(markers) {
 // languagesArray[0]
 // languagesArray[0] contains 26 sub arrays
 function detectLanguage(arr) {
-  let keyWordsPercent = 10;
+  let keyWordsPercent = 2;
   let total = 0;
   let lan = "";
   detected = [0, 0]; //0 = JS/C/CPP   1 = PHP  2 = unkown
@@ -212,14 +212,17 @@ function detectLanguage(arr) {
     }
   }
   total = detected[0] + detected[1];
-  let wholePercent = Math.floor(total/arr.length*100);
-  console.log(wholePercent);
+  let wholePercent = Math.floor((total/arr.length)*100);
+  console.log(wholePercent +"%");
   
   if(wholePercent < keyWordsPercent) {
+    console.log('detected plain text');
     lan = "text";
     return lan;
   }
   detected[0] > detected[1] ? lan = "JavaScript" : lan = "PHP";
+  console.log("Detected " + lan);
+  
   return lan;
 }
 
