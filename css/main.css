@@ -141,14 +141,23 @@ $colour5: rgb(226, 42, 17);       // 5 */
   color: rgba(29, 53, 87, 0.9);
 }
 
-#clearCode:hover, #saveCode:hover, #removeSnippet:hover, #logout:hover, #login:hover, #join:hover,
+#clearCode:hover, #removeSnippet:hover, #login:hover {
+  cursor: pointer;
+  color: rgba(29, 53, 87, 0.9);
+  -webkit-transition: all 170ms ease-in-out;
+  transition: all 170ms ease-in-out;
+  -webkit-box-shadow: 0 0 12px rgba(211, 79, 90, 0.7);
+          box-shadow: 0 0 12px rgba(211, 79, 90, 0.7);
+}
+
+#saveCode:hover, #logout:hover, #join:hover,
 #homeButton:hover {
   cursor: pointer;
   color: rgba(29, 53, 87, 0.9);
   -webkit-transition: all 170ms ease-in-out;
   transition: all 170ms ease-in-out;
-  -webkit-box-shadow: 0 0 12px #d34f5a;
-          box-shadow: 0 0 12px #d34f5a;
+  -webkit-box-shadow: 0 0 12px rgba(121, 173, 220, 0.7);
+          box-shadow: 0 0 12px rgba(121, 173, 220, 0.7);
 }
 
 #clearCode:active, #saveCode:active {
@@ -175,6 +184,7 @@ $colour5: rgb(226, 42, 17);       // 5 */
 }
 
 .homeButton {
+  left: 60px;
   background-color: rgba(121, 173, 220, 0.8);
 }
 
@@ -216,7 +226,7 @@ input[type=text], input[type=password] {
 #logout {
   color: rgba(29, 53, 87, 0.9);
   position: absolute;
-  right: 50px;
+  right: 60px;
   z-index: 10;
 }
 
@@ -244,13 +254,14 @@ input[type=text], input[type=password] {
 .messages {
   background-color: rgba(29, 53, 87, 0.9);
   position: absolute;
-  left: 50%;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
   bottom: 5px;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
   min-width: 250px;
   padding: 3px;
   color: #f1fec6;
+  z-index: 1666;
 }
 
 .error {
@@ -554,17 +565,21 @@ textarea {
 }
 
 @media only screen and (max-width: 1250px) {
-  body {
-    font-size: 20px;
+  body, messages, errors {
+    font-size: 17px;
+  }
+  .header {
+    border: none;
   }
   .wrapper {
+    -webkit-box-shadow: none;
+            box-shadow: none;
     font-family: sans-serif;
     display: -ms-grid;
     display: grid;
     width: 100vw;
-    margin: 4px auto;
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    -ms-grid-columns: minmax(300px, 1000px);
+        grid-template-columns: minmax(300px, 1000px);
     -ms-grid-rows: 300px auto auto;
         grid-template-rows: 300px auto auto;
         grid-template-areas: "header"  "sidebarR" "content"  "sidebarL";
@@ -594,36 +609,25 @@ textarea {
   }
   #saveCode {
     left: 0%;
-    -webkit-transform: translate(5%, 5%);
-            transform: translate(5%, 5%);
     background-color: #f1fec6;
   }
   #clearCode {
-    left: 0%;
-    -webkit-transform: translate(0, 25px);
-            transform: translate(0, 25px);
+    left: 55px;
     background-color: #d34f5a;
   }
   #removeSnippet {
     right: 0%;
-    top: 70%;
-    -webkit-transform: translate(0, 60px);
-            transform: translate(0, 60px);
     background-color: #d34f5a;
   }
   .homeButton {
-    position: absolute;
     left: 0%;
-    -webkit-transform: translate(5px, 5px);
-            transform: translate(5px, 5px);
     background-color: rgba(121, 173, 220, 0.8);
   }
   #logout {
     color: rgba(29, 53, 87, 0.9);
     position: absolute;
     right: 0%;
-    -webkit-transform: translate(-65px, 1rem);
-            transform: translate(-65px, 1rem);
+    top: -60px;
     z-index: 10;
   }
   #username, #password {
@@ -641,11 +645,10 @@ textarea {
   }
   .messages {
     position: absolute;
-    font-size: 10px;
+    font-size: 1rem;
     background-color: rgba(29, 53, 87, 0.9);
     bottom: 5px;
     min-width: 350px;
-    left: 180px;
     padding: 3px;
     color: #f1fec6;
   }
@@ -654,19 +657,19 @@ textarea {
     background-color: rgba(29, 53, 87, 0.9);
   }
   input::-webkit-input-placeholder, input {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(29, 53, 87, 0.9);
   }
   input:-ms-input-placeholder, input {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(29, 53, 87, 0.9);
   }
   input::-ms-input-placeholder, input {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(29, 53, 87, 0.9);
   }
   input::placeholder, input {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(29, 53, 87, 0.9);
   }
 }

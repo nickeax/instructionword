@@ -38,6 +38,10 @@ const messages = document.querySelector('#messages');
 
 checkServer('isLoggedIn', "", setResp);
 
+window.onbeforeunload = confirmExit;
+function confirmExit() {
+  return "If you have made any changes to your snippets without clicking the SAVE button, your changes will be lost.  Are you sure you want to exit this page?";
+}
 
 // SAVE CODE BUTTON
 const btnSaveCode = document.querySelector('#saveCode');
@@ -53,6 +57,7 @@ btnSaveCode.classList.add('hidden');
 // CLEAR CODE BUTTON
 const btnClearCode = document.querySelector('#clearCode');
 btnClearCode.addEventListener('click', ev => {
+  snippetID = null;
   edited = false;
   snippetDescription.value = "";
   snippetTitle.value = "";
@@ -91,10 +96,13 @@ sidebarR.addEventListener('click', (e) => {
 
 btnRemoveSnippet.addEventListener('click', (e) => {
   clearMessages();
-  if (e.target.dataset.snippet_snippet_id) {
-    checkServer('removeSnippet', e.target.dataset.snippet_snippet_id, setResp);
-  } else {
-    console.log("No snippet ID");
+  let resp = confirm("Are you sure you wish to DELETE this snippet?");
+  if (resp === true) {
+    if (e.target.dataset.snippet_snippet_id) {
+      checkServer('removeSnippet', e.target.dataset.snippet_snippet_id, setResp);
+    } else {
+      console.log("No snippet ID");
+    }
   }
   btnRemoveSnippet.classList.add("hidden");
   autoLoad();

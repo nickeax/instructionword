@@ -15,8 +15,10 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
     document.querySelector('#messages').innerHTML = `Copy and paste the below link to share:<hr> ${loc}`;
     checkServer('getSnippet', loc.split("=")[1], setResp);
     elementActive(homeButton, true);
-    // elementActive(input, false);
-    // input.classList.add('hidden');
+    sidebarL.innerHTML = "";
+    elementActive(btnRemoveSnippet, false);
+    let si = loc.split("=")[1];
+    checkServer('getEdits', si, setResp);
   } else {
     window.setInterval(() => {
       elementActive(btnSaveCode, edited);
