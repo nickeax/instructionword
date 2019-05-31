@@ -15,10 +15,16 @@ function buildMarkers(str) {
       tmp = "";
     } else if (VVC.indexOf(str[i]) == -1) {
       start = i;
-      if (str[i] == "'") {
-        tmp += str[i];
-        let marker = new Marker(start, "SQT", 1, "&#8217;");
-        markers.push(marker);
+      if (str[i] == "'") { // An apostrophe has no white space either side of it. 
+        if ((str[i - 1] != ' ' && str[i + 1] != ' ') && (VVC.indexOf(str[i+1]) != -1 && VVC.indexOf(str[i-1]) != -1)) {
+          tmp += str[i];
+          let marker = new Marker(start, "APO", 1, "&#8217;");
+          markers.push(marker);
+        } else {
+          tmp += str[i];
+          let marker = new Marker(start, "SQT", 1, "&#8217;");
+          markers.push(marker);
+        }
       } else if (str[i] == '"') {
         tmp += str[i];
         let marker = new Marker(start, "DQT", 1, "&#8220;");

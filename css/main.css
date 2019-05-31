@@ -528,6 +528,10 @@ img.full {
   max-height: 120vh;
 }
 
+hr {
+  color: #d34f5a;
+}
+
 form {
   margin: 3px;
   border-radius: 0;
@@ -535,11 +539,13 @@ form {
 }
 
 textarea {
+  display: block;
+  position: relative;
   padding: 1rem;
   border-style: none;
-  color: rgba(29, 53, 87, 0.9);
-  background-color: white;
-  width: 96%;
+  color: #f1fec6;
+  background-color: rgba(29, 53, 87, 0.9);
+  width: 95%;
   height: 30vh;
   margin: 0 auto;
   overflow: scroll;

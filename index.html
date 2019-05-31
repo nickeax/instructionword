@@ -2,13 +2,33 @@
 <html lang="en">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140833500-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-140833500-1');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="keywords" content="HTML, CSS, AJAX, JavaScript, PHP, programming, Web development, Web design">
-  <meta name="description" content="Post your code and get help from others! At Instruction Word, you can share your code, help others or be helped!">
+  <meta name="description"
+    content="Post your code and get help from others! At Instruction Word, you can share your code, help others or be helped!">
   <link rel="stylesheet" href="css/main.css">
   <title>instruction word</title>
+  <style media="screen">
+    .lineNumber {
+      font-family: monospace;
+      font-weight: 100;
+      color: #999;
+      user-select: none;
+      margin-right: 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,7 +37,10 @@
   </div>
   <div class="wrapper">
     <header class="header">
-      <div class="messages hidden" id="messages"></div>
+      <div class="messages hidden" id="messages"></div><span id="detectedLanguage"></span><a
+        href="https://instructionword.com/index.html?sid=14">
+        <div id="join">guide</div><span><a href="./bat">Binary Adder Tutorial</a></span>
+      </a>
       <div class="inputs">
         <input class="headerInputs" type="text" name="username" id="username" placeholder="username" required>
         <input class="headerInputs" type="password" name="password" id="password" placeholder="password" required>
@@ -39,10 +62,7 @@
     <div class="sidebarL" id="sidebarL">
     </div>
     <div class="sidebarR" id="sidebarR">
-      <tt>INSTRUCTIONS <br>
-       - please explain your edits in the description field <br>
-        - press the CLEAR button to start a NEW snippet <br></tt>
-      <hr>
+      <br>
       <tt> - edits (click an edit to view 'in place')</tt>
       <div id="editsList" class="editsList"></div>
       <div class="usersSnippets hidden">your snippets</div>

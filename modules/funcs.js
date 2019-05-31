@@ -10,7 +10,13 @@ function elementActive(el, yes) {
 
 function autoLoad() { // Populate UI with available Project data (just snippets ATM)
   let loc = window.location.href;
-  if (loc.indexOf('=') != -1) { // Don't poll if this is a 'share' operation
+  if (loc.indexOf("fbclid") != -1 && loc.indexOf("sid") != -1) {
+    let newLoc = loc.slice(0,loc.indexOf('&'));
+    console.log(newLoc);
+    window.location.href = newLoc;
+  } else if (loc.indexOf("fbclid") != -1) {
+    window.location.href = "/";
+  }else if (loc.indexOf('=') != -1) { // Don't poll if this is a 'share' operation
     messages.classList.remove('hidden');
     document.querySelector('#messages').innerHTML = `Copy and paste the below link to share:<hr> ${loc}`;
     checkServer('getSnippet', loc.split("=")[1], setResp);
@@ -151,7 +157,8 @@ function getFormattedTime(timestamp) {
 }
 
 function processMarkers(markers) {
-  let tmp = "";
+  let lineNumber = 2;
+  let tmp = "<span class = 'lineNumber'>1: </span>";
   let inSingleQuotes = false;
   let inDoubleQuotes = false;
   let language = detectLanguage(markers);
@@ -173,6 +180,8 @@ function processMarkers(markers) {
       }
     } else if (element.type == 'NWL') {
       tmp += "<br>";
+      tmp += `<span class='lineNumber'>${lineNumber}:</span>`;
+      lineNumber++;
     } else if (element.type == 'SPC') {
       tmp += "&nbsp;";
     } else if (isKeyword(element.word, language)) {
@@ -212,23 +221,23 @@ function detectLanguage(arr) {
     }
   }
   total = detected[0] + detected[1];
-  let wholePercent = Math.floor((total/arr.length)*100);
-  console.log(wholePercent +"%");
-  
-  if(wholePercent < keyWordsPercent) {
-    console.log('detected plain text');
+  let wholePercent = Math.floor((total / arr.length) * 100);
+  console.log(wholePercent + "%");
+
+  if (wholePercent < keyWordsPercent) {
+    detectedLanguage.innerHTML = '<tt>detected plain text</tt>';
     lan = "text";
     return lan;
   }
-  detected[0] > detected[1] ? lan = "JavaScript" : lan = "PHP";
-  console.log("Detected " + lan);
-  
+  detected[0] > detected[1] ? lan = "JavaScript/C/C++" : lan = "PHP";
+  detectedLanguage.innerHTML = "<tt>Detected " + lan + "</tt>";
+
   return lan;
 }
 
 function isKeyword(str, language) {
   let firstLetter = str.toLowerCase().charAt(0);
-  if(language === "text") {
+  if (language === "text") {
     return false;
   }
   if (language === "JavaScript") {

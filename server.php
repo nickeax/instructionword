@@ -51,6 +51,11 @@ if (isset($_POST['mode'])) {
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       break; // just here during development, to prevent accidental fall through
     case 'getSnippets':
+      if($_SESSION['id']) {
+        $now = time();
+        $arr = array($now, $_SESSION['id']);
+        Query("UPDATE active SET stamp = ? WHERE user_id = ?", $arr);
+      }
       $arr = [];
       $res = Query('SELECT snippets.user_id, snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet, users.username 
       FROM snippets INNER JOIN users ON snippets.user_id = users.user_id AND snippets.deleted != 1 ORDER BY snippets.snippet_id DESC', $arr);
@@ -68,7 +73,7 @@ if (isset($_POST['mode'])) {
       $res = Query("SELECT user_id FROM snippets WHERE snippet_id = ?", $arr);
       $data = $res->fetchAll(PDO::FETCH_OBJ);
       if ($_SESSION['id'] !== $data[0]->user_id) {
-        el("This snippet isn't yours.".$data[0]->user_id);
+        el("This snippet isn't yours." . $data[0]->user_id);
         echo "removeSnippet" . $sym . "failure" . $sym . "This is not your snippet." . $sym . "";
         die();
       } else {
@@ -126,6 +131,9 @@ if (isset($_POST['mode'])) {
           $_SESSION['id'] = $fa[0]['user_id'];
           $_SESSION['loggedIn'] = 1;
           $_SESSION['username'] = $username;
+          $now = time();
+          $arr = array($_SESSION['id'], $now);
+          Query("INSERT INTO active (user_id, stamp) VALUES(?, ?)", $arr);
           die("login" . $sym . "success" . $sym . "You're now logged in." . $sym . "" . $username);
         }
       } else {
@@ -133,6 +141,8 @@ if (isset($_POST['mode'])) {
       }
       die();
     case 'logout':
+      $arr = array($_SESSION['id']);
+      Query("DELETE FROM active where user_id = ?", $arr);
       $_SESSION['id'] = null;
       $_SESSION['loggedIn'] = 0;
       $_SESSION['username'] = "";
