@@ -11,12 +11,12 @@ function elementActive(el, yes) {
 function autoLoad() { // Populate UI with available Project data (just snippets ATM)
   let loc = window.location.href;
   if (loc.indexOf("fbclid") != -1 && loc.indexOf("sid") != -1) {
-    let newLoc = loc.slice(0,loc.indexOf('&'));
+    let newLoc = loc.slice(0, loc.indexOf('&'));
     console.log(newLoc);
     window.location.href = newLoc;
   } else if (loc.indexOf("fbclid") != -1) {
     window.location.href = "/";
-  }else if (loc.indexOf('=') != -1) { // Don't poll if this is a 'share' operation
+  } else if (loc.indexOf('=') != -1) { // Don't poll if this is a 'share' operation
     messages.classList.remove('hidden');
     document.querySelector('#messages').innerHTML = `Copy and paste the below link to share:<hr> ${loc}`;
     checkServer('getSnippet', loc.split("=")[1], setResp);

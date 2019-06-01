@@ -7,7 +7,7 @@ let snippetOwner = "";
 let snippetID = 0;
 let editID = 0;
 let edited = false;
-let pollingInterval = 3000;
+let pollingInterval = 4000;
 var displayEdit = "hidden";
 const home = document.querySelector('#home');
 const output = document.querySelector('#output');
@@ -39,10 +39,10 @@ const messages = document.querySelector('#messages');
 
 checkServer('isLoggedIn', "", setResp);
 
-window.onbeforeunload = confirmExit;
+/* window.onbeforeunload = confirmExit;
 function confirmExit() {
   return "If you have made any changes to your snippets without clicking the SAVE button, your changes will be lost.  Are you sure you want to exit this page?";
-}
+} */
 
 // SAVE CODE BUTTON
 const btnSaveCode = document.querySelector('#saveCode');
@@ -111,6 +111,8 @@ btnRemoveSnippet.addEventListener('click', (e) => {
 
 // USER ACCOUNT
 const logout = document.querySelector('#logout');
+console.log(logout);
+
 logout.addEventListener("click", ev => {
   displayEdit = "hidden";
   checkServer('logout', "", setResp);
