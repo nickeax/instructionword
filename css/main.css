@@ -184,6 +184,18 @@ $colour5: rgb(226, 42, 17);       // 5 */
   cursor: pointer;
 }
 
+.userControlJoin {
+  background-color: rgba(29, 53, 87, 0.9);
+}
+
+li.userControlJoin:hover, li.userControlJoin:active {
+  color: #d34f5a;
+  background-color: #f1fec6;
+  -webkit-box-shadow: 0 0 5px rgba(211, 79, 90, 0.7);
+          box-shadow: 0 0 5px rgba(211, 79, 90, 0.7);
+  cursor: pointer;
+}
+
 li.links {
   margin: 2px;
   color: #f1fec6;
