@@ -17,8 +17,8 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
   } else if (loc.indexOf("fbclid") != -1) {
     window.location.href = "/";
   } else if (loc.indexOf('=') != -1) { // Don't poll if this is a 'share' operation
-    messages.classList.remove('hidden');
-    document.querySelector('#messages').innerHTML = `Copy and paste the below link to share:<hr> ${loc}`;
+    language.classList.remove('hidden');
+    language.innerHTML = `Copy and paste the below link to share:<hr> ${loc}`;
     checkServer('getSnippet', loc.split("=")[1], setResp);
     elementActive(homeButton, true);
     sidebarL.innerHTML = "";

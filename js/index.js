@@ -15,6 +15,7 @@ const bgOutput = document.querySelector('#bgOutput');
 const sidebarL = document.querySelector('#sidebarL');
 const sidebarR = document.querySelector('#sidebarR');
 const editsList = document.querySelector('#editsList');
+const language = document.querySelector('#language'); 
 const detectedLanguage = document.querySelector('#detectedLanguage');
 const snippetSideBarTitle = document.querySelector('#snippetSideBarTitle');
 const snippetTitle = document.querySelector('#snippetTitle');

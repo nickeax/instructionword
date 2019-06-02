@@ -172,6 +172,10 @@ $colour5: rgb(226, 42, 17);       // 5 */
   cursor: pointer;
 }
 
+.saveButton {
+  background-color: seagreen;
+}
+
 .userControlNormal {
   background-color: rgba(29, 53, 87, 0.9);
 }
@@ -181,6 +185,14 @@ $colour5: rgb(226, 42, 17);       // 5 */
   background-color: #f1fec6;
   -webkit-box-shadow: 0 0 5px rgba(121, 173, 220, 0.7);
           box-shadow: 0 0 5px rgba(121, 173, 220, 0.7);
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  color: rgba(29, 53, 87, 0.9);
+  background-color: #f1fec6;
+  -webkit-box-shadow: 0 0 5px rgba(69, 180, 50, 0.7);
+          box-shadow: 0 0 5px rgba(69, 180, 50, 0.7);
   cursor: pointer;
 }
 
@@ -313,6 +325,16 @@ textarea::placeholder {
 .messages {
   font-size: 1.5rem;
   background-color: rgba(29, 53, 87, 0.9);
+  bottom: 5px;
+  padding: 3px;
+  color: #f1fec6;
+  z-index: 1666;
+}
+
+.language {
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(69, 180, 50, 0.7);
   bottom: 5px;
   padding: 3px;
   color: #f1fec6;
