@@ -145,6 +145,10 @@ $colour5: rgb(226, 42, 17);       // 5 */
   display: inline-block;
 }
 
+.userControlInfo {
+  background-color: green;
+}
+
 .buttons ul li a,
 .links ul li a,
 .userControl ul li a {
@@ -417,6 +421,8 @@ a {
   color: #d34f5a;
   text-decoration: none;
 }
+
+a[target='_blank']::after {content: ' \25F3';}
 
 .username {
   padding: 2px;
