@@ -624,7 +624,7 @@ img.full {
   -ms-grid-columns: 2fr 57% 2fr;
       grid-template-columns: 2fr 57% 2fr;
   -ms-grid-rows: auto auto auto;
-      grid-template-rows: auto auto auto;
+      grid-template-rows: auto minmax(2px, 1fr) auto;
       grid-template-areas: "sidebarL  header  sidebarR"  "sidebarL content sidebarR"  "sidebarL  footer  sidebarR ";
       box-shadow: 0 0 9px rgba(0, 0, 0, 0.5);
 }
