@@ -241,7 +241,7 @@ li.userControlJoin:hover, li.userControlJoin:active {
 
 .inputs {
   margin: 3px;
-  border: 1px solid rgba(29, 53, 87, 0.335);
+  border-top: 1px rgba(211, 79, 90, 0.7) dotted;
   border-radius: 7px;
   background-color: rgba(29, 53, 87, 0);
 }
