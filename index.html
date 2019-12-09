@@ -43,57 +43,56 @@
     <header class="header">
       <div class="links">
         <ul>
-          
+            <li class="userControl userControlInfo"><a href="https://instructionword.com/index.html?sid=14">guide</a></li>
           <li class="links"><a href="./bat" target="_blank">Binary Adder Tutorial</a></li>
           <li class="links"><a href="./track-iss" target="_blank">ISS Tracker</a></li>
           <li class="links"><a href="./string-manipulation" target="_blank">TEXT TOOLS</a></li>
           <li class="links"><a href="./cidr-helper" target="_blank">CIDR HELPER</a></li>
           <li class="links"><a href="./canvas-demo" target="_blank">CANVAS DEMO</a></li>
-        </ul>
-      </div>
-      <div class="userControl">
-        <ul>
-            <li class="userControl userControlInfo"><a href="https://instructionword.com/index.html?sid=14">guide</a></li>
-          <li id="logout" class="hidden userControlNormal">logout</li>
           <li id="login" class="userControlNormal">login</li>
           <li id="join" class="userControlJoin"><a href="register.php" target="_blank">join</a></li>
+          <li id="logout" class="hidden userControlNormal">logout</li>
         </ul>
       </div>
-      
+
       <div class="inputs">
         <input class="headerInputs" type="text" name="username" id="username" placeholder="username" required>
         <input class="headerInputs" type="password" name="password" id="password" placeholder="password" required>
-        <input class="headerInputs hidden" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
-          required><br>        
-        <input class="headerInputs hidden" type="text" name="description" id="snippetDescription"
-          placeholder="quick description">
+        
       </div>
-      <div class="buttons">
-        <ul>
-          <li class="hidden importantButton" id="clearCode">clear</li>
-          <li class="hidden normalButton" id="homeButton"><a href="/">back</a></li>
-          <li class="hidden saveButton" id="saveCode">save</li>
-          <li class="hidden importantButton" id="removeSnippet">delete</li>
-        </ul>
-      </div>
-      <div id="detectedLanguage"></div>
-      <div class="messages hidden" id="messages">nothing to report</div>
-      <div class="language hidden" id="language"></div>
-    </header>
-    <div class="sidebarL" id="sidebarL">
-    </div>
-    <div class="sidebarR" id="sidebarR">
-      <br>
-      <tt> - edits (click an edit to view 'in place')</tt>
-      <div id="editsList" class="editsList"></div>
-      <div class="usersSnippets hidden">your snippets</div>
-    </div>
-    <div class="content">
-      <form>
-        <textarea name="input" id="input" placeholder="Type or paste in your code..."></textarea>
-      </form>
-      <div class="output " id="output" placeholder="Waiting for input"></div>
-    </div>
+
+      <div class="inputs">
+      <input class="headerInputs hidden" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
+        required><br>
+      <input class="headerInputs hidden" type="text" name="description" id="snippetDescription"
+        placeholder="quick description">
+  </div>
+  <div class="buttons">
+    <ul>
+      <li class="hidden importantButton" id="clearCode">clear</li>
+      <li class="hidden normalButton" id="homeButton"><a href="/">back</a></li>
+      <li class="hidden saveButton" id="saveCode">save</li>
+      <li class="hidden importantButton" id="removeSnippet">delete</li>
+    </ul>
+  </div>
+  <div id="detectedLanguage"></div>
+  <div class="messages hidden" id="messages">nothing to report</div>
+  <div class="language hidden" id="language"></div>
+  </header>
+  <div class="sidebarL" id="sidebarL">
+  </div>
+  <div class="sidebarR" id="sidebarR">
+    <br>
+    <tt> - edits (click an edit to view 'in place')</tt>
+    <div id="editsList" class="editsList"></div>
+    <div class="usersSnippets hidden">your snippets</div>
+  </div>
+  <div class="content">
+    <form>
+      <textarea name="input" id="input" placeholder="Type or paste in your code..."></textarea>
+    </form>
+    <div class="output " id="output" placeholder="Waiting for input"></div>
+  </div>
 
   </div>
   <div id="bgOutput"></div>
