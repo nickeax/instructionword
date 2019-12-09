@@ -500,7 +500,7 @@ body {
 }
 
 .header {
-  background-color: #f1fec6;
+  background-color: rgba(241, 254, 198, 0.78);
   position: relative;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
@@ -516,7 +516,7 @@ body {
 .sidebarL {
   /* border-top: 3px solid #d34f5a; */
   border-left: 3px solid #d34f5a;
-  background-color: #f1fec6;
+  rgba(241, 254, 198, 0.78);
   border-top-left-radius: 25px ;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
@@ -529,7 +529,7 @@ body {
   /* border-top: 3px solid #d34f5a; */
   /* border-right: 3px solid #d34f5a; */
   border-top-right-radius: 25px;
-  background-color: rgba(29, 53, 87, 0.9);
+  background-color: rgba(29, 53, 87, 0.732);
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   -ms-grid-column: 3;
