@@ -487,17 +487,19 @@ tt {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #457b9d;
+  background: rgb(168, 168, 168);;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #d34f5a;
+  border: dotted 2px rgba(155, 4, 4, 0.26);
+  background: #ffffff;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(29, 53, 87, 0.9);
+  background: rgba(29, 53, 87, 0.191);
 }
 
 
@@ -586,20 +588,21 @@ tt {
   font-size: 0.8rem;
   font-style: arial;
   padding: .7rem;
-  border-left: 5px solid #d34f5a;
+  border-left: 5px solid #d34f5a83;
   border-radius: 15px;
   line-height: 1.4;
 }
 
 .instructions p {
-  margin-bottom: 15px;
+  margin-bottom: 2rem;
 }
 
 .instructions-subtitle{
+  font-weight: 100;
   padding: 2px;
-  border-left: solid 7px #d34f5a;
+  border-left: solid 7px #d34f5a5d;
   color: rgb(255, 255, 255);
-  background-color: rgba(185, 206, 179, 0.137);
+  background-color: #d34f5a34;
 }
 
 .footer p {
