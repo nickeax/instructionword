@@ -138,8 +138,8 @@ body {
 .links, .userControlInfo, .userControlJoin, .userControlNormal {
   display: flex;
   flex-direction: row;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: row;
+  justify-content: space-between;
 
 }
 
