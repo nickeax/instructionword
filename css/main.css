@@ -355,7 +355,7 @@ textarea::-ms-input-placeholder {
 }
 
 textarea::placeholder {
-  background-color: rgba(29, 22, 22, 0.233);
+  background-color: rgba(212, 153, 153, 0.233);
   font-size: 1rem;
   font-family: monospace;
   color: #b0bdae;
@@ -581,13 +581,25 @@ tt {
   grid-area: footer;
 }
 
-.footer .instructions {  
-  color: rgb(55, 101, 142);
+.instructions {  
+  color: rgb(214, 251, 203);
   font-size: 0.8rem;
   font-style: arial;
   padding: .7rem;
-  border-left: 5px solid rgb(55, 101, 142);
+  border-left: 5px solid #d34f5a;
   border-radius: 15px;
+  line-height: 1.4;
+}
+
+.instructions p {
+  margin-bottom: 15px;
+}
+
+.instructions-subtitle{
+  padding: 2px;
+  border-left: solid 7px #d34f5a;
+  color: rgb(255, 255, 255);
+  background-color: rgba(185, 206, 179, 0.137);
 }
 
 .footer p {
