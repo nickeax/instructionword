@@ -65,6 +65,34 @@ btnClearCode.addEventListener('click', ev => {
   snippetTitle.value = "";
   input.value = "";
   output.innerHTML = "";
+  editsList.innerHTML = `<div class="instructions">
+              <p>
+                <strong class="instructions-subtitle">STORE A NEW SNIPPET:</strong>
+                Log in and make sure you are not viewing any existing snippet. If you are viewing an existing snipper, press the 
+                <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
+                actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
+              </p>
+              <p>
+                <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
+                Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
+                Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
+      
+              </p>
+              <p>
+      
+              </p>
+              <p>
+                <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
+                Create a new snippet and give it the title of the project and a brief description. The snippet text should
+                be a
+                more
+                in depth description of the project. To add a file to the project, just add edits and paste the code for
+                each file
+                as a new edit.
+              </p>
+            </div>
+
+  `;
   clearMessages();
   showOutput();
 })

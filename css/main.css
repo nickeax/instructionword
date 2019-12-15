@@ -305,25 +305,25 @@ li.userControlJoin:hover, li.userControlJoin:active {
 input::-webkit-input-placeholder,
 input {
   font-size: 0.9rem;
-  color: #d34f5a;
+  color: #a3a3a3;
 }
 
 input:-ms-input-placeholder,
 input {
   font-size: 0.9rem;
-  color: #d34f5a;
+  color: #a3a3a3;
 }
 
 input::-ms-input-placeholder,
 input {
   font-size: 0.9rem;
-  color: #d34f5a;
+  color: #a3a3a3;
 }
 
 input::placeholder,
 input {
   font-size: 0.9rem;
-  color: #d34f5a;
+  color: #c7c6c6;
 }
 
 textarea {
