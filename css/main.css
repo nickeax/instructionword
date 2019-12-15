@@ -537,7 +537,7 @@ tt {
   /* border-top: 3px solid #d34f5a; */
   /* border-right: 3px solid #d34f5a; */
   border-top-right-radius: 25px;
-  background-color: rgba(29, 53, 87, 0.732);
+  background-color: rgba(29, 53, 87, 0.459);
   grid-row: 1;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
@@ -588,13 +588,21 @@ tt {
 }
 
 .instructions {  
-  color: rgb(214, 251, 203);
+  color: rgb(18, 32, 14);
   font-size: 0.8rem;
   font-style: arial;
   padding: .7rem;
   border-left: 5px solid #d34f5a83;
   border-radius: 15px;
   line-height: 1.4;
+}
+
+.instructions span.boxed {
+  padding: 0 5px;
+  display: inline-block;
+  border: 1px dotted #333;
+  background-color: rgba(0, 0, 0, 0.178);
+  border-radius: 5px;
 }
 
 .instructions p {

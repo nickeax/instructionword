@@ -51,7 +51,7 @@ if (isset($_POST['mode'])) {
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       break; // just here during development, to prevent accidental fall through
     case 'getSnippets':
-      if($_SESSION['id']) {
+      if ($_SESSION['id']) {
         $now = time();
         $arr = array($now, $_SESSION['id']);
         Query("UPDATE active SET stamp = ? WHERE user_id = ?", $arr);
@@ -68,6 +68,10 @@ if (isset($_POST['mode'])) {
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       echo "getSnippet" . $sym . "success" . $sym . "" . $sym . "" . $data;
       break;
+    case 'editInPlace':
+      
+    break;
+
     case 'removeSnippet':
       $arr = array($_POST['str']);
       $res = Query("SELECT user_id FROM snippets WHERE snippet_id = ?", $arr);
@@ -181,7 +185,7 @@ if (isset($_POST['mode'])) {
       // die("getUsername".$sym."success".$sym."".$_POST['str']);
       // $arr1 = explode("&",$_POST['str']); // sent from snippet information
       // $arr2 = explode("=", $arr1[1]);
-      $arr = array((int)$_POST['str']);
+      $arr = array((int) $_POST['str']);
       $res = Query("SELECT * FROM users WHERE user_id = ? LIMIT 1", $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       die("getUsername" . $sym . "success" . $sym . "recieved" . $sym . "" . $data);

@@ -134,7 +134,7 @@ function updateUI(str) {
     snippetDescription.classList.add('hidden');
     snippetTitle.classList.add('hidden');
     btnSaveCode.classList.add('hidden');
-    btnClearCode.classList.add('hidden');
+    btnClearCode.classList.remove('hidden');
     login.classList.remove('hidden');
     logout.classList.add('hidden');
     handle.classList.remove("hidden");
