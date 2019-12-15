@@ -546,6 +546,10 @@ tt {
   grid-area: sidebarR;
 }
 
+.editsUsername {
+  color: #333;
+}
+
 .sidebarL h3 {
   color: rgba(29, 53, 87, 0.9);
 }

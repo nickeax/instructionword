@@ -68,8 +68,8 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             data-snippet_edit_id = "${editsStr[i].edit_id}" 
             data-snippet_snippet_id = "${editsStr[i].snippet_id}"
             data-edit-clicked = "1">
-            ${editsStr[i].description}</strong> by 
-            ${editsStr[i].username}
+            ${editsStr[i].description}</strong> <br> by 
+            <tt class="editsUsername">${editsStr[i].username}</tt>
             </p>`;
         editsList.innerHTML += "</ul>";
       }
