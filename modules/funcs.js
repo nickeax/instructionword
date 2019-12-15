@@ -116,6 +116,7 @@ function checkServer(mode, str, cb) {
 
 function updateUI(str) {
   if (str == 'loggedIn') {
+    btnRemoveSnippet.classList.remove('hidden');
     btnSaveCode.classList.remove('hidden');
     btnClearCode.classList.remove('hidden');
     login.classList.add('hidden');
@@ -131,6 +132,7 @@ function updateUI(str) {
     logout.textContent = `logout [${theUser}]`;
   }
   if (str == 'loggedOut') {
+    btnRemoveSnippet.classList.add('hidden');
     snippetDescription.classList.add('hidden');
     snippetTitle.classList.add('hidden');
     btnSaveCode.classList.add('hidden');
