@@ -546,8 +546,8 @@ tt {
   grid-area: sidebarR;
 }
 
-.editsUsername {
-  color: #333;
+tt.editsUsername {
+  color: #666666;
 }
 
 .sidebarL h3 {
