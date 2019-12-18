@@ -50,6 +50,9 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         snippetTitle.value = "";
       }
       break;
+    case 'countOnline':
+       onlineUsers = arr[2];
+      break;
     case 'getEdits':
       let editsStr = JSON.parse(arr[3]);
       editsList.innerHTML = '<ul>';
@@ -120,7 +123,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         let str = JSON.parse(arr[3]);
         // bgOutput.innerHTML = str[0].snippet;
         let existing = sidebarL.innerHTML;
-        sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length})</tt>\n`;
+        sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length}) online(${onlineUsers})</tt>\n`;
         for (let i = 0; i < str.length; i++) {
           if (!loggedIn) {
             displayEdit = "hidden";

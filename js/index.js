@@ -1,13 +1,14 @@
 let markers = [];
 let ip = "";
 let resp = "";
+let onlineUsers = 0;
 let loggedIn = false;
 let theUser = "anon";
 let snippetOwner = "";
 let snippetID = 0;
 let editID = 0;
 let edited = false;
-let pollingInterval = 4000;
+let pollingInterval = 2000;
 var displayEdit = "hidden";
 const home = document.querySelector('#home');
 const output = document.querySelector('#output');
@@ -140,7 +141,6 @@ btnRemoveSnippet.addEventListener('click', (e) => {
 
 // USER ACCOUNT
 const logout = document.querySelector('#logout');
-console.log(logout);
 
 logout.addEventListener("click", ev => {
   displayEdit = "hidden";

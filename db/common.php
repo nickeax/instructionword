@@ -36,6 +36,29 @@ function Query($q, $args) {
     }
   }
 }
+
+function countResults($q, $args) {
+  $res = Query($q, $args);
+  return count($res->fetchAll());
+}
+
+function updateActiveVisitors() { // remove any inactive users
+  $past = time() - 30;
+  $arr = array($past);
+  // TESTED SQL VERSION [DELETE FROM active WHERE stamp < UNIX_TIMESTAMP() - 30;] 
+  Query("DELETE FROM active WHERE stamp < ?", $arr);
+ 
+  if(isset($_SESSION['id'])) {
+    $innerArr =  array($_SESSION['id']);
+    $i = 100;
+    el("[updateActiveVisitors()]");
+    if(countResults("SELECT * FROM active WHERE user_id = ?", $innerArr)  == 0) { 
+      $arr = array($_SESSION['id'], time());
+      Query("INSERT INTO active (user_id, stamp) VALUES(?, ?)", $arr);
+    }
+  }
+}
+
 function IsRegistered($username) {
   Query("select * from users where username = ?", $username);
 }

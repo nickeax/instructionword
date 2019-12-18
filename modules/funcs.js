@@ -29,6 +29,7 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
     window.setInterval(() => {
       elementActive(btnSaveCode, edited);
       checkServer('getSnippets', "", setResp);
+      checkServer('countOnline', "", setResp);
     }, pollingInterval);
   }
 }
@@ -104,6 +105,8 @@ function checkServer(mode, str, cb) {
   str = encodeURIComponent(str);
 
   params = `mode=${mode}&str=${str}&title=${title}&description=${description}&username=${snippetEditUsername}&snippetID=${snippetID}&editID=${editID}`; // build the POST query string
+  console.log(params);
+  
   const xhr = new XMLHttpRequest();
   xhr.open("POST", 'server.php', true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');

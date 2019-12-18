@@ -29,6 +29,7 @@ if (isset($_POST['mode'])) {
       if (!isset($_POST['snippetID'])) {
         $_POST['snippetID'] = 0;
       }
+      updateActiveVisitors();
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       /* Either add the snippet as new one, or create an edit entry into the snippet edits table  */
       $arr = array($_POST['snippetID']);
@@ -51,10 +52,11 @@ if (isset($_POST['mode'])) {
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       break; // just here during development, to prevent accidental fall through
     case 'getSnippets':
+      updateActiveVisitors();
       if ($_SESSION['id']) {
         $now = time();
         $arr = array($now, $_SESSION['id']);
-        Query("UPDATE active SET stamp = ? WHERE user_id = ?", $arr);
+        // Query("UPDATE active SET stamp = ? WHERE user_id = ?", $arr);
       }
       $arr = [];
       $res = Query('SELECT snippets.user_id, snippets.snippet_id, snippets.title, snippets.created, snippets.description, snippets.snippet, users.username 
@@ -63,16 +65,18 @@ if (isset($_POST['mode'])) {
       echo "getSnippets" . $sym . "success" . $sym . "" . $sym . "" . $data;
       break;
     case 'getSnippet': // JUST ONE SNIPPET
+      updateActiveVisitors();
       $arr = array($_POST['str']);
       $res = Query('SELECT user_id, snippet_id, title, created, description, snippet FROM snippets WHERE snippet_id = ?', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       echo "getSnippet" . $sym . "success" . $sym . "" . $sym . "" . $data;
       break;
     case 'editInPlace':
-      
-    break;
+
+      break;
 
     case 'removeSnippet':
+      updateActiveVisitors();
       $arr = array($_POST['str']);
       $res = Query("SELECT user_id FROM snippets WHERE snippet_id = ?", $arr);
       $data = $res->fetchAll(PDO::FETCH_OBJ);
@@ -104,6 +108,7 @@ if (isset($_POST['mode'])) {
       echo "getEdits" . $sym . "success" . $sym . "" . $sym . $data;
       break;
     case 'displayWithEdits':
+      updateActiveVisitors();
       if (!$_POST['editID']) {
         die("displayWithEdits" . $sym . "failure" . $sym . "Edit ID was not set.");
       }
@@ -135,15 +140,16 @@ if (isset($_POST['mode'])) {
           $_SESSION['id'] = $fa[0]['user_id'];
           $_SESSION['loggedIn'] = 1;
           $_SESSION['username'] = $username;
-          $now = time();
-          $arr = array($_SESSION['id'], $now);
-          Query("INSERT INTO active (user_id, stamp) VALUES(?, ?)", $arr);
+          updateActiveVisitors();
           die("login" . $sym . "success" . $sym . "You're now logged in." . $sym . "" . $username);
         }
       } else {
         die("login" . $sym . "failure" . $sym . "Please enter the required info.");
       }
-      die();
+    case 'countOnline':
+      $arr = array();
+      die("countOnline" . $sym . "success" . $sym . countResults("SELECT * FROM active", $arr));
+      break;
     case 'logout':
       $arr = array($_SESSION['id']);
       Query("DELETE FROM active where user_id = ?", $arr);
