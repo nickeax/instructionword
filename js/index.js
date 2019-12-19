@@ -2,6 +2,7 @@ let markers = [];
 let ip = "";
 let resp = "";
 let onlineUsers = 0;
+let usersArr;
 let loggedIn = false;
 let theUser = "anon";
 let snippetOwner = "";
@@ -18,7 +19,7 @@ const sidebarR = document.querySelector('#sidebarR');
 // MESSAGES
 const chatInput = document.querySelector('#chatInput');
 const sendMessage = document.querySelector('#sendMessage');
-const chatOutput =  document.querySelector('#chatOutput');
+const chatOutput = document.querySelector('#chatOutput');
 
 const editsList = document.querySelector('#editsList');
 const language = document.querySelector('#language');
@@ -61,7 +62,7 @@ btnSaveCode.classList.add('hidden');
 
 // CLEAR CODE BUTTON
 const btnClearCode = document.querySelector('#clearCode');
-btnClearCode.addEventListener('click', ev => {  
+btnClearCode.addEventListener('click', ev => {
   snippetID = null;
   checkServer('getChatMessages', "", setResp);
   edited = false;

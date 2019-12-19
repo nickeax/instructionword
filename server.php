@@ -51,6 +51,17 @@ if (isset($_POST['mode'])) {
       }
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       break; // just here during development, to prevent accidental fall through
+    case 'getMemberList':
+      $arr = array();
+      $res = Query("SELECT active.user_id, users.username FROM active INNER JOIN users ON active.user_id = users.user_id", $arr);
+      $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
+      if(!$data) {
+        echo "getSnippets" . $sym . "failure" . $sym . "" . $sym . "" . $data;
+      } else {
+        el($data);
+        echo "getSnippets" . $sym . "success" . $sym . "" . $sym . "" . $data;
+      }
+      break;
     case 'getSnippets':
       updateActiveVisitors(getClientIP());
       if ($_SESSION['id']) {
@@ -121,15 +132,15 @@ if (isset($_POST['mode'])) {
       die("displayWithEdits" . $sym . "success" . $sym . "" . $sym . $data);
       break;
     case 'sendMessage':
-      if(isset($_POST['str']) && isset($_SESSION['id'])) {
+      if (isset($_POST['str']) && isset($_SESSION['id'])) {
         $mess = filter_input(INPUT_POST, 'str', FILTER_SANITIZE_SPECIAL_CHARS);
         $sid = filter_input(INPUT_POST, 'snippetID', FILTER_SANITIZE_SPECIAL_CHARS);
         $arr = array($sid, $_SESSION['id'], $mess, time());
         Query("INSERT INTO messages (snippet_id, user_id, message, timestamp) values (?, ?, ?, ?)", $arr);
       } else {
-        die("sendMessage" .$sym. "failure" .$sym. "The message was invalid.");
+        die("sendMessage" . $sym . "failure" . $sym . "The message was invalid.");
       }
-    break;
+      break;
     case 'getChatMessages':
       $arr = array($_POST['snippetID']);
       $res = Query("SELECT messages.message, messages.timestamp, users.username FROM messages INNER JOIN users ON messages.user_id = users.user_id WHERE messages.snippet_id = ?", $arr);
@@ -137,7 +148,7 @@ if (isset($_POST['mode'])) {
       // $serial = implode("", $data);
       $data = json_encode($data);
       die("getChatMessages" . $sym . "success" . $sym . "" . $sym . $data);
-    break;
+      break;
     case 'login':
       $subArr = explode("&", $_POST['str']);
       $usernameSub = explode("=", $subArr[0]);

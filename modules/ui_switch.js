@@ -54,6 +54,10 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       if (arr[1] == 'failure') {
         messages.innerHTML = arr[2];
       }
+    case 'getMemberList':
+      usersArr = arr[4].split(' ');
+      console.log(`Got an array of ${usersArr.length}`);
+      break;
     case 'countOnline':
       onlineUsers = arr[2];
       break;
@@ -144,8 +148,12 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       if (arr[1] == 'success') {
         let str = JSON.parse(arr[3]);
         // bgOutput.innerHTML = str[0].snippet;
-        let existing = sidebarL.innerHTML;
-        sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length}) online(${onlineUsers})</tt>\n`;
+        sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length}) online(${onlineUsers})</tt><br />`;
+        if (usersArr.length > 0) {
+          usersArr.forEach(x => {
+            sidebarL.innerHTML += `${x} blah blah `;
+          })
+        }
         for (let i = 0; i < str.length; i++) {
           if (!loggedIn) {
             displayEdit = "hidden";

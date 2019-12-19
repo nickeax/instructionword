@@ -30,6 +30,8 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
       elementActive(btnSaveCode, edited);
       checkServer('getSnippets', "", setResp);
       checkServer('countOnline', "", setResp);
+      // checkServer('getMemberList', "", setResp);
+      
       if(snippetID >= 0) {        
         checkServer('getChatMessages', "", setResp);
       };
@@ -111,7 +113,7 @@ function checkServer(mode, str, cb) {
   str = encodeURIComponent(str);
 
   params = `mode=${mode}&str=${str}&title=${title}&description=${description}&username=${snippetEditUsername}&snippetID=${snippetID}&editID=${editID}`; // build the POST query string
-  console.log(params);
+  // console.log(params);
   
   const xhr = new XMLHttpRequest();
   xhr.open("POST", 'server.php', true);
