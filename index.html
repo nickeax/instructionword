@@ -65,13 +65,14 @@
         <input class="headerInputs" type="password" name="password" id="password" placeholder="password" required>
 
       </div>
-
-      <div class="inputs">
-        <input class="headerInputs hidden" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
-          required><br>
-        <input class="headerInputs hidden" type="text" name="description" id="snippetDescription"
-          placeholder="quick description">
-      </div>
+      <form action="#"  autocomplete="off">
+        <div class="inputs">
+          <input class="headerInputs hidden" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
+            required><br>
+          <input class="headerInputs hidden" type="text" name="description" id="snippetDescription"
+            placeholder="quick description">
+        </div>
+      </form>
       <div class="buttons">
         <ul>
           <li class="hidden importantButton" id="clearCode">clear</li>
@@ -89,63 +90,61 @@
     </div>
 
     <div class="sidebarR" id="sidebarR">
-      <br>
-      <tt> - edits (click an edit to view 'in place')</tt>
+      
       <div id="editsList" class="editsList">
-          <div class="instructions">
-              <p>
-                <strong class="instructions-subtitle">STORE A NEW SNIPPET:</strong>
-                Log in and make sure you are not viewing any existing snippet. If you are viewing an existing snipper, press the 
-                <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
-                actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
-              </p>
-              <p>
-                <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
-                Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
-                Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
-      
-              </p>
-              <p>
-      
-              </p>
-              <p>
-                <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
-                Create a new snippet and give it the title of the project and a brief description. The snippet text should
-                be a
-                more
-                in depth description of the project. To add a file to the project, just add edits and paste the code for
-                each file
-                as a new edit.
-              </p>
-            </div>
+        <div class="instructions">
+          <p>
+            <strong class="instructions-subtitle">STORE A NEW SNIPPET:</strong>
+            Log in and make sure you are not viewing any existing snippet. If you are viewing an existing snipper, press
+            the
+            <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
+            actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
+          </p>
+          <p>
+            <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
+            Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
+            Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
 
+          </p>
+          <p>
+
+          </p>
+          <p>
+            <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
+            Create a new snippet and give it the title of the project and a brief description. The snippet text should
+            be a
+            more
+            in depth description of the project. To add a file to the project, just add edits and paste the code for
+            each file
+            as a new edit.
+          </p>
+        </div>
       </div>
+      <h3>snippet discussion</h3>
+      <div id="chatOutput">
+      </div>
+      <form action="#" id="chatForm" autocomplete="off">
+        <div class="form-group">
+          <div class="chat"></div>
+          <input type="text" name="chatInput" id="chatInput" placeholder="Enter your message">
+          <button id="sendMessage">send</button>
+        </div>
+      </form>
       <div class="usersSnippets hidden">your snippets</div>
     </div>
 
     <div class="content">
-        
+
       <form>
         <textarea name="input" id="input" placeholder="
-        Paste or type your code here...
-
-
-
-
-
-
-
-        
-
-        (further instructios below)
-        "></textarea>
+        Paste or type your code here..."></textarea>
       </form>
       <div class="output " id="output" placeholder="Waiting for input"></div>
     </div>
 
     <div id="bgOutput"></div>
     <div class="footer">
-      
+
     </div>
   </div>
 

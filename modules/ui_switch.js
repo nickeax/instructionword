@@ -50,8 +50,12 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         snippetTitle.value = "";
       }
       break;
+    case 'sendMessage':
+      if (arr[1] == 'failure') {
+        messages.innerHTML = arr[2];
+      }
     case 'countOnline':
-       onlineUsers = arr[2];
+      onlineUsers = arr[2];
       break;
     case 'getEdits':
       let editsStr = JSON.parse(arr[3]);
@@ -62,6 +66,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         editsList.classList.remove('editsList');
       } else {
         editsList.innerHTML = "";
+        editsList.innerHTML = '<tt>click an edit to switch to it</tt><hr>';
         editsList.classList.add('editsList');
         editsList.classList.remove('noEdits');
       }
@@ -75,6 +80,23 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             </p>`;
         editsList.innerHTML += "</ul>";
       }
+      break;
+    case 'getChatMessages':
+      chatOutput.innerHTML = "";
+      if (arr[1] == "success") {
+        chatMessages = JSON.parse(arr[3]);
+      }
+      chatMessages.forEach(x => {
+        let d = new Date(parseInt(x.timestamp) * 1000);
+        let monthDay = d.getDate();
+        let month = d.getMonth();
+        let h = d.getHours();
+        let m = d.getMinutes();
+        let disp = `${h}:${m}`;
+        chatOutput.innerHTML += `<p class="chatMessage"><span class="chatTime">${disp}</span> <span class="chatUsername">${x.username}</span>: ${x.message}</p>`;
+      });
+      chatOutput.scrollTop = chatOutput.scrollHeight;
+      break;
     case 'removeSnippet':
       // messages.classList.add('hidden');
       if (arr[1] != "success") {

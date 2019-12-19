@@ -121,6 +121,24 @@ if (isset($_POST['mode'])) {
       }
       die("displayWithEdits" . $sym . "success" . $sym . "" . $sym . $data);
       break;
+    case 'sendMessage':
+      if(isset($_POST['str']) && isset($_SESSION['id'])) {
+        $mess = filter_input(INPUT_POST, 'str', FILTER_SANITIZE_SPECIAL_CHARS);
+        $sid = filter_input(INPUT_POST, 'snippetID', FILTER_SANITIZE_SPECIAL_CHARS);
+        $arr = array($sid, $_SESSION['id'], $mess, time());
+        Query("INSERT INTO messages (snippet_id, user_id, message, timestamp) values (?, ?, ?, ?)", $arr);
+      } else {
+        die("sendMessage" .$sym. "failure" .$sym. "The message was invalid.");
+      }
+    break;
+    case 'getChatMessages':
+      $arr = array($_POST['snippetID']);
+      $res = Query("SELECT messages.message, messages.timestamp, users.username FROM messages INNER JOIN users ON messages.user_id = users.user_id WHERE messages.snippet_id = ?", $arr);
+      $data = $res->fetchAll(PDO::FETCH_OBJ);
+      // $serial = implode("", $data);
+      $data = json_encode($data);
+      die("getChatMessages" . $sym . "success" . $sym . "" . $sym . $data);
+    break;
     case 'login':
       $subArr = explode("&", $_POST['str']);
       $usernameSub = explode("=", $subArr[0]);

@@ -51,7 +51,6 @@ function updateActiveVisitors() { // remove any inactive users
   if(isset($_SESSION['id'])) {
     $innerArr =  array($_SESSION['id']);
     $i = 100;
-    el("[updateActiveVisitors()]");
     if(countResults("SELECT * FROM active WHERE user_id = ?", $innerArr)  == 0) { 
       $arr = array($_SESSION['id'], time());
       Query("INSERT INTO active (user_id, stamp) VALUES(?, ?)", $arr);

@@ -413,7 +413,7 @@ h3.usersSnippets {
 
 .snippetTitle:hover, .username:hover {
   cursor: pointer;
-  color: #f1fec6;
+  color: #0b329c;
   -webkit-transition: color .2s ease-out;
   transition: color .2s ease-out;
 }
@@ -545,6 +545,45 @@ tt {
   grid-column: 3;
   grid-area: sidebarR;
 }
+#sendMessage {
+  display: none;
+}
+
+#chatOutput {
+  text-align: left;
+  width: 100%;
+  height: 10rem;
+  overflow-y: scroll;
+  background-color: #111;
+}
+
+.chatMessage {
+  color: rgb(35, 204, 68);
+  font-size: 0.6rem;
+  font-family: monospace;
+  margin-bottom: 2px;
+}
+
+.chatMessage .chatUsername {
+  color: rgb(224, 141, 6);
+}
+
+.chatMessage .chatTime {
+  font-size: 0.5rem;
+  color: rgba(212, 153, 153, 0.712);
+}
+
+#chatInput {
+  outline-style: none;
+  padding: 2px;
+  background-color: #111;
+  width: 100%;
+  color: rgb(35, 204, 68);
+}
+
+#chatInput::placeholder {
+  color: #d34f5a;
+}
 
 tt.editsUsername {
   color: #666666;
@@ -559,6 +598,7 @@ tt.editsUsername {
 }
 
 .editsList {
+  margin-bottom: 2rem;
   text-align: left;
 }
 
@@ -661,7 +701,7 @@ img.full {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   -ms-grid-columns: 2fr 57% 2fr;
-      grid-template-columns: 2fr 57% 2fr;
+      grid-template-columns: 1.5fr 50% 2fr;
   -ms-grid-rows: auto auto auto;
       grid-template-rows: auto minmax(2px, 1fr) auto;
       grid-template-areas: "sidebarL  header  sidebarR"  "sidebarL content sidebarR"  "sidebarL  footer  sidebarR ";
@@ -764,7 +804,7 @@ textarea {
         grid-template-rows: 300px auto auto;
         grid-template-areas: "header"  "sidebarR" "content"  "sidebarL";
   }
-  .leftLogo {
+  .leftLogo, .instructions {
     display: none;
   }
   .output {
@@ -795,10 +835,9 @@ textarea {
     background-color: rgba(121, 173, 220, 0.8);
   }
   #logout {
-    color: rgba(29, 53, 87, 0.9);
+    color: rgba(229, 234, 241, 0.9);
     position: absolute;
-    right: 0%;
-    top: -60px;
+    left: 15%;
     z-index: 10;
   }
   #username, #password {
@@ -842,6 +881,12 @@ textarea {
   input::placeholder, input {
     font-size: 1rem;
     color: #f1fec6;
+  }
+  #sendMessage {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    display: flex;
   }
 }
 

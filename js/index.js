@@ -15,8 +15,13 @@ const output = document.querySelector('#output');
 const bgOutput = document.querySelector('#bgOutput');
 const sidebarL = document.querySelector('#sidebarL');
 const sidebarR = document.querySelector('#sidebarR');
+// MESSAGES
+const chatInput = document.querySelector('#chatInput');
+const sendMessage = document.querySelector('#sendMessage');
+const chatOutput =  document.querySelector('#chatOutput');
+
 const editsList = document.querySelector('#editsList');
-const language = document.querySelector('#language'); 
+const language = document.querySelector('#language');
 const detectedLanguage = document.querySelector('#detectedLanguage');
 const snippetSideBarTitle = document.querySelector('#snippetSideBarTitle');
 const snippetTitle = document.querySelector('#snippetTitle');
@@ -35,9 +40,6 @@ input.addEventListener('keyup', keyPress);
 sidebarL.innerHTML = `<h2>snippets loading...</h2><div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>`;
 let col = "";
 col = ['#cceecc', '#eeccee', '#ccccee', '#eeeeccc'];
-
-// MESSAGES
-const messages = document.querySelector('#messages');
 
 checkServer('isLoggedIn', "", setResp);
 
@@ -59,8 +61,9 @@ btnSaveCode.classList.add('hidden');
 
 // CLEAR CODE BUTTON
 const btnClearCode = document.querySelector('#clearCode');
-btnClearCode.addEventListener('click', ev => {
+btnClearCode.addEventListener('click', ev => {  
   snippetID = null;
+  checkServer('getChatMessages', "", setResp);
   edited = false;
   snippetDescription.value = "";
   snippetTitle.value = "";
@@ -122,6 +125,13 @@ sidebarR.addEventListener('click', (e) => {
   }
   else {
     console.log("Didn't send request for displayWithEdits.");
+  }
+})
+sendMessage.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (chatInput.value !== null && snippetID !== null) {
+    checkServer('sendMessage', chatInput.value, setResp);
+    chatInput.value = "";
   }
 })
 

@@ -30,6 +30,9 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
       elementActive(btnSaveCode, edited);
       checkServer('getSnippets', "", setResp);
       checkServer('countOnline', "", setResp);
+      if(snippetID >= 0) {        
+        checkServer('getChatMessages', "", setResp);
+      };
     }, pollingInterval);
   }
 }
@@ -85,6 +88,9 @@ function checkServer(mode, str, cb) {
   let title = "";
   let description = "";
   let params = "";
+  if(snippetID === null) {
+    snippetID = -1;
+  }
   if (snippetTitle.value != "") {
     st = snippetTitle.value;
     title = encodeURIComponent(st);
@@ -119,6 +125,7 @@ function checkServer(mode, str, cb) {
 
 function updateUI(str) {
   if (str == 'loggedIn') {
+    sendMessage.disabled = false;
     btnRemoveSnippet.classList.remove('hidden');
     btnSaveCode.classList.remove('hidden');
     btnClearCode.classList.remove('hidden');
@@ -135,6 +142,7 @@ function updateUI(str) {
     logout.textContent = `logout [${theUser}]`;
   }
   if (str == 'loggedOut') {
+    sendMessage.disabled = true;
     btnRemoveSnippet.classList.add('hidden');
     snippetDescription.classList.add('hidden');
     snippetTitle.classList.add('hidden');
