@@ -9,7 +9,7 @@ let snippetOwner = "";
 let snippetID = 0;
 let editID = 0;
 let edited = false;
-let pollingInterval = 2000;
+let pollingInterval = 1500;
 var displayEdit = "hidden";
 const home = document.querySelector('#home');
 const output = document.querySelector('#output');
@@ -29,6 +29,11 @@ const snippetTitle = document.querySelector('#snippetTitle');
 const snippetDescription = document.querySelector('#snippetDescription');
 const handle = document.querySelector('#username');
 const password = document.querySelector('#password');
+const guide = document.querySelector('#guide');
+const modal = document.querySelector('#instructionsModal');
+const close = document.querySelector('#close');
+console.log(modal);
+
 
 let snippetEditSnippetID;
 let snippetEditUsername;
@@ -37,6 +42,19 @@ let snippetEditTitle;
 // INPUT
 const input = document.querySelector('#input');
 input.addEventListener('keyup', keyPress);
+close.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.style.display = "none";
+});
+
+guide.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.style.display = "block";
+});
+
+modal.addEventListener('click', (e) => {
+  modal.style.display = "none";
+})
 
 sidebarL.innerHTML = `<h2>snippets loading...</h2><div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>`;
 let col = "";
@@ -70,34 +88,7 @@ btnClearCode.addEventListener('click', ev => {
   snippetTitle.value = "";
   input.value = "";
   output.innerHTML = "";
-  editsList.innerHTML = `<div class="instructions">
-              <p>
-                <strong class="instructions-subtitle">STORE A NEW SNIPPET:</strong>
-                Log in and make sure you are not viewing any existing snippet. If you are viewing an existing snipper, press the 
-                <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
-                actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
-              </p>
-              <p>
-                <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
-                Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
-                Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
-      
-              </p>
-              <p>
-      
-              </p>
-              <p>
-                <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
-                Create a new snippet and give it the title of the project and a brief description. The snippet text should
-                be a
-                more
-                in depth description of the project. To add a file to the project, just add edits and paste the code for
-                each file
-                as a new edit.
-              </p>
-            </div>
-
-  `;
+  editsList.innerHTML = ``;
   clearMessages();
   showOutput();
 })

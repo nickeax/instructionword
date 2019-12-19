@@ -145,24 +145,19 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       showOutput();
       break;
     case 'getSnippets':
+      let content = "";
       if (arr[1] == 'success') {
         let str = JSON.parse(arr[3]);
         // bgOutput.innerHTML = str[0].snippet;
-        sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length}) online(${onlineUsers})</tt><br />`;
-        
+        sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length}) online(${onlineUsers})</tt>`;
         if (usersArr.length > 0) {
           for(let i = 0; i < usersArr.length; i++) {
-            console.log(`${usersArr[i].username} `);            
-            sidebarL.innerHTML += `
-            
-            <div class="loggedInMembers">
-            ${usersArr[i].username} 
-            </div>
-            
-            `;
-            if(i > 0) sidebarL.innerHTML += ', ';
+            if(i > 0) content += ', ';
+            content += `${usersArr[i].username}`;
           }
-        }
+        } else { content = "no one is logged in";}
+        sidebarL.innerHTML += `<div class="loggedInMembers">${content}</div>`;
+        
         for (let i = 0; i < str.length; i++) {
           if (!loggedIn) {
             displayEdit = "hidden";
@@ -185,12 +180,11 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
           </span>
           <span class = "share" id="share_snippet">
             <a href=index.html?sid=${str[i].snippet_id}>SHARE</span></a>
-          <strong class="snippetTitle id="snippetSideBarTitle" data-snippet_snippet_id = "${str[i].snippet_id}" >${str[i].title}</strong> by 
-          <span id = "listed_snippet" class = "username">${str[i].username}</span>
+          <strong class="snippetTitle id="snippetSideBarTitle" data-snippet_snippet_id = "${str[i].snippet_id}" >${str[i].title}</strong> 
           <br>
             <em>${str[i].description}</em>
-            <span id="timestamp" class = "username">${hoursMinutes}-${monthDay + 1}/${month + 1}</span>
-              
+            <span id="timestamp" class = "username">${hoursMinutes}-${monthDay + 1}/${month + 1}</span> by 
+            <span id = "listed_snippet" class = "username">${str[i].username}</span>
             </div>`;
         }
         sidebarL.innerHTML += "\n";

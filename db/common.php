@@ -50,7 +50,7 @@ function countResults($q, $args)
 function updateActiveVisitors($ip)
 { // remove any inactive users
   $ip = (string) $ip;
-  $past = time() - 5;
+  $past = time() - 25;
   $arr = array($past);
   // TESTED SQL VERSION [DELETE FROM active WHERE stamp < UNIX_TIMESTAMP() - 30;] 
 

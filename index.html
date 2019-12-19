@@ -44,7 +44,7 @@
     <header class="header">
       <div class="links">
         <ul class="shadowButtons">
-          <li class="userControl userControlInfo"><a href="https://instructionword.com/index.html?sid=14">guide</a></li>
+          <li id="guide" class="userControl userControlInfo"><a href="#">guide</a></li>
           <li id="login" class="userControlNormal">login</li>
           <li id="join" class="userControlJoin"><a href="register.php" target="_blank">join</a></li>
           <li id="logout" class="hidden userControlNormal">logout</li>
@@ -92,33 +92,7 @@
     <div class="sidebarR" id="sidebarR">
       
       <div id="editsList" class="editsList">
-        <div class="instructions">
-          <p>
-            <strong class="instructions-subtitle">STORE A NEW SNIPPET:</strong>
-            Log in and make sure you are not viewing any existing snippet. If you are viewing an existing snipper, press
-            the
-            <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
-            actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
-          </p>
-          <p>
-            <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
-            Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
-            Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
-
-          </p>
-          <p>
-
-          </p>
-          <p>
-            <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
-            Create a new snippet and give it the title of the project and a brief description. The snippet text should
-            be a
-            more
-            in depth description of the project. To add a file to the project, just add edits and paste the code for
-            each file
-            as a new edit.
-          </p>
-        </div>
+        
       </div>
       <h3>snippet discussion</h3>
       <div id="chatOutput">
@@ -148,12 +122,47 @@
     </div>
   </div>
 
+  <div id ="instructionsModal" class="instructionsModal">
+    
+    <div class="instructionsModal-Content">
 
-  <script src="modules/funcs.js"></script>
-  <script src="modules/buildmarkers.js"></script>
-  <script src="modules/ui_switch.js"></script>
-  <script src="modules/vars.js"></script>
-  <script src="js/index.js"></script>
+      <div class="instructions">
+        <span id="close">&times;</span>
+        <h4 class="instructions-subtitle">HOWTO</h4>
+        <p></p>
+        <p>
+          <strong class="instructions-subtitle">STORE A NEW SNIPPET:</strong>
+          Log in and make sure you are not viewing any existing snippet. If you are viewing an existing snipper, press
+          the
+          <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
+          actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
+        </p>
+        <p>
+          <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
+          Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
+          Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
+  
+        </p>
+        <p>
+  
+        </p>
+        <p>
+          <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
+          Create a new snippet and give it the title of the project and a brief description. The snippet text should
+          be a
+          more
+          in depth description of the project. To add a file to the project, just add edits and paste the code for
+          each file
+          as a new edit.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script defer src="modules/funcs.js"></script>
+  <script defer src="modules/buildmarkers.js"></script>
+  <script defer src="modules/ui_switch.js"></script>
+  <script defer src="modules/vars.js"></script>
+  <script defer src="js/index.js"></script>
 </body>
 
 </html>

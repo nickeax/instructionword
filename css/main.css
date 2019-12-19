@@ -57,6 +57,70 @@ body {
   background-color: #fff;
 }
 
+.instructionsModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.733);
+  z-index: 666;
+  transition: all 0.4s ease-in-out;
+}
+
+.instructionsModal-Content {
+  position: relative;
+  width: 60%;
+  padding-top: 2rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border-radius: 15px;
+  background-color: rgba(187, 183, 183, 0.911);
+}
+
+.instructions { 
+  font-family: Arial, Helvetica, sans-serif; 
+  color: rgb(18, 32, 14);
+  font-size: 1.3rem;
+  font-style: arial;
+  padding: .7rem;
+  border-radius: 15px;
+  line-height: 1.4;
+}
+
+.instructions span.boxed {
+  padding: 0 5px;
+  display: inline-blo7k;
+
+  border: lpx solid  dotted #333;
+  background-color: rgba(0, 0, 0, 0.178);
+  border-radius: 5px;
+}
+
+.instructions p {
+  margin-bottom: 2rem;
+}
+
+.instructions-subtitle{
+  font-weight: 100;
+  padding: 2px;
+  border-left: solid 7px #d34f5a5d;
+  color: rgb(255, 255, 255);
+  background-color: #d34f5a34;
+}
+
+.instructionsModal-Content #close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 2rem;
+}
+
+.instructionsModal-Content #close:hover {
+  cursor: pointer;
+}
+
 .spinner {
   width: 40px;
   height: 40px;
@@ -262,7 +326,7 @@ li.userControlJoin:hover, li.userControlJoin:active {
 
 .inputs {
   margin: 3px;
-  border-top: 1px rgba(211, 79, 90, 0.7) dotted;
+  border-top: lpx solid  rgba(211, 79, 90, 0.7) dotted;
   border-radius: 7px;
   background-color: rgba(29, 53, 87, 0);
 }
@@ -273,8 +337,9 @@ li.userControlJoin:hover, li.userControlJoin:active {
 
 .inputs input[type="text"],
 .inputs input[type="password"] {
-  border-style: none;
-  border: 1px solid #d34f5a;
+  border-style: no7e;
+
+  border: lpx solid  solid #d34f5a;
   opacity: 0.8;
   background-color: rgba(0, 0, 0, 0);
   color: rgba(29, 53, 87, 0.9);
@@ -395,8 +460,19 @@ textarea::placeholder {
 /* leftPanel */
 
 .loggedInMembers {
-  background-color: #333;
-  color: green;
+  color: rgb(6, 172, 6);
+  background-color: rgba(7, 6, 6, 0.746);
+  padding: 5px;
+  text-align: left;
+  min-height: 50px;
+  border: 2px solid rgba(195, 195, 195, 0.431);
+  border-radius: 3px;
+  box-shadow: 0 5px 10 rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+}
+
+.loggedInMembers .memberName {
+  background-color: #666;
 }
 
 tt.snippetsHeading {
@@ -636,36 +712,6 @@ tt {
   -ms-grid-column: 2;
   grid-column: 2;
   grid-area: footer;
-}
-
-.instructions {  
-  color: rgb(18, 32, 14);
-  font-size: 0.8rem;
-  font-style: arial;
-  padding: .7rem;
-  border-left: 5px solid #d34f5a83;
-  border-radius: 15px;
-  line-height: 1.4;
-}
-
-.instructions span.boxed {
-  padding: 0 5px;
-  display: inline-block;
-  border: 1px dotted #333;
-  background-color: rgba(0, 0, 0, 0.178);
-  border-radius: 5px;
-}
-
-.instructions p {
-  margin-bottom: 2rem;
-}
-
-.instructions-subtitle{
-  font-weight: 100;
-  padding: 2px;
-  border-left: solid 7px #d34f5a5d;
-  color: rgb(255, 255, 255);
-  background-color: #d34f5a34;
 }
 
 .footer p {
