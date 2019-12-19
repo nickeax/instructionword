@@ -2,7 +2,7 @@ let markers = [];
 let ip = "";
 let resp = "";
 let onlineUsers = 0;
-let usersArr;
+let usersArr = [];
 let loggedIn = false;
 let theUser = "anon";
 let snippetOwner = "";

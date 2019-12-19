@@ -56,10 +56,10 @@ if (isset($_POST['mode'])) {
       $res = Query("SELECT active.user_id, users.username FROM active INNER JOIN users ON active.user_id = users.user_id", $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
       if(!$data) {
-        echo "getSnippets" . $sym . "failure" . $sym . "" . $sym . "" . $data;
+        echo "getMemberList" . $sym . "failure" . $sym . "" . $sym . "" . $data;
       } else {
-        el($data);
-        echo "getSnippets" . $sym . "success" . $sym . "" . $sym . "" . $data;
+        el("THE DATA:".$data);
+        echo "getMemberList" . $sym . "success" . $sym . "" . $sym . "" . $data;
       }
       break;
     case 'getSnippets':

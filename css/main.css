@@ -392,6 +392,13 @@ textarea::placeholder {
   background-color: #000;
 }
 
+/* leftPanel */
+
+.loggedInMembers {
+  background-color: #333;
+  color: green;
+}
+
 tt.snippetsHeading {
   display: block;
   color: rgba(29, 53, 87, 0.9);
@@ -420,6 +427,10 @@ h3.usersSnippets {
 
 .availableSnippets em {
   color: rgba(29, 53, 87, 0.9);
+}
+
+.left {
+  text-align: left;
 }
 
 .view, .edit, .share {

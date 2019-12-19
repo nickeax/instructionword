@@ -1,3 +1,4 @@
+
 function setResp(str) { // Process any UI changes here, certain that RESPONSE is ready.
   let arr = str.split('|||');
   // elementActive(btnSaveCode, true);
@@ -55,8 +56,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         messages.innerHTML = arr[2];
       }
     case 'getMemberList':
-      usersArr = arr[4].split(' ');
-      console.log(`Got an array of ${usersArr.length}`);
+      usersArr = JSON.parse(arr[3]);
       break;
     case 'countOnline':
       onlineUsers = arr[2];
@@ -149,10 +149,19 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         let str = JSON.parse(arr[3]);
         // bgOutput.innerHTML = str[0].snippet;
         sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length}) online(${onlineUsers})</tt><br />`;
+        
         if (usersArr.length > 0) {
-          usersArr.forEach(x => {
-            sidebarL.innerHTML += `${x} blah blah `;
-          })
+          for(let i = 0; i < usersArr.length; i++) {
+            console.log(`${usersArr[i].username} `);            
+            sidebarL.innerHTML += `
+            
+            <div class="loggedInMembers">
+            ${usersArr[i].username} 
+            </div>
+            
+            `;
+            if(i > 0) sidebarL.innerHTML += ', ';
+          }
         }
         for (let i = 0; i < str.length; i++) {
           if (!loggedIn) {

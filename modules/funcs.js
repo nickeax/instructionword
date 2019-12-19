@@ -27,10 +27,10 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
     checkServer('getEdits', si, setResp);
   } else {
     window.setInterval(() => {
+      checkServer('getMemberList', "", setResp);
       elementActive(btnSaveCode, edited);
       checkServer('getSnippets', "", setResp);
       checkServer('countOnline', "", setResp);
-      // checkServer('getMemberList', "", setResp);
       
       if(snippetID >= 0) {        
         checkServer('getChatMessages', "", setResp);
