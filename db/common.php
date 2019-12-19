@@ -67,7 +67,7 @@ function updateActiveVisitors($ip)
   } else {
     $innerArr = array($ip);
     if (countResults("SELECT * FROM active WHERE ip = ?", $innerArr)  == 0) {
-      $arr = array(-1, $ip[0], time());
+      $arr = array(-1, $ip, time());
       Query("INSERT INTO active (user_id, ip, stamp) VALUES(?, ?, ?)", $arr);
     }      //ip from share internet
   }
