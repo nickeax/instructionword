@@ -29,7 +29,7 @@ if (isset($_POST['mode'])) {
       if (!isset($_POST['snippetID'])) {
         $_POST['snippetID'] = 0;
       }
-      updateActiveVisitors(getUserIpAddr());
+      updateActiveVisitors(getClientIP());
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       /* Either add the snippet as new one, or create an edit entry into the snippet edits table  */
       $arr = array($_POST['snippetID']);
@@ -52,7 +52,7 @@ if (isset($_POST['mode'])) {
       // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
       break; // just here during development, to prevent accidental fall through
     case 'getSnippets':
-      updateActiveVisitors(getUserIpAddr());
+      updateActiveVisitors(getClientIP());
       if ($_SESSION['id']) {
         $now = time();
         $arr = array($now, $_SESSION['id']);
@@ -65,7 +65,7 @@ if (isset($_POST['mode'])) {
       echo "getSnippets" . $sym . "success" . $sym . "" . $sym . "" . $data;
       break;
     case 'getSnippet': // JUST ONE SNIPPET
-      updateActiveVisitors(getUserIpAddr());
+      updateActiveVisitors(getClientIP());
       $arr = array($_POST['str']);
       $res = Query('SELECT user_id, snippet_id, title, created, description, snippet FROM snippets WHERE snippet_id = ?', $arr);
       $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
@@ -76,7 +76,7 @@ if (isset($_POST['mode'])) {
       break;
 
     case 'removeSnippet':
-      updateActiveVisitors(getUserIpAddr());
+      updateActiveVisitors(getClientIP());
       $arr = array($_POST['str']);
       $res = Query("SELECT user_id FROM snippets WHERE snippet_id = ?", $arr);
       $data = $res->fetchAll(PDO::FETCH_OBJ);
@@ -107,7 +107,7 @@ if (isset($_POST['mode'])) {
       echo "getEdits" . $sym . "success" . $sym . "" . $sym . $data;
       break;
     case 'displayWithEdits':
-      updateActiveVisitors(getUserIpAddr());
+      updateActiveVisitors(getClientIP());
       if (!$_POST['editID']) {
         die("displayWithEdits" . $sym . "failure" . $sym . "Edit ID was not set.");
       }
@@ -157,7 +157,7 @@ if (isset($_POST['mode'])) {
           $_SESSION['id'] = $fa[0]['user_id'];
           $_SESSION['loggedIn'] = 1;
           $_SESSION['username'] = $username;
-          updateActiveVisitors(getUserIpAddr());
+          updateActiveVisitors(getClientIP());
           die("login" . $sym . "success" . $sym . "You're now logged in." . $sym . "" . $username);
         }
       } else {

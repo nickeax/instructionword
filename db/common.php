@@ -50,6 +50,7 @@ function countResults($q, $args)
 
 function updateActiveVisitors($ip)
 { // remove any inactive users
+  $ip = (string) $ip;
   $past = time() - 5;
   $arr = array($past);
   // TESTED SQL VERSION [DELETE FROM active WHERE stamp < UNIX_TIMESTAMP() - 30;] 
@@ -77,16 +78,26 @@ function IsRegistered($username)
   Query("select * from users where username = ?", $username);
 }
 
-function getUserIpAddr()
-{
-  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    //ip from share internet
-    $ip = $_SERVER['HTTP_CLIENT_IP'];
-  } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    //ip pass from proxy
-    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-  } else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-  }
+// function getUserIpAddr()
+// {
+//   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+//     //ip from share internet
+//     $ip = $_SERVER['HTTP_CLIENT_IP'];
+//   } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+//     //ip pass from proxy
+//     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+//   } else {
+//     $ip = $_SERVER['REMOTE_ADDR'];
+//   }
+//   return $ip;
+// }
+
+function getClientIP() {
+  $ip = (string)getenv('HTTP_CLIENT_IP') ?:
+    getenv('HTTP_X_FORWARDED_FOR') ?:
+    getenv('HTTP_X_FORWARDED') ?:
+    getenv('HTTP_FORWARDED_FOR') ?:
+    getenv('HTTP_FORWARDED') ?:
+    getenv('REMOTE_ADDR');
   return $ip;
 }
