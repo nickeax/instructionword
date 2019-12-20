@@ -15,6 +15,9 @@
   opacity: 0.8;
 }
 
+#detectedLanguage {
+  margin-left: $paddingSml;
+}
 .hidden {
   visibility: hidden;
 }
@@ -44,21 +47,20 @@ h3.usersSnippets {
 
 .availableSnippets {
   text-align: left;
-  padding: 3px 7px 10px 7px;
-  margin-bottom: 4px;
-  color: $mainComp;
-  line-height: 1.4;
+  padding: 2px;
+  margin: 2px 10px;
+  border: 1px solid rgb(22, 22, 22);
+  background-color: rgba(255, 214, 214, 0.376);
 }
 
-.snippetTitle:hover,
-.username:hover {
+.snippetTitle {
+  color: $mainComp;
+}
+
+.snippetTitle:hover {
   cursor: pointer;
-  color: $mainComp;
-  transition: color 0.2s ease-out;
-}
-
-.availableSnippets em {
   color: $mainFont;
+  transition: color 0.2s ease-out;
 }
 
 .left {

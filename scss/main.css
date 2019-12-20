@@ -144,7 +144,7 @@ body {
 }
 
 .footer {
-  background-color: #b84000;
+  background-color: rgba(36, 36, 36, 0.7);
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -282,6 +282,7 @@ tt {
   bottom: 5px;
   padding: 3px;
   color: #0077b8;
+  margin-left: 5px;
   z-index: 1666;
 }
 
@@ -587,6 +588,10 @@ li.userControlJoin:active {
   opacity: 0.8;
 }
 
+#detectedLanguage {
+  margin-left: 5px;
+}
+
 .hidden {
   visibility: hidden;
 }
@@ -616,22 +621,21 @@ h3.usersSnippets {
 
 .availableSnippets {
   text-align: left;
-  padding: 3px 7px 10px 7px;
-  margin-bottom: 4px;
-  color: #b84000;
-  line-height: 1.4;
+  padding: 2px;
+  margin: 2px 10px;
+  border: 1px solid #161616;
+  background-color: rgba(255, 214, 214, 0.376);
 }
 
-.snippetTitle:hover,
-.username:hover {
-  cursor: pointer;
+.snippetTitle {
   color: #b84000;
+}
+
+.snippetTitle:hover {
+  cursor: pointer;
+  color: #0077b8;
   -webkit-transition: color 0.2s ease-out;
   transition: color 0.2s ease-out;
-}
-
-.availableSnippets em {
-  color: #0077b8;
 }
 
 .left {
