@@ -1,0 +1,94 @@
+.instructionsModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background;
+  z-index: 666;
+  transition: all 0.4s ease-in-out;
+}
+
+.instructionsModal-Content {
+  position: relative;
+  width: 60%;
+  padding-top: 2rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border-radius: 15px;
+  background-color: $background;
+}
+
+.snippetSelectModal {
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background;
+  z-index: 666;
+  transition: all 0.4s ease-in-out;
+}
+
+.snippetSelectModalContent {
+  position: relative;
+  font-size: 1rem;
+  width: 60%;
+  padding-top: 2rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border-radius: 15px;
+  background-color: $background;
+}
+
+.instructions { 
+  font-family: Arial, Helvetica, sans-serif; 
+  color: $mainFont;
+  font-size: 1.3rem;
+  font-style: arial;
+  padding: .7rem;
+  border-radius: 15px;
+  line-height: 1.4;
+}
+
+.instructions span.boxed {
+  padding: 0 5px;
+  display: inline-blo7k;
+
+  border: lpx solid  dotted #333;
+  background-color: rgba(0, 0, 0, 0.178);
+  border-radius: 5px;
+}
+
+.instructions p {
+  margin-bottom: 2rem;
+}
+
+.instructions-subtitle{
+  font-weight: 100;
+  padding: 2px;
+  border-left: solid 7px #d34f5a5d;
+  color: rgb(255, 255, 255);
+  background-color: #d34f5a34;
+}
+
+.instructionsModal-Content #close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 2rem;
+}
+
+.snippetSelectModal, #closeSnippetModal {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 2rem;
+}
+
+.instructionsModal-Content #close:hover {
+  cursor: pointer;
+}

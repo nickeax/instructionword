@@ -59,18 +59,29 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       usersArr = JSON.parse(arr[3]);
       break;
     case 'countOnline':
+      let content = "";
       onlineUsers = arr[2];
+      onlineInfo.innerHTML = "";
+      onlineInfo.innerHTML = `<tt>online(${onlineUsers})</tt>`;
+      if (usersArr.length > 0) {
+        for(let i = 0; i < usersArr.length; i++) {
+          if(i > 0) content += ', ';
+          content += `${usersArr[i].username}`;
+        }
+      } else { content = "no one is logged in";}
+      onlineInfo.innerHTML += `<div class="loggedInMembers">${content}</div>`;
       break;
     case 'getEdits':
       let editsStr = JSON.parse(arr[3]);
+      editsList.innerHTML = "";
       editsList.innerHTML = '<ul>';
       if (editsStr.length == 0) {
-        editsList.innerHTML = '<em>no edits to display</em>';
-        editsList.classList.add('noEdits');
+        editsList.innerHTML = "";
+        editsList.innerHTML = 'no edits to display';
+        // editsList.classList.add('noEdits');
         editsList.classList.remove('editsList');
       } else {
         editsList.innerHTML = "";
-        editsList.innerHTML = '<tt>click an edit to switch to it</tt><hr>';
         editsList.classList.add('editsList');
         editsList.classList.remove('noEdits');
       }
@@ -145,19 +156,9 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       showOutput();
       break;
     case 'getSnippets':
-      let content = "";
+      snippetSelectModalContent.innerHTML = "";
       if (arr[1] == 'success') {
         let str = JSON.parse(arr[3]);
-        // bgOutput.innerHTML = str[0].snippet;
-        sidebarL.innerHTML = `<tt class='snippetsHeading'>snippets (${str.length}) online(${onlineUsers})</tt>`;
-        if (usersArr.length > 0) {
-          for(let i = 0; i < usersArr.length; i++) {
-            if(i > 0) content += ', ';
-            content += `${usersArr[i].username}`;
-          }
-        } else { content = "no one is logged in";}
-        sidebarL.innerHTML += `<div class="loggedInMembers">${content}</div>`;
-        
         for (let i = 0; i < str.length; i++) {
           if (!loggedIn) {
             displayEdit = "hidden";
@@ -170,7 +171,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
           let h = d.getHours();
           let m = d.getMinutes();
           let hoursMinutes = `${h}:${m}`;
-          sidebarL.innerHTML += `
+          snippetSelectModalContent.innerHTML += `
           <div class = 'availableSnippets'>
           <span class = "edit ${displayEdit}" id="edit_snippet" 
             data-snippet_edit_id = "${str[i].snippet_id}"
@@ -187,7 +188,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             <span id = "listed_snippet" class = "username">${str[i].username}</span>
             </div>`;
         }
-        sidebarL.innerHTML += "\n";
+        snippetSelectModalContent.innerHTML += "\n";
       }
       break;
     default:

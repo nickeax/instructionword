@@ -1,0 +1,52 @@
+#sendMessage {
+  display: none;
+}
+
+#chatOutput {
+  text-align: left;
+  width: 100%;
+  height: 10rem;
+  overflow-y: scroll;
+  background-color: #111;
+}
+
+.chatMessage {
+  color: #23cc44;
+  font-size: 0.6rem;
+  font-family: monospace;
+  margin-bottom: 2px;
+}
+
+.chatMessage .chatUsername {
+  color: #e08d06;
+}
+
+.chatMessage .chatTime {
+  font-size: 0.5rem;
+  color: rgba(212, 153, 153, 0.712);
+}
+
+#chatInput {
+  outline-style: none;
+  padding: 2px;
+  background-color: #111;
+  width: 100%;
+  color: #23cc44;
+}
+
+#chatInput::-webkit-input-placeholder {
+  color: #d34f5a;
+}
+
+#chatInput:-ms-input-placeholder {
+  color: #d34f5a;
+}
+
+#chatInput::-ms-input-placeholder {
+  color: #d34f5a;
+}
+
+#chatInput::placeholder {
+  color: #d34f5a;
+}
+/*# sourceMappingURL=chat.css.map */

@@ -1,0 +1,106 @@
+#snippetDescription,
+#snippetTitle {
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.headerInputs:hover {
+  opacity: 0.8;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.none {
+  display: none;
+}
+
+.black {
+  background-color: #000;
+}
+
+tt.snippetsHeading {
+  display: block;
+  color: rgba(29, 53, 87, 0.9);
+  padding: 3px;
+  margin-bottom: 20px;
+}
+
+tt.editsUsername {
+  color: #666666;
+}
+
+h3.usersSnippets {
+  color: rgba(29, 53, 87, 0.9);
+}
+
+.availableSnippets {
+  text-align: left;
+  padding: 3px 7px 10px 7px;
+  margin-bottom: 4px;
+  color: rgba(29, 53, 87, 0.9);
+  line-height: 1.4;
+}
+
+.snippetTitle:hover,
+.username:hover {
+  cursor: pointer;
+  color: #0b329c;
+  transition: color 0.2s ease-out;
+}
+
+.availableSnippets em {
+  color: rgba(29, 53, 87, 0.9);
+}
+
+.left {
+  text-align: left;
+}
+
+.view,
+.edit,
+.share {
+  font-size: 0.5rem;
+  margin: 2px;
+  padding: 4px;
+}
+
+.view:hover,
+.edit:hover,
+.share:hover {
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+}
+
+.edit:hover {
+  color: rgba(29, 53, 87, 0.9);
+}
+
+.share:hover {
+  background-color: #f1fec6;
+  color: rgba(29, 53, 87, 0.9);
+}
+
+.edit {
+  color: #f1fec6;
+}
+
+.share {
+  color: #f1fec6;
+  background-color: rgba(29, 53, 87, 0.9);
+}
+
+.username {
+  padding: 2px;
+  background-color: rgba(177, 166, 166, 0.137);
+  font-family: monospace;
+  color: #000;
+}
+
+
+.noEdits {
+  padding-top: 10rem;
+  color: #d34f5a;
+  text-align: center;
+}

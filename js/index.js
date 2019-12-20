@@ -32,8 +32,13 @@ const password = document.querySelector('#password');
 const guide = document.querySelector('#guide');
 const modal = document.querySelector('#instructionsModal');
 const close = document.querySelector('#close');
-console.log(modal);
-
+const snippetSelectModal = document.querySelector('#snippetSelectModal');
+const snippetSelectModalContent = document.querySelector('#snippetSelectModalContent');
+const snippetModal = document.querySelector('#snippetSelect');
+const closeSnippetModal = document.querySelector('#closeSnippetModal');
+const header = document.querySelector('#header');
+const onlineInfo = document.querySelector('#onlineInfo');
+console.log(onlineInfo);
 
 let snippetEditSnippetID;
 let snippetEditUsername;
@@ -47,6 +52,11 @@ close.addEventListener('click', (e) => {
   modal.style.display = "none";
 });
 
+closeSnippetModal.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.style.display = "none";
+});
+
 guide.addEventListener('click', (e) => {
   e.preventDefault();
   modal.style.display = "block";
@@ -56,7 +66,13 @@ modal.addEventListener('click', (e) => {
   modal.style.display = "none";
 })
 
-sidebarL.innerHTML = `<h2>snippets loading...</h2><div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>`;
+snippetModal.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log(snippetSelectModal);  
+  snippetSelectModal.style.display = "block";  
+});
+
+snippetSelectModalContent.innerHTML = `<h2>snippets loading...</h2><div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>`;
 let col = "";
 col = ['#cceecc', '#eeccee', '#ccccee', '#eeeeccc'];
 
@@ -99,8 +115,9 @@ btnRemoveSnippet.addEventListener('click', ev => {
   showOutput();
 })
 
-sidebarL.addEventListener('click', (e) => {
+snippetSelectModalContent.addEventListener('click', (e) => {
   clearMessages();
+  snippetSelectModal.style.display = "none";
   if (e.target.dataset.snippet_snippet_id) {
     let snippetEditSnippetID = e.target.dataset.snippet_edit_id;
     let snippetUsername = e.target.dataset.snippet_edit_username;

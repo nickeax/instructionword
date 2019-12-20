@@ -1,0 +1,99 @@
+.shadowButtons li {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.357);
+}
+
+.buttons ul,
+.links ul,
+.userControl ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;  
+}
+
+.buttons ul li,
+.links ul li,
+.userControl ul li {
+  margin: 2px;
+  padding: 2px;
+  text-transform: uppercase;
+  color: #e6d9e6;
+  display: inline-block;
+}
+
+.userControlInfo {
+  background-color: green;
+}
+
+.buttons ul li a,
+.links ul li a,
+.userControl ul li a {
+  color: #ebe9e9;
+}
+
+.normalButton {
+  background-color: #457b9d;
+}
+
+.normalButton:hover {
+  color: #457b9d;
+  background-color: #f1fec6;
+}
+
+.importantButton {
+  background-color: #d34f5a;
+}
+
+.selectSnipper {
+  background-color: #fff;
+}
+
+.importantButton:hover,
+.importantButton:active {
+  box-shadow: 0 0 5px rgba(211, 79, 90, 0.7);
+  color: #d34f5a;
+  background-color: #f1fec6;
+  cursor: pointer;
+}
+
+.saveButton {
+  background-color: seagreen;
+}
+
+.userControlNormal {
+  background-color: rgba(29, 53, 87, 0.9);
+}
+
+.userControlNormal:hover,
+.userControlNormal:active {
+  color: rgba(29, 53, 87, 0.9);
+  background-color: #f1fec6;
+  box-shadow: 0 0 5px rgba(121, 173, 220, 0.7);
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  color: rgba(29, 53, 87, 0.9);
+  background-color: #f1fec6;
+  box-shadow: 0 0 5px rgba(69, 180, 50, 0.7);
+  cursor: pointer;
+}
+
+.userControlJoin {
+  background-color: rgba(29, 53, 87, 0.9);
+}
+
+#selectSnipper {
+  background-color: #fff;
+}
+
+li.userControlJoin:hover,
+li.userControlJoin:active {
+  color: #d2a6aa;
+  background-color: #570909;
+  box-shadow: 0 0 5px rgba(211, 79, 90, 0.7);
+  cursor: pointer;
+}
+
+.userControlJoin {
+  background-color: #d34f5a;
+}

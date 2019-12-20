@@ -1,5 +1,5 @@
 config
 
-*.scss
+*.css.map
 main.css.map
 test.php

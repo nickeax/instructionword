@@ -41,31 +41,31 @@
   </div>
   <div class="wrapper">
 
-    <header class="header">
-      <div class="links">
-        <ul class="shadowButtons">
-          <li id="guide" class="userControl userControlInfo"><a href="#">guide</a></li>
-          <li id="login" class="userControlNormal">login</li>
-          <li id="join" class="userControlJoin"><a href="register.php" target="_blank">join</a></li>
-          <li id="logout" class="hidden userControlNormal">logout</li>
-        </ul>
-      </div>
+    <header class="header" id="header">
       <div class="links">
         <ul>
+          <li id="guide" class="userControl userControlInfo"><a href="#">guide</a></li>
           <li class="links"><a href="./string-manipulation" target="_blank">TOOLS</a></li>
           <li class="links"><a href="./cidr-helper" target="_blank">CIDR</a></li>
           <li class="links"><a href="./bat" target="_blank">Binary Adder Tutorial</a></li>
           <li class="links"><a href="./track-iss" target="_blank">ISS Tracker</a></li>
           <li class="links"><a href="./canvas-demo" target="_blank">CANVAS DEMO</a></li>
+          <li id="snippetSelect" class="links"><a href="#" >SELECT SNIPPET</a></li>
         </ul>
       </div>
 
-      <div class="inputs">
+      <div class="links">
         <input class="headerInputs" type="text" name="username" id="username" placeholder="username" required>
         <input class="headerInputs" type="password" name="password" id="password" placeholder="password" required>
+        <ul class="shadowButtons">
+          
+          <li id="login" class="userControlNormal">login</li>
+          <li id="join" class="userControlJoin"><a href="register.php" target="_blank">join</a></li>
+          <li id="logout" class="hidden userControlNormal">logout</li>
+        </ul>
+      </div>     
 
-      </div>
-      <form action="#"  autocomplete="off">
+      <form action="#" autocomplete="off">
         <div class="inputs">
           <input class="headerInputs hidden" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
             required><br>
@@ -86,17 +86,11 @@
       <div class="language hidden" id="language"></div>
     </header>
 
-    <div class="sidebarL" id="sidebarL">
-    </div>
+    <div class="sidebarL" id="sidebarL"></div>
 
     <div class="sidebarR" id="sidebarR">
-      
-      <div id="editsList" class="editsList">
-        
-      </div>
-      <h3>snippet discussion</h3>
-      <div id="chatOutput">
-      </div>
+      <div id="onlineInfo"></div>    
+      <div id="chatOutput"></div>
       <form action="#" id="chatForm" autocomplete="off">
         <div class="form-group">
           <div class="chat"></div>
@@ -104,7 +98,9 @@
           <button id="sendMessage">send</button>
         </div>
       </form>
-      <div class="usersSnippets hidden">your snippets</div>
+      <h3>edits (click to view in place)</h3>
+      <div id="editsList" class="editsList"></div>
+      <div class="usersSnippets hidden"></div>
     </div>
 
     <div class="content">
@@ -121,11 +117,12 @@
 
     </div>
   </div>
+  <div id="snippetSelectModal" class="snippetSelectModal">
+    <div id="snippetSelectModalContent" class="snippetSelectModalContent"><span id="closeSnippetModal">&times;</span></div>
+  </div>
 
-  <div id ="instructionsModal" class="instructionsModal">
-    
+  <div id ="instructionsModal" class="instructionsModal">    
     <div class="instructionsModal-Content">
-
       <div class="instructions">
         <span id="close">&times;</span>
         <h4 class="instructions-subtitle">HOWTO</h4>

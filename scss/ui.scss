@@ -1,0 +1,194 @@
+#username,
+#password {
+  background-color: #d34f5a;
+}
+
+.error {
+  color: #d34f5a;
+  background-color: rgba(29, 53, 87, 0.9);
+}
+
+.messages {
+  font-size: 1.5rem;
+  background-color: rgba(29, 53, 87, 0.9);
+  bottom: 5px;
+  padding: 3px;
+  color: #f1fec6;
+  z-index: 1666;
+}
+
+.language {
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(69, 180, 50, 0.7);
+  bottom: 5px;
+  padding: 3px;
+  color: #f1fec6;
+  z-index: 1666;
+}
+
+.loggedInMembers {
+  color: rgb(6, 172, 6);
+  background-color: rgba(7, 6, 6, 0.746);
+  padding: 5px;
+  text-align: left;
+  min-height: 50px;
+  border: 2px solid rgba(195, 195, 195, 0.431);
+  border-radius: 3px;
+  box-shadow: 0 5px 10 rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+  .memberName {
+    background-color: #666;
+  }
+
+  tt {
+    display: block;
+    padding: 3px;
+    color: #d34f5a;
+  }
+}
+
+.loading {
+  background-image: url("../img/ajax-loader.gif");
+}
+
+form {
+  margin: 3px;
+  border-radius: 0;
+  margin: 0 auto;
+}
+
+textarea {
+  display: block;
+  position: relative;
+  padding: 1rem;
+  border-style: none;
+  color: #f1fec6;
+  background-color: #457b9d;
+  width: 100%;
+  height: 30vh;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
+
+.links, .userControlInfo, .userControlJoin, .userControlNormal {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  justify-content: space-between;
+
+}
+
+.buttons,
+.links,
+.userControl {
+  padding: 2px;
+  border-radius: 4px;
+  transition: all .3s ease-in-out;
+}
+
+.links ul .li a {
+  box-shadow: 0 0 7px #000;
+}
+
+li.links {
+  margin: 2px;
+  color: #f1fec6;
+  background-color: #d34f5a;
+}
+
+li.links:hover, li.links:active {
+  color: #d34f5a;
+  background-color: rgba(29, 53, 87, 0.9);
+          box-shadow: 0 0 5px rgba(211, 79, 90, 0.7);
+}
+
+.inputs {
+  margin: 3px;
+  border-top: lpx solid  rgba(211, 79, 90, 0.7) dotted;
+  border-radius: 7px;
+  background-color: rgba(29, 53, 87, 0);
+}
+
+.inputs input {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.inputs input[type="text"],
+.inputs input[type="password"] {
+  border-style: no7e;
+
+  border: lpx solid  solid #d34f5a;
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(29, 53, 87, 0.9);
+  padding: 5px;
+  margin: 5px;
+}
+
+input::input-placeholder,
+input {
+  font-size: 0.9rem;
+  color: #a3a3a3;
+}
+
+input:-ms-input-placeholder,
+input {
+  font-size: 0.9rem;
+  color: #a3a3a3;
+}
+
+input::-ms-input-placeholder,
+input {
+  font-size: 0.9rem;
+  color: #a3a3a3;
+}
+
+input::placeholder,
+input {
+  font-size: 0.9rem;
+  color: #c7c6c6;
+}
+
+textarea {
+  border-style: none;
+  color: rgba(29, 53, 87, 0.9);
+  background-color: white;
+  width: 100%;
+  height: 30vh;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
+textarea::input-placeholder {
+  font-size: 1.5rem;
+  font-family: monospace;
+  color: #f1fec6;
+}
+
+textarea:-ms-input-placeholder {
+  font-size: 1.5rem;
+  font-family: monospace;
+  color: #f1fec6;
+}
+
+textarea::-ms-input-placeholder {
+  font-size: 1.5rem;
+  font-family: monospace;
+  color: #f1fec6;
+}
+
+textarea::placeholder {
+  background-color: rgba(212, 153, 153, 0.233);
+  font-size: 1rem;
+  font-family: monospace;
+  color: #b0bdae;
+}
+
+a {
+  color: #d34f5a;
+  text-decoration: none;
+}
+
+a[target='_blank']::after {content: ' \25F3';}

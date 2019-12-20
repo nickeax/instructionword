@@ -1,0 +1,105 @@
+@media only screen and (max-width: 1250px) {
+  body, messages, errors {
+    font-size: 17px;
+  }
+  .header {
+    border: none;
+  }
+  .wrapper {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    font-family: sans-serif;
+    display: -ms-grid;
+    display: grid;
+    width: 100vw;
+    -ms-grid-columns: minmax(300px, 1000px);
+        grid-template-columns: minmax(300px, 1000px);
+    -ms-grid-rows: 300px auto auto;
+        grid-template-rows: 300px auto auto;
+        grid-template-areas: "header"  "sidebarR" "content"  "sidebarL";
+  }
+  .leftLogo, .instructions {
+    display: none;
+  }
+  .output {
+    color: rgba(121, 173, 220, 0.8);
+    background-color: #111;
+    padding: 2px;
+    margin: 3px auto 3px auto;
+    overflow: scroll;
+  }
+  form {
+    border-radius: 0;
+    margin: 0 auto;
+  }
+  #saveCode {
+    left: 0%;
+    background-color: #f1fec6;
+  }
+  #clearCode {
+    left: 55px;
+    background-color: #d34f5a;
+  }
+  #removeSnippet {
+    right: 0%;
+    background-color: #d34f5a;
+  }
+  .homeButton {
+    left: 0%;
+    background-color: rgba(121, 173, 220, 0.8);
+  }
+  #logout {
+    color: rgba(229, 234, 241, 0.9);
+    position: absolute;
+    left: 15%;
+    z-index: 10;
+  }
+  #username, #password {
+    background-color: #d34f5a;
+  }
+  #username {
+    right: 17rem;
+  }
+  #password {
+    right: 5rem;
+  }
+  #snippetDescription, #snippetTitle {
+    background-color: rgba(0, 0, 0, 0);
+    width: 27rem;
+  }
+  .messages {
+    position: absolute;
+    font-size: 1rem;
+    background-color: rgba(29, 53, 87, 0.9);
+    bottom: 5px;
+    min-width: 350px;
+    padding: 3px;
+    color: #f1fec6;
+  }
+  .error {
+    color: #d34f5a;
+    background-color: rgba(29, 53, 87, 0.9);
+  }
+  input::-webkit-input-placeholder, input {
+    font-size: 1rem;
+    color: #f1fec6;
+  }
+  input:-ms-input-placeholder, input {
+    font-size: 1rem;
+    color: #f1fec6;
+  }
+  input::-ms-input-placeholder, input {
+    font-size: 1rem;
+    color: #f1fec6;
+  }
+  input::placeholder, input {
+    font-size: 1rem;
+    color: #f1fec6;
+  }
+  #sendMessage {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    display: flex;
+  }
+}

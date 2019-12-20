@@ -1,0 +1,30 @@
+.keyword {
+  font-style: none;
+  color: #d34f5a;
+}
+
+.inSingleQuotes {
+  font-style: italic;
+  color: #f1fec6;
+}
+
+.inDoubleQuotes {
+  font-weight: bold;
+  font-style: italic;
+  color: rgba(121, 173, 220, 0.8);
+}
+
+.math {
+  font-weight: bold;
+  color: #d34f5a;
+}
+
+.block {
+  font-weight: 100;
+  color: #d34f5a;
+}
+
+.other {
+  color: #f1fec6;
+}
+/*# sourceMappingURL=syntax.css.map */
