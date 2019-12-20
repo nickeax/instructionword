@@ -1,41 +1,41 @@
 #username,
 #password {
-  background-color: #d34f5a;
+  background-color: $background;
 }
 
 .error {
   color: #d34f5a;
-  background-color: rgba(29, 53, 87, 0.9);
+  background-color: $background;
 }
 
 .messages {
   font-size: 1.5rem;
-  background-color: rgba(29, 53, 87, 0.9);
+  background-color: $background;
   bottom: 5px;
   padding: 3px;
-  color: #f1fec6;
+  color: $mainFont;
   z-index: 1666;
 }
 
 .language {
   font-size: 1.2rem;
   text-align: center;
-  background-color: rgba(69, 180, 50, 0.7);
+  background-color: $background;
   bottom: 5px;
   padding: 3px;
-  color: #f1fec6;
+  color: $mainFont;
   z-index: 1666;
 }
 
 .loggedInMembers {
-  color: rgb(6, 172, 6);
-  background-color: rgba(7, 6, 6, 0.746);
+  color: $loggedInFont;
+  background-color: rgba(24, 21, 21, 0.746);
   padding: 5px;
   text-align: left;
   min-height: 50px;
-  border: 2px solid rgba(195, 195, 195, 0.431);
-  border-radius: 3px;
-  box-shadow: 0 5px 10 rgba(0, 0, 0, 0.4);
+  border: 2px solid $backgroundTrns;
+  border-radius: $borderRadiusSml;
+  box-shadow: 0 5px 10 $boxShadow;
   margin-bottom: 1rem;
   .memberName {
     background-color: #666;
@@ -43,8 +43,8 @@
 
   tt {
     display: block;
-    padding: 3px;
-    color: #d34f5a;
+    padding: $paddingSml;
+    color: $mainFont;
   }
 }
 
@@ -53,8 +53,7 @@
 }
 
 form {
-  margin: 3px;
-  border-radius: 0;
+  margin: $paddingSml;
   margin: 0 auto;
 }
 
@@ -63,8 +62,8 @@ textarea {
   position: relative;
   padding: 1rem;
   border-style: none;
-  color: #f1fec6;
-  background-color: #457b9d;
+  color: $lightest;
+  background-color: $background;
   width: 100%;
   height: 30vh;
   margin: 0 auto;
@@ -75,119 +74,120 @@ textarea {
 .links, .userControlInfo, .userControlJoin, .userControlNormal {
   display: flex;
   flex-direction: row;
-  flex-flow: row;
-  justify-content: space-between;
-
+  justify-content: flex-start;
 }
 
 .buttons,
 .links,
 .userControl {
-  padding: 2px;
-  border-radius: 4px;
+  padding: $paddingSml;
+  border-radius: $borderRadiusSml;
   transition: all .3s ease-in-out;
 }
 
-.links ul .li a {
-  box-shadow: 0 0 7px #000;
+.links ul .li a {  
+  color: $mainFont;
+  box-shadow: 0 0 7px $mainComp;
 }
 
 li.links {
-  margin: 2px;
-  color: #f1fec6;
-  background-color: #d34f5a;
+  border: 1px solid $mainFont;
+  margin: $paddingSml;
+  color: $mainComp;
+  background-color: $background;
 }
 
 li.links:hover, li.links:active {
-  color: #d34f5a;
-  background-color: rgba(29, 53, 87, 0.9);
-          box-shadow: 0 0 5px rgba(211, 79, 90, 0.7);
+  background-color: $mainComp;
+  box-shadow: 0 0 5px $boxShadow;
 }
 
 .inputs {
-  margin: 3px;
-  border-top: lpx solid  rgba(211, 79, 90, 0.7) dotted;
-  border-radius: 7px;
-  background-color: rgba(29, 53, 87, 0);
+  color: $mainFont;
+  margin: $paddingSml;
+  border-top: lpx solid $mainFont;
+  border-radius: $borderRadiusMed;
+}
+
+.inputs input#snippetTitle, .inputs input#snippetDescription {
+  background-color: rgb(66, 66, 66);
+  color: $mainFont;
+} 
+
+.inputs input#snippetTitle::placeholder {
+  color: rgb(148, 148, 148);
+}
+
+#selectSnippet {
+  background-color: seagreen;
+  color: purple;
 }
 
 .inputs input {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: orange;
 }
 
 .inputs input[type="text"],
 .inputs input[type="password"] {
-  border-style: no7e;
-
-  border: lpx solid  solid #d34f5a;
+  border-style: none;
+  border: lpx solid  $mainFont;
   opacity: 0.8;
-  background-color: rgba(0, 0, 0, 0);
-  color: rgba(29, 53, 87, 0.9);
-  padding: 5px;
-  margin: 5px;
+  background-color: $background;
+  color: $mainComp;
+  padding: $paddingSml;
+  margin: $paddingSml;
 }
 
-input::input-placeholder,
-input {
-  font-size: 0.9rem;
-  color: #a3a3a3;
-}
+// input::input-placeholder,
+// input {
+//   font-size: 0.9rem;
+//   color: $mainFont;
+// }
 
-input:-ms-input-placeholder,
-input {
-  font-size: 0.9rem;
-  color: #a3a3a3;
-}
+// input::placeholder,
+// input {
+//   font-size: 0.9rem;
+//   color: $mainFont;
+// }
 
-input::-ms-input-placeholder,
-input {
-  font-size: 0.9rem;
-  color: #a3a3a3;
-}
+// input::placeholder,
+// input {
+//   font-size: 0.9rem;
+//   color: $mainFont;
+// }
 
-input::placeholder,
-input {
-  font-size: 0.9rem;
-  color: #c7c6c6;
-}
+// input::placeholder,
+// input {
+//   font-size: 0.9rem;
+//   color: $mainFont;
+// }
 
 textarea {
   border-style: none;
-  color: rgba(29, 53, 87, 0.9);
-  background-color: white;
-  width: 100%;
-  height: 30vh;
+  color: $mainFont;
+  background-color: $lightest;
+  // width: 100%;
+  height: 50vh;
   margin: 0 auto;
   overflow: scroll;
 }
 
-textarea::input-placeholder {
-  font-size: 1.5rem;
-  font-family: monospace;
-  color: #f1fec6;
-}
-
-textarea:-ms-input-placeholder {
-  font-size: 1.5rem;
-  font-family: monospace;
-  color: #f1fec6;
-}
-
-textarea::-ms-input-placeholder {
-  font-size: 1.5rem;
-  font-family: monospace;
-  color: #f1fec6;
-}
+// textarea::input-placeholder {
+//   font-size: 1.5rem;
+//   font-family: monospace;
+//   color: $mainFont;
+//   background-color: pink;
+// }
 
 textarea::placeholder {
-  background-color: rgba(212, 153, 153, 0.233);
+  background-color: white;
   font-size: 1rem;
   font-family: monospace;
-  color: #b0bdae;
+  color: $mainFont;
 }
 
 a {
-  color: #d34f5a;
+  color: $mainFont;
   text-decoration: none;
 }
 

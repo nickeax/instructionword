@@ -3,9 +3,25 @@
 $hueOrange: 21;
 $hueBlue: 201;
 
-$background: rgb(27, 27, 27);
-$mainFont: hsl($hueOrange, 100%, 36%);
-$mainPanel: hsl($hueOrange, 100%, 36%);
+$lightest: rgba(255, 255, 255, 1);
+$lightestTrns: rgba(255, 255, 255, 0.8);
+$darkest: rgba(0, 0, 0, 1);
+
+$boxShadow: rgba(0, 0, 0, 0.4);
+
+$background: rgb(36, 36, 36);
+$backgroundTrns: rgba(36, 36, 36, 0.7);
+
+$backgroundLighter: rgb(218, 173, 70);
+
+$mainComp: hsl($hueOrange, 100%, 36%);
+
+$mainFont: hsl($hueOrange - 180, 100%, 36%);
+$mainFontLt: hsl($hueOrange - 180, 100%, 46%);
+$loggedInFont: rgb(6, 175, 6);
+
+
+$mainPanel: hsl($hueOrange - 180, 100%, 36%);
 // COMPONENTS
 // lBAR
 // content

@@ -87,11 +87,11 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       }
       for (let i = 0; i < editsStr.length; i++) {
         editsList.innerHTML +=
-          `<p><strong class="snippetTitle id="snippetSideBarTitle" 
+          `<p class="editListItem"><strong class="snippetTitle id="snippetSideBarTitle" 
             data-snippet_edit_id = "${editsStr[i].edit_id}" 
             data-snippet_snippet_id = "${editsStr[i].snippet_id}"
             data-edit-clicked = "1">
-            ${editsStr[i].description} <div class="username">(edited by ${editsStr[i].username})</div></strong>
+            ${editsStr[i].description} <span class="username">edited by ${editsStr[i].username}</span></strong>
             </p>`;
         editsList.innerHTML += "</ul>";
       }

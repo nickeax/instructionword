@@ -4,7 +4,8 @@
 }
 
 body {
-  background-color: $background;
+  font-family: monospace;
+  background-color: black;
   color: $mainFont;
 }
 
@@ -14,10 +15,10 @@ body {
   position: relative;
   margin-left: auto;
   width: 93vw;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 800px auto;
   grid-template-rows: auto auto auto auto;
-  grid-template-areas: "header sidebarR" "content sidebarR" "content  sidebarR" "content footer";
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.5);
+  grid-template-areas: "header sidebarR" "content sidebarR" "content sidebarR" "footer footer";
+  box-shadow: 0 0 19px $boxShadow;
 }
 
 .header {
@@ -34,29 +35,31 @@ body {
 }
 
 .sidebarL {
-  border: 2px solid green;
+  // border: 2px solid green;
   max-height: 500px;
   overflow-y: scroll;
-  background-color: red;
+  // background-color: red;
   grid-area: sidebarL;
   z-index: 666;
 }
 
 .sidebarR {
-  border: 2px solid purple;
-  background-color: $background;  
+  // border-left: 2px solid $mainFont;
+  background-color: $backgroundLighter;  
   height: 100%;
   grid-area: sidebarR;
 }
 
 .content {
-  background-color: #f1fec6;
+  background-color: $background;
   grid-area: content;
   position: relative;
+  box-shadow: 0 0 6px $boxShadow;
+  z-index: 20;
 }
 
 .footer {
-  background-color: #f1fec6;
+  background-color: $mainComp;
   grid-area: footer;
 }
 
@@ -77,8 +80,8 @@ img.full {
 }
 
 .output {
-  color: rgba(121, 173, 220, 0.8);
-  background-color: #111;
+  color: $mainFont;
+  background-color: $background;
   padding: 10px;
   margin: 3rem auto 1rem auto;
   overflow: scroll;
@@ -87,12 +90,12 @@ img.full {
 }
 
 hr {
-  color: #d34f5a;
+  color: $mainComp;
 }
 
 #bgOutput {
   display: block;
-  color: #000;
+  color: $mainComp;
   filter: blur(5px);
   font-family: sans-serif, Cochin, Georgia, Times, "Times New Roman", serif;
   opacity: 0.45;
@@ -103,16 +106,17 @@ hr {
   transform: skew(30deg, 10deg);
   font-size: 3.5rem;
   z-index: -10;
-  width: 200vw;
-  height: 200vh;
+  width: 220vw;
+  height: 220vh;
 }
 
 .llText {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: $mainFont;
   text-shadow: 0 0 7px $mainFont;
-  font-size: 3rem;
+  font-size: 2rem;
   transform-origin: bottom right;
-  transform: translate(-2rem, 250px) rotateZ(-90deg);
+  transform: translate(-2rem, 300px) rotateZ(-90deg);
   z-index: 0;
 }
 
@@ -122,11 +126,11 @@ hr {
 }
 
 .sidebarL h3 {
-  color: rgba(29, 53, 87, 0.9);
+  color: $mainFont;
 }
 
 .sidebarL h2 {
-  color: #457b9d;
+  color: $mainComp;
 }
 
 .editsList {
@@ -144,17 +148,16 @@ tt {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgb(168, 168, 168);
+  background: $background;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  border: dotted 2px rgba(155, 4, 4, 0.26);
-  background: #ffffff;
-  border-radius: 10px;
+  border: solid 1px $darkest;
+  background: $lightest;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(29, 53, 87, 0.191);
+  background: $backgroundTrns;
 }

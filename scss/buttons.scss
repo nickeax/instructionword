@@ -1,5 +1,5 @@
 .shadowButtons li {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.357);
+  box-shadow: 0 0 5px $backgroundTrns;
 }
 
 .buttons ul,
@@ -16,7 +16,7 @@
   margin: 2px;
   padding: 2px;
   text-transform: uppercase;
-  color: #e6d9e6;
+  color: $lightest;
   display: inline-block;
 }
 
@@ -27,31 +27,31 @@
 .buttons ul li a,
 .links ul li a,
 .userControl ul li a {
-  color: #ebe9e9;
+  color: $lightest;
 }
 
 .normalButton {
-  background-color: #457b9d;
+  background-color: $mainComp;
 }
 
 .normalButton:hover {
-  color: #457b9d;
-  background-color: #f1fec6;
+  color: $mainFont;
+  background-color: $mainFont;
 }
 
 .importantButton {
-  background-color: #d34f5a;
+  background-color: $mainFontLt;
 }
 
 .selectSnipper {
-  background-color: #fff;
+  background-color: $lightest;
 }
 
 .importantButton:hover,
 .importantButton:active {
-  box-shadow: 0 0 5px rgba(211, 79, 90, 0.7);
-  color: #d34f5a;
-  background-color: #f1fec6;
+  box-shadow: 0 0 5px $boxShadow;
+  color: $mainFont;
+  background-color: $lightest;
   cursor: pointer;
 }
 
@@ -60,37 +60,37 @@
 }
 
 .userControlNormal {
-  background-color: rgba(29, 53, 87, 0.9);
+  background-color: $background;
 }
 
 .userControlNormal:hover,
 .userControlNormal:active {
-  color: rgba(29, 53, 87, 0.9);
-  background-color: #f1fec6;
-  box-shadow: 0 0 5px rgba(121, 173, 220, 0.7);
+  color: $mainFont;
+  background-color: $lightest;
+  box-shadow: 0 0 5px $boxShadow;
   cursor: pointer;
 }
 
 .saveButton:hover {
-  color: rgba(29, 53, 87, 0.9);
-  background-color: #f1fec6;
-  box-shadow: 0 0 5px rgba(69, 180, 50, 0.7);
+  color: $mainFont;
+  background-color: $background;
+  box-shadow: 0 0 5px $boxShadow;
   cursor: pointer;
 }
 
 .userControlJoin {
-  background-color: rgba(29, 53, 87, 0.9);
+  background-color: $background;
 }
 
 #selectSnipper {
-  background-color: #fff;
+  background-color: $lightest;
 }
 
 li.userControlJoin:hover,
 li.userControlJoin:active {
-  color: #d2a6aa;
-  background-color: #570909;
-  box-shadow: 0 0 5px rgba(211, 79, 90, 0.7);
+  color: $mainFont;
+  background-color: $background;
+  box-shadow: 0 0 5px $boxShadow;
   cursor: pointer;
 }
 

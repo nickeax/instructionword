@@ -1,7 +1,14 @@
 #snippetDescription,
 #snippetTitle {
   width: 90%;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: $background;
+}
+
+.editListItem {
+  background-color: $lightestTrns;
+  padding: 2px;
+  border: 1px dotted $darkest;
+  margin-bottom: 0.5rem;
 }
 
 .headerInputs:hover {
@@ -17,41 +24,41 @@
 }
 
 .black {
-  background-color: #000;
+  background-color: $background;
 }
 
 tt.snippetsHeading {
   display: block;
-  color: rgba(29, 53, 87, 0.9);
+  color: $mainFont;
   padding: 3px;
   margin-bottom: 20px;
 }
 
 tt.editsUsername {
-  color: #666666;
+  color: $mainFont;
 }
 
 h3.usersSnippets {
-  color: rgba(29, 53, 87, 0.9);
+  color: $mainFont;
 }
 
 .availableSnippets {
   text-align: left;
   padding: 3px 7px 10px 7px;
   margin-bottom: 4px;
-  color: rgba(29, 53, 87, 0.9);
+  color: $mainComp;
   line-height: 1.4;
 }
 
 .snippetTitle:hover,
 .username:hover {
   cursor: pointer;
-  color: #0b329c;
+  color: $mainComp;
   transition: color 0.2s ease-out;
 }
 
 .availableSnippets em {
-  color: rgba(29, 53, 87, 0.9);
+  color: $mainFont;
 }
 
 .left {
@@ -74,33 +81,31 @@ h3.usersSnippets {
 }
 
 .edit:hover {
-  color: rgba(29, 53, 87, 0.9);
+  color: $mainFont;
 }
 
 .share:hover {
   background-color: #f1fec6;
-  color: rgba(29, 53, 87, 0.9);
+  color: $mainFont;
 }
 
 .edit {
-  color: #f1fec6;
+  color: $mainFont;
 }
 
 .share {
-  color: #f1fec6;
-  background-color: rgba(29, 53, 87, 0.9);
+  color: $mainFont;
+  background-color: $lightestTrns;
 }
 
 .username {
-  padding: 2px;
-  background-color: rgba(177, 166, 166, 0.137);
   font-family: monospace;
-  color: #000;
+  color: $darkest;
 }
 
 
 .noEdits {
   padding-top: 10rem;
-  color: #d34f5a;
+  color: $mainComp;
   text-align: center;
 }
