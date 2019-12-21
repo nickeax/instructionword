@@ -13,15 +13,19 @@ $background: rgb(36, 36, 36);
 $backgroundTrns: rgba(36, 36, 36, 0.7);
 
 $backgroundLighter: rgb(218, 173, 70);
+$textArea: rgb(254, 255, 177);
 
-$mainComp: hsl($hueOrange, 100%, 36%);
+$mainComp: hsl(21, 100%, 36%);
 
-$mainFont: hsl($hueOrange - 180, 100%, 36%);
-$mainFontLt: hsl($hueOrange - 180, 100%, 46%);
+$mainFont: hsl(201, 100%, 36%);
+$mainFontDk: rgba(0, 53, 82, 0.815);
+$mainFontLt: hsl(201, 100%, 46%);
 $loggedInFont: rgb(6, 175, 6);
 
 
 $mainPanel: hsl($hueOrange - 180, 100%, 36%);
+
+$outputBackground: rgba(1, 21, 51, 0.664);
 // COMPONENTS
 // lBAR
 // content

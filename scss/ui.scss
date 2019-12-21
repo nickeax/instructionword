@@ -166,7 +166,7 @@ li.links:hover, li.links:active {
 textarea {
   border-style: none;
   color: $mainFont;
-  background-color: $lightest;
+  background-color: $textArea;
   // width: 100%;
   height: 50vh;
   margin: 0 auto;
@@ -181,7 +181,7 @@ textarea {
 // }
 
 textarea::placeholder {
-  background-color: white;
+  background-color: $textArea;
   font-size: 1rem;
   font-family: monospace;
   color: $mainFont;

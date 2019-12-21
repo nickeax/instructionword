@@ -5,7 +5,8 @@
 
 body {
   font-family: monospace;
-  background-color: black;
+  background: rgb(255,255,255);
+  background: linear-gradient( rgba(4,68,93,1) 0%, rgba(0,0,0,1) 91%, rgba(4,68,93,1) 100%);
   color: $mainFont;
 }
 
@@ -23,8 +24,9 @@ body {
 
 .header {
   position: relative;
-  background-color: $background;
+  background-color: $mainFontDk;
   grid-area: header;
+  box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
 }
 
 .sidebarL,
@@ -45,7 +47,8 @@ body {
 
 .sidebarR {
   // border-left: 2px solid $mainFont;
-  background-color: $backgroundLighter;  
+  background-color: $mainFontDk; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
   height: 100%;
   grid-area: sidebarR;
 }
@@ -54,7 +57,6 @@ body {
   background-color: $background;
   grid-area: content;
   position: relative;
-  box-shadow: 0 0 6px $boxShadow;
   z-index: 20;
 }
 
@@ -67,13 +69,6 @@ body {
   margin-bottom: 10px;
 }
 
-.leftLogo {
-  position: fixed;
-  display: block;
-  width: 100px;
-  height: 100vh;
-}
-
 img.full {
   display: flex;
   margin: auto;
@@ -81,7 +76,7 @@ img.full {
 
 .output {
   color: $mainFont;
-  background-color: $background;
+  background-color: $outputBackground;
   padding: 10px;
   margin: 3rem auto 1rem auto;
   overflow: scroll;
@@ -110,15 +105,30 @@ hr {
   height: 220vh;
 }
 
-.llText {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: $mainFont;
-  text-shadow: 0 0 7px $mainFont;
-  font-size: 2rem;
-  transform-origin: bottom right;
-  transform: translate(-2rem, 300px) rotateZ(-90deg);
-  z-index: 0;
+.leftLogo {
+  position: fixed;
+  display: block;
+  width: 100px;
+  height: 100vh;
+
+  .llText {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $mainFont;
+    text-shadow: 0 0 7px $mainFont;
+    font-size: 2rem;
+    transform-origin: bottom right;
+    transform: translate(-2rem, 280px) rotateZ(-90deg);
+    z-index: 0;
+  }
+  
+  .llLinks {
+    font-size: 0.9rem;
+    transform-origin: top right;
+    transform: translate(-80px, 410px) rotateZ(-90deg);
+    z-index: 1666;
+  }
 }
+
 
 .header,
 .footer {

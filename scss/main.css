@@ -81,7 +81,9 @@
 
 body {
   font-family: monospace;
-  background-color: black;
+  background: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#04445d), color-stop(91%, black), to(#04445d));
+  background: linear-gradient(#04445d 0%, black 91%, #04445d 100%);
   color: #0077b8;
 }
 
@@ -102,10 +104,12 @@ body {
 
 .header {
   position: relative;
-  background-color: #242424;
+  background-color: rgba(0, 53, 82, 0.815);
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: header;
+  -webkit-box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
 }
 
 .sidebarL,
@@ -123,7 +127,9 @@ body {
 }
 
 .sidebarR {
-  background-color: #daad46;
+  background-color: rgba(0, 53, 82, 0.815);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   height: 100%;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
@@ -138,8 +144,6 @@ body {
   -ms-grid-column: 1;
   grid-area: content;
   position: relative;
-  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
   z-index: 20;
 }
 
@@ -155,13 +159,6 @@ body {
   margin-bottom: 10px;
 }
 
-.leftLogo {
-  position: fixed;
-  display: block;
-  width: 100px;
-  height: 100vh;
-}
-
 img.full {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -171,7 +168,7 @@ img.full {
 
 .output {
   color: #0077b8;
-  background-color: #242424;
+  background-color: rgba(1, 21, 51, 0.664);
   padding: 10px;
   margin: 3rem auto 1rem auto;
   overflow: scroll;
@@ -202,16 +199,32 @@ hr {
   height: 220vh;
 }
 
-.llText {
+.leftLogo {
+  position: fixed;
+  display: block;
+  width: 100px;
+  height: 100vh;
+}
+
+.leftLogo .llText {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #0077b8;
   text-shadow: 0 0 7px #0077b8;
   font-size: 2rem;
   -webkit-transform-origin: bottom right;
           transform-origin: bottom right;
-  -webkit-transform: translate(-2rem, 300px) rotateZ(-90deg);
-          transform: translate(-2rem, 300px) rotateZ(-90deg);
+  -webkit-transform: translate(-2rem, 280px) rotateZ(-90deg);
+          transform: translate(-2rem, 280px) rotateZ(-90deg);
   z-index: 0;
+}
+
+.leftLogo .llLinks {
+  font-size: 0.9rem;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-transform: translate(-80px, 410px) rotateZ(-90deg);
+          transform: translate(-80px, 410px) rotateZ(-90deg);
+  z-index: 1666;
 }
 
 .header,
@@ -423,35 +436,35 @@ li.links:hover, li.links:active {
 textarea {
   border-style: none;
   color: #0077b8;
-  background-color: white;
+  background-color: #feffb1;
   height: 50vh;
   margin: 0 auto;
   overflow: scroll;
 }
 
 textarea::-webkit-input-placeholder {
-  background-color: white;
+  background-color: #feffb1;
   font-size: 1rem;
   font-family: monospace;
   color: #0077b8;
 }
 
 textarea:-ms-input-placeholder {
-  background-color: white;
+  background-color: #feffb1;
   font-size: 1rem;
   font-family: monospace;
   color: #0077b8;
 }
 
 textarea::-ms-input-placeholder {
-  background-color: white;
+  background-color: #feffb1;
   font-size: 1rem;
   font-family: monospace;
   color: #0077b8;
 }
 
 textarea::placeholder {
-  background-color: white;
+  background-color: #feffb1;
   font-size: 1rem;
   font-family: monospace;
   color: #0077b8;
