@@ -93,8 +93,8 @@ body {
   position: relative;
   margin-left: auto;
   width: 93vw;
-  -ms-grid-columns: 800px auto;
-      grid-template-columns: 800px auto;
+  -ms-grid-columns: 70% 30%;
+      grid-template-columns: 70% 30%;
   -ms-grid-rows: auto auto auto auto;
       grid-template-rows: auto auto auto auto;
       grid-template-areas: "header sidebarR" "content sidebarR" "content sidebarR" "footer footer";
@@ -193,7 +193,7 @@ hr {
   top: -10rem;
   -webkit-transform: skew(30deg, 10deg);
           transform: skew(30deg, 10deg);
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   z-index: -10;
   width: 220vw;
   height: 220vh;
@@ -271,7 +271,7 @@ tt {
 
 #username,
 #password {
-  background-color: #242424;
+  background-color: wheat;
 }
 
 .error {
@@ -342,6 +342,7 @@ textarea {
   height: 30vh;
   margin: 0 auto;
   overflow: scroll;
+  border-radius: 5px;
 }
 
 .links, .userControlInfo, .userControlJoin, .userControlNormal {
@@ -428,7 +429,7 @@ li.links:hover, li.links:active {
   border: lpx solid #0077b8;
   opacity: 0.8;
   background-color: #242424;
-  color: #b84000;
+  color: wheat;
   padding: 5px;
   margin: 5px;
 }

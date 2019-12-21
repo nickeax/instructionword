@@ -1,6 +1,6 @@
 #username,
 #password {
-  background-color: $background;
+  background-color: wheat;
 }
 
 .error {
@@ -69,6 +69,7 @@ textarea {
   height: 30vh;
   margin: 0 auto;
   overflow: scroll;
+  border-radius: $borderRadiusSml;
 }
 
 
@@ -134,7 +135,7 @@ li.links:hover, li.links:active {
   border: lpx solid  $mainFont;
   opacity: 0.8;
   background-color: $background;
-  color: $mainComp;
+  color: wheat;
   padding: $paddingSml;
   margin: $paddingSml;
 }
