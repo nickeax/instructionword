@@ -9,6 +9,12 @@
   padding: 2px;
   border: 1px dotted $darkest;
   margin-bottom: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.editListItem:hover, .editListItem:active {
+  background-color: $mainFontDk;
+  color: $lightest;
 }
 
 .headerInputs:hover {

@@ -64,11 +64,11 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       onlineInfo.innerHTML = "";
       onlineInfo.innerHTML = `<tt>online(${onlineUsers})</tt>`;
       if (usersArr.length > 0) {
-        for(let i = 0; i < usersArr.length; i++) {
-          if(i > 0) content += ', ';
+        for (let i = 0; i < usersArr.length; i++) {
+          if (i > 0) content += ', ';
           content += `${usersArr[i].username}`;
         }
-      } else { content = "no one is logged in";}
+      } else { content = "no one is logged in"; }
       onlineInfo.innerHTML += `<div class="loggedInMembers">${content}</div>`;
       break;
     case 'getEdits':
@@ -85,16 +85,22 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         editsList.classList.add('editsList');
         editsList.classList.remove('noEdits');
       }
+      editsList.innerHTML += `<a href="#"><p class="editListItem" id="original">ORIGINAL</p></a>`;
       for (let i = 0; i < editsStr.length; i++) {
         editsList.innerHTML +=
-          `<p class="editListItem"><strong class="snippetTitle id="snippetSideBarTitle" 
-            data-snippet_edit_id = "${editsStr[i].edit_id}" 
-            data-snippet_snippet_id = "${editsStr[i].snippet_id}"
-            data-edit-clicked = "1">
-            ${editsStr[i].description} <span class="username">edited by ${editsStr[i].username}</span></strong>
-            </p>`;
+          `<a href="#"><p class="editListItem">
+            <strong class="snippetTitle id="snippetSideBarTitle"
+              data-snippet_edit_id = "${editsStr[i].edit_id}"  
+              data-snippet_snippet_id = "${editsStr[i].snippet_id}"
+              data-edit-clicked = "1"> ${editsStr[i].description} 
+              <span class="username">edited by ${editsStr[i].username}</span>
+            </strong>
+          </p></a>`;
         editsList.innerHTML += "</ul>";
       }
+      document.querySelector('#original').addEventListener(`click`, (e) => {
+        checkServer('getSnippet', editsStr[0].snippet_id, setResp);
+      });
       break;
     case 'getChatMessages':
       chatOutput.innerHTML = "";
@@ -177,7 +183,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             <span class="snippetTitle id="snippetSideBarTitle" data-snippet_snippet_id = "${str[i].snippet_id}" >
               ${str[i].title} 
             </span>
-            <em>${str[i].description.substring(0,40)}...</em>
+            <em>${str[i].description.substring(0, 40)}...</em>
               <span id="timestamp" class = "username">${months[month]} ${monthDay + 1}</span> by 
               <span id = "listed_snippet" class = "username">${str[i].username}</span>
             <span class = "share" id="share_snippet">

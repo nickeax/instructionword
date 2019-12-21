@@ -595,6 +595,13 @@ li.userControlJoin:active {
   padding: 2px;
   border: 1px dotted black;
   margin-bottom: 0.5rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.editListItem:hover, .editListItem:active {
+  background-color: rgba(0, 53, 82, 0.815);
+  color: white;
 }
 
 .headerInputs:hover {
