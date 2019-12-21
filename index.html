@@ -40,8 +40,8 @@
     <div class="llText"><strong> &#8633;</strong><em>instruction</em><strong>WO&#9736;D</strong></div>
     <div class="llLinks">
       <a href="https://github.com/nickeax">
-        <svg style="color:hsl(201, 100%, 36%); background-color: hsl(21, 100%, 36%);" height="37" viewBox="0 0 16 16"
-          version="1.1" width="37" aria-hidden="true">
+        <svg style="box-shadow: 0 0 7px rgba(184, 64, 0, 0.4);; background-color: rgba(184, 64, 0, 0.8);" height="37"
+          viewBox="0 0 16 16" version="1.1" width="37" aria-hidden="true">
           <path fill-rule="evenodd"
             d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
           </path>
@@ -49,6 +49,7 @@
       </a>
       <a href="https://www.facebook.com/groups/2187294837963655/">
         <svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
+          style="box-shadow: 0 0 7px rgba(0, 119, 184, 0.4); background-color: rgb(0, 119, 184, 0.8);"
           xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px"
           y="0px" width="37px" height="37px" viewBox="0 0 36 36" xml:space="preserve">
           <defs>
@@ -98,7 +99,7 @@
       </div>
       <div id="detectedLanguage"></div>
       <div class="messages hidden" id="messages">nothing to report</div>
-      <div class="language hidden" id="language"></div>
+      <div class="language hidden" id="language"><span id="clipboard" class="copyButton">copy link</span></div>
     </header>
 
     <div class="sidebarR" id="sidebarR">
@@ -145,36 +146,76 @@
 
   <div id="instructionsModal" class="instructionsModal">
     <div class="instructionsModal-Content">
-      <div class="instructions">
-        <span id="close">&times;</span>
-        <h4 class="instructions-subtitle">HOWTO</h4>
-        <p></p>
-        <p>
-          <strong class="instructions-subtitle">STORE A NEW SNIPPET:</strong>
-          Log in and make sure you are not viewing any existing snippet. If you are viewing an existing snipper, press
-          the
-          <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
-          actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
-        </p>
-        <p>
-          <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
-          Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
-          Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
+      <span id="close">&times;</span>
+      <h3 class="instructions-subtitle">WHAT?</h3>
+      <p>
+        ↹instructionWO☈D is designed with learning as a focus. The main idea is to have a place to post your code, so
+        others can offer suggestions about improvements or solve issues. Below are listed the main units used on
+        ↹instructionWO☈D:
+      </p>
+      <ul>
+        <li>
+          <h5 class="instructions-subtitle">SNIPPET</h5>
+          <ul>
+            <li>Usually represents the contents of one source file, a function/method or any small section of code</li>
+            <li>It's probably best to post as much code as possible, to give context to your snippet</li>
+            <li>A snippet can act as a title for a <strong>Project</strong> <em>(see below)</em></li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h5 class="instructions-subtitle">EDIT</h5>
+          <ul>
+            <li>When you alter an existing snippet, an edit is attached to it. The original is left unchanged</li>
+            <li>The next time you select that snippet, a list of edits will appear in the right panel</li>
+            <li>Please ensure that you also edit the description of the original snippet, this will explain why you are
+              editing the original
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h5 class="instructions-subtitle">PROJECT</h5>
+          <ul>
+            <li>Make a new snippet that represents the basis of the project</li>
+            <li>The 'base' snippet doesn't need any code content, it might just be a description of the project</li>
+            <li>When you edit this 'base' snippet, completely replace its contents with a source file of the project
+            </li>
+            <li>Each edit you make to the 'base' snippet will be the contents of a new file.</li>
+          </ul>
+        </li>
+      </ul>
+      </p>
 
-        </p>
-        <p>
+      <h3 class="instructions-subtitle">HOW?</h3>
+      <p>
+        <h4 class="instructions-subtitle">STORE A NEW SNIPPET:</h4>
+        Log in and <strong>make sure you are not viewing any existing snippet</strong>. If you are viewing an existing
+        snipper, press
+        the
+        <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
+        actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
+      </p>
+      <p>
+        <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
+        Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
+        Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
 
-        </p>
-        <p>
-          <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
-          Create a new snippet and give it the title of the project and a brief description. The snippet text should
-          be a
-          more
-          in depth description of the project. To add a file to the project, just add edits and paste the code for
-          each file
-          as a new edit.
-        </p>
-      </div>
+      </p>
+      <p>
+
+      </p>
+      <p>
+        <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
+        Create a new snippet and give it the title of the project and a brief description. The snippet text should
+        be a
+        more
+        in depth description of the project. To add a file to the project, just add edits and paste the code for
+        each file
+        as a new edit.
+      </p>
     </div>
   </div>
   <script defer src="modules/funcs.js"></script>

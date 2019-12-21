@@ -127,6 +127,19 @@ hr {
     transform: translate(-80px, 410px) rotateZ(-90deg);
     z-index: 1666;
   }
+
+  #githubLogo, #facebookLogo {
+    height:37;
+  }
+
+  #facebookLogo {
+    background-color: $mainComp;
+    box-shadow: 0 0 5px $mainCompShadow;
+  }
+
+  #githubLogo {
+    background-color: hsl(201, 100%, 36%); 
+  }
 }
 
 

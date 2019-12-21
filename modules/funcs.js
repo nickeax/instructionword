@@ -31,13 +31,24 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
       elementActive(btnSaveCode, edited);
       checkServer('getSnippets', "", setResp);
       checkServer('countOnline', "", setResp);
-      
-      if(snippetID >= 0) {        
+
+      if (snippetID >= 0) {
         checkServer('getChatMessages', "", setResp);
       };
     }, pollingInterval);
   }
 }
+clipboard.addEventListener("click", copyToClipboard);
+
+function copyToClipboard() {
+  var range = document.createRange();
+  range.selectNode(language);
+  window.getSelection().removeAllRanges(); // clear current selection
+  window.getSelection().addRange(range); // to select text
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();// to deselect
+}
+
 function showError(str) {
   messages.classList.remove('hidden');
   messages.classList.add('error');
@@ -90,7 +101,7 @@ function checkServer(mode, str, cb) {
   let title = "";
   let description = "";
   let params = "";
-  if(snippetID === null) {
+  if (snippetID === null) {
     snippetID = -1;
   }
   if (snippetTitle.value != "") {
@@ -114,7 +125,7 @@ function checkServer(mode, str, cb) {
 
   params = `mode=${mode}&str=${str}&title=${title}&description=${description}&username=${snippetEditUsername}&snippetID=${snippetID}&editID=${editID}`; // build the POST query string
   // console.log(params);
-  
+
   const xhr = new XMLHttpRequest();
   xhr.open("POST", 'server.php', true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');

@@ -11,13 +11,44 @@
 }
 
 .instructionsModal-Content {
+  font-size: 0.8rem;
+  line-height: 1.4;
   position: relative;
-  width: 60%;
-  padding-top: 2rem;
+  width: 70%;
+  padding: 0.5rem 2rem;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
   border-radius: 15px;
   background-color: $background;
+  box-shadow: $boxShadow;
+  p {
+    margin-bottom: 10px;
+  }
+
+  strong {
+    color: $mainFontLt;
+  }
+
+  ul {
+    margin-bottom: $paddingMed;
+  }
+}
+
+.instructions-subtitle {
+  letter-spacing: 0.1rem;
+  font-weight: 800;
+  padding: 1px 3px;
+  border-left: solid 2px $mainComp;
+  color: $lightest;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.instructionsModal-Content #close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 2rem;
 }
 
 .snippetSelectModal {
@@ -42,44 +73,6 @@
   margin-top: 1rem;
   border-radius: 15px;
   background-color: $lightestTrns;
-}
-
-.instructions { 
-  font-family: Arial, Helvetica, sans-serif; 
-  color: $mainFont;
-  font-size: 1.3rem;
-  font-style: arial;
-  padding: .7rem;
-  border-radius: 15px;
-  line-height: 1.4;
-}
-
-.instructions span.boxed {
-  padding: 0 5px;
-  display: inline-blo7k;
-
-  border: lpx solid  dotted #333;
-  background-color: rgba(0, 0, 0, 0.178);
-  border-radius: 5px;
-}
-
-.instructions p {
-  margin-bottom: 2rem;
-}
-
-.instructions-subtitle{
-  font-weight: 100;
-  padding: 2px;
-  border-left: solid 7px $mainComp;
-  color: $lightest;
-  background-color: $mainComp;
-}
-
-.instructionsModal-Content #close {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: 2rem;
 }
 
 .snippetSelectModalContent #closeSnippetModal {

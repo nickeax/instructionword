@@ -38,7 +38,6 @@ const snippetModal = document.querySelector('#snippetSelect');
 const closeSnippetModal = document.querySelector('#closeSnippetModal');
 const header = document.querySelector('#header');
 const onlineInfo = document.querySelector('#onlineInfo');
-console.log(onlineInfo);
 
 let snippetEditSnippetID;
 let snippetEditUsername;

@@ -227,6 +227,20 @@ hr {
   z-index: 1666;
 }
 
+.leftLogo #githubLogo, .leftLogo #facebookLogo {
+  height: 37;
+}
+
+.leftLogo #facebookLogo {
+  background-color: #b84000;
+  -webkit-box-shadow: 0 0 5px rgba(184, 64, 0, 0.4);
+          box-shadow: 0 0 5px rgba(184, 64, 0, 0.4);
+}
+
+.leftLogo #githubLogo {
+  background-color: #0077b8;
+}
+
 .header,
 .footer {
   font-weight: normal;
@@ -338,7 +352,7 @@ textarea {
   border-style: none;
   color: white;
   background-color: #242424;
-  width: 100%;
+  width: 99%;
   height: 30vh;
   margin: 0 auto;
   overflow: scroll;
@@ -591,6 +605,16 @@ li.userControlJoin:active {
   background-color: #242424;
 }
 
+.snippetEditLink {
+  background-color: rgba(167, 204, 167, 0.5);
+  color: white;
+  padding: 2px;
+  border: 1px solid black;
+  margin-bottom: 0.5rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
 .editListItem {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 2px;
@@ -774,13 +798,46 @@ h3.usersSnippets {
 }
 
 .instructionsModal-Content {
+  font-size: 0.8rem;
+  line-height: 1.4;
   position: relative;
-  width: 60%;
-  padding-top: 2rem;
+  width: 70%;
+  padding: 0.5rem 2rem;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
   border-radius: 15px;
   background-color: #242424;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4);
+          box-shadow: rgba(0, 0, 0, 0.4);
+}
+
+.instructionsModal-Content p {
+  margin-bottom: 10px;
+}
+
+.instructionsModal-Content strong {
+  color: #0098eb;
+}
+
+.instructionsModal-Content ul {
+  margin-bottom: 13px;
+}
+
+.instructions-subtitle {
+  letter-spacing: 0.1rem;
+  font-weight: 800;
+  padding: 1px 3px;
+  border-left: solid 2px #b84000;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.instructionsModal-Content #close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 2rem;
 }
 
 .snippetSelectModal {
@@ -806,43 +863,6 @@ h3.usersSnippets {
   margin-top: 1rem;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.8);
-}
-
-.instructions {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #0077b8;
-  font-size: 1.3rem;
-  font-style: arial;
-  padding: .7rem;
-  border-radius: 15px;
-  line-height: 1.4;
-}
-
-.instructions span.boxed {
-  padding: 0 5px;
-  display: inline-blo7k;
-  border: lpx solid  dotted #333;
-  background-color: rgba(0, 0, 0, 0.178);
-  border-radius: 5px;
-}
-
-.instructions p {
-  margin-bottom: 2rem;
-}
-
-.instructions-subtitle {
-  font-weight: 100;
-  padding: 2px;
-  border-left: solid 7px #b84000;
-  color: white;
-  background-color: #b84000;
-}
-
-.instructionsModal-Content #close {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: 2rem;
 }
 
 .snippetSelectModalContent #closeSnippetModal {
