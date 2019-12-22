@@ -27,6 +27,8 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
     checkServer('getEdits', si, setResp);
   } else {
     window.setInterval(() => {
+      checkServer('getAllMembers', "", setResp);
+      checkServer('getChatMessages', "", setResp);
       checkServer('getMemberList', "", setResp);
       elementActive(btnSaveCode, edited);
       checkServer('getSnippets', "", setResp);
@@ -38,7 +40,6 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
     }, pollingInterval);
   }
 }
-clipboard.addEventListener("click", copyToClipboard);
 
 function copyToClipboard() {
   var range = document.createRange();
@@ -145,9 +146,9 @@ function updateUI(str) {
     login.classList.add('hidden');
     logout.classList.remove('hidden');
     handle.classList.add("hidden");
+    snippetTitle.disabled = false;
+    snippetDescription.disabled = false;
     password.classList.add("hidden");
-    snippetDescription.classList.remove('hidden');
-    snippetTitle.classList.remove('hidden');
     join.classList.add('hidden');
     logout.textContent = `logout [${theUser}]`;
     document.title = theUser + "@IW";
@@ -157,8 +158,8 @@ function updateUI(str) {
   if (str == 'loggedOut') {
     sendMessage.disabled = true;
     btnRemoveSnippet.classList.add('hidden');
-    snippetDescription.classList.add('hidden');
-    snippetTitle.classList.add('hidden');
+    snippetTitle.disabled = true;
+    snippetDescription.disabled = true;
     btnSaveCode.classList.add('hidden');
     btnClearCode.classList.remove('hidden');
     login.classList.remove('hidden');

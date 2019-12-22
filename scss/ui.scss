@@ -140,6 +140,16 @@ li.links:hover, li.links:active {
   margin: $paddingSml;
 }
 
+.online {
+  font-weight: 800;
+  color: green;
+}
+
+.offline {
+  font-weight: 100;
+  color: slategray;
+  font-style: italic;
+}
 // input::input-placeholder,
 // input {
 //   font-size: 0.9rem;

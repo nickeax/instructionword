@@ -1,4 +1,3 @@
-
 function setResp(str) { // Process any UI changes here, certain that RESPONSE is ready.
   let arr = str.split('|||');
   // elementActive(btnSaveCode, true);
@@ -55,20 +54,31 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       if (arr[1] == 'failure') {
         messages.innerHTML = arr[2];
       }
+      break;
     case 'getMemberList':
       usersArr = JSON.parse(arr[3]);
       break;
+    case 'getAllMembers':
+      if (arr[1] == "success") {
+        allMembersArr = JSON.parse(arr[3]);
+      };
+      break;
     case 'countOnline':
+      let i = 0;
       let content = "";
+      let status = "offline";
       onlineUsers = arr[2];
-      onlineInfo.innerHTML = "";
-      onlineInfo.innerHTML = `<tt>online(${onlineUsers})</tt>`;
-      if (usersArr.length > 0) {
-        for (let i = 0; i < usersArr.length; i++) {
-          if (i > 0) content += ', ';
-          content += `${usersArr[i].username}`;
-        }
-      } else { content = "no one is logged in"; }
+      let totalUsers = allMembersArr.length;
+      onlineInfo.innerHTML = `<tt>online(${onlineUsers} of ${totalUsers})</tt>`;
+
+      allMembersArr.forEach(x => {
+        if (i > 0) content += '<span style="color:slategray;">, </span>';
+        usersArr.forEach(y => {
+          (x.username === y.username) ? status = "online" : status = "offline";
+        });
+        content += `<span class="${status}">${x.username}</span>`;
+        i++;
+      });
       onlineInfo.innerHTML += `<div class="loggedInMembers">${content}</div>`;
       break;
     case 'getEdits':

@@ -64,37 +64,32 @@
   <div class="wrapper">
     <header class="header" id="header">
       <div class="links">
-        <ul>
-          <li id="guide" class="userControl userControlInfo"><a href="#">guide</a></li>
-        </ul>
-      </div>
-
-      <div class="links">
         <input class="headerInputs" type="text" name="username" id="username" placeholder="username" required>
         <input class="headerInputs" type="password" name="password" id="password" placeholder="password" required>
-        <ul class="shadowButtons">
-
-          <li id="login" class="userControlNormal">login</li>
-          <li id="join" class="userControlJoin"><a href="register.php" target="_blank">join</a></li>
-          <li id="logout" class="hidden userControlNormal">logout</li>
-          <li id="snippetSelect" class="links snippetSelect"><a href="#">LOAD A SNIPPET</a></li>
+        <ul>
+          <li id="login" class="userControlNormal">LOGIN</li>
+          <li id="join" class="userControlJoin"><a href="register.php" target="_blank">JOIN</a></li>
+          <li id="logout" class="hidden userControlNormal">LOGOUT</li>
+          <li id="guide" class="userControl userControlInfo"><a href="#">GUIDE</a></li>
         </ul>
       </div>
 
       <form action="#" autocomplete="off">
         <div class="inputs">
-          <input class="headerInputs hidden" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
+          <input class="headerInputs" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
             required><br>
-          <input class="headerInputs hidden" type="text" name="description" id="snippetDescription"
+          <input class="headerInputs" type="text" name="description" id="snippetDescription"
             placeholder="quick description">
         </div>
       </form>
       <div class="buttons">
-        <ul>
+        <ul class="shadowButtons">
           <li class="hidden importantButton" id="clearCode">clear</li>
           <li class="hidden normalButton" id="homeButton"><a href="/">back</a></li>
           <li class="hidden saveButton" id="saveCode">save</li>
           <li class="hidden importantButton" id="removeSnippet">delete</li>
+        
+          <li id="snippetSelect" class="links snippetSelect"><a href="#">LOAD SNIPPET</a></li>
         </ul>
       </div>
       <div id="detectedLanguage"></div>
@@ -103,7 +98,7 @@
     </header>
 
     <div class="sidebarR" id="sidebarR">
-      <div id="onlineInfo"></div>
+      <div id="chatCurrentSnippet"></div>
       <div id="chatOutput"></div>
       <form action="#" id="chatForm" autocomplete="off">
         <div class="form-group">
@@ -134,8 +129,8 @@
           <li class="links"><a href="./track-iss" target="_blank">ISS Tracker</a></li>
           <li class="links"><a href="./canvas-demo" target="_blank">CANVAS DEMO</a></li>
         </ul>
-
       </div>
+      <div id="onlineInfo"></div>
     </div>
   </div>
 

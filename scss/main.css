@@ -448,6 +448,17 @@ li.links:hover, li.links:active {
   margin: 5px;
 }
 
+.online {
+  font-weight: 800;
+  color: green;
+}
+
+.offline {
+  font-weight: 100;
+  color: slategray;
+  font-style: italic;
+}
+
 textarea {
   border-style: none;
   color: #0077b8;

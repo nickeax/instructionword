@@ -58,9 +58,16 @@ if (isset($_POST['mode'])) {
       if(!$data) {
         echo "getMemberList" . $sym . "failure" . $sym . "" . $sym . "" . $data;
       } else {
-        el("THE DATA:".$data);
         echo "getMemberList" . $sym . "success" . $sym . "" . $sym . "" . $data;
       }
+      break;
+      case "getAllMembers":
+        $arr = array();
+        $res = Query("SELECT username FROM users", $arr);
+        $data = json_encode($res->fetchAll(PDO::FETCH_ASSOC));
+        if(!$data) {
+          echo "getAllMembers" . $sym . "failure" . $sym . "" . $sym . "" . $data;
+        } else echo "getAllMembers" . $sym . "success" . $sym . "" . $sym . "" . $data;
       break;
     case 'getSnippets':
       updateActiveVisitors(getClientIP());
