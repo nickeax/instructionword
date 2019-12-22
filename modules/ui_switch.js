@@ -69,7 +69,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       let status = "offline";
       onlineUsers = arr[2];
       let totalUsers = allMembersArr.length;
-      onlineInfo.innerHTML = `<tt>online(${onlineUsers} of ${totalUsers})</tt>`;
+      onlineInfo.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
 
       allMembersArr.forEach(x => {
         if (i > 0) content += '<span style="color:slategray;">, </span>';
