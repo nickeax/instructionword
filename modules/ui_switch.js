@@ -95,7 +95,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         editsList.classList.add('editsList');
         editsList.classList.remove('noEdits');
       }
-      editsList.innerHTML += `<p class="snippetEditLink"><tt>https://instructionword.com/${snippetID}</tt></p>
+      editsList.innerHTML += `<p class="snippetEditLink"><tt>https://instructionword.com/index.html?sid=${snippetID}</tt></p>
       <a href="#"><p class="editListItem" id="original">ORIGINAL</p></a>`;
       for (let i = 0; i < editsStr.length; i++) {
         editsList.innerHTML += `<a href="#"><p class="editListItem">
