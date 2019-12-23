@@ -1,3 +1,7 @@
+.buttons {
+  border-radius: $borderRadiusSml;
+}
+
 .shadowButtons li {
   box-shadow: 0 0 5px $backgroundTrns;
 }
@@ -43,7 +47,7 @@
   background-color: $mainFontLt;
 }
 
-.selectSnipper {
+.selectSnippet {
   background-color: $lightest;
 }
 
@@ -82,7 +86,7 @@
   background-color: $background;
 }
 
-#selectSnipper {
+#selectSnippet {
   background-color: $lightest;
 }
 

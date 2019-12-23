@@ -69,8 +69,8 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       let status = "offline";
       onlineUsers = arr[2];
       let totalUsers = allMembersArr.length;
-      onlineInfo.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
-
+      // onlineInfo.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
+      stats.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
       allMembersArr.forEach(x => {
         if (i > 0) content += '<span style="color:slategray;">, </span>';
         usersArr.forEach(y => {
@@ -79,7 +79,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         content += `<span class="${status}">${x.username}</span>`;
         i++;
       });
-      onlineInfo.innerHTML += `<div class="loggedInMembers">${content}</div>`;
+      onlineInfo.innerHTML = `<div class="loggedInMembers">${content}</div>`;
       break;
     case 'getEdits':
       let editsStr = JSON.parse(arr[3]);

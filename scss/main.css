@@ -372,7 +372,6 @@ textarea {
           justify-content: flex-start;
 }
 
-.buttons,
 .links,
 .userControl {
   padding: 5px;
@@ -505,6 +504,10 @@ a[target='_blank']::after {
   content: ' \25F3';
 }
 
+.buttons {
+  border-radius: 5px;
+}
+
 .shadowButtons li {
   -webkit-box-shadow: 0 0 5px rgba(36, 36, 36, 0.7);
           box-shadow: 0 0 5px rgba(36, 36, 36, 0.7);
@@ -551,7 +554,7 @@ a[target='_blank']::after {
   background-color: #0098eb;
 }
 
-.selectSnipper {
+.selectSnippet {
   background-color: white;
 }
 
@@ -593,7 +596,7 @@ a[target='_blank']::after {
   background-color: #242424;
 }
 
-#selectSnipper {
+#selectSnippet {
   background-color: white;
 }
 
@@ -608,6 +611,10 @@ li.userControlJoin:active {
 
 .userControlJoin {
   background-color: #d34f5a;
+}
+
+#stats {
+  margin: 5px;
 }
 
 #snippetDescription,
