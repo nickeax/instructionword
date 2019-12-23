@@ -34,7 +34,7 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
       checkServer('getSnippets', "", setResp);
       checkServer('countOnline', "", setResp);
 
-      if (snippetID >= 0) {
+      if (snippetID !== 0) {
         checkServer('getChatMessages', "", setResp);
       };
     }, pollingInterval);

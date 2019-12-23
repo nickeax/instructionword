@@ -164,6 +164,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       let str = JSON.parse(arr[3]);
       edited = false;
       snippetID = str[0].snippet_id;
+      console.log(`[getSnippet] ${str[0].snippet_id}`);
       snippetTitle.value = str[0].title;
       snippetDescription.value = str[0].description;
       input.value = str[0].snippet;

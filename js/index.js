@@ -7,7 +7,7 @@ let allMembersArr = [];
 let loggedIn = false;
 let theUser = "anon";
 let snippetOwner = "";
-let snippetID = 0;
+let snippetID;
 let editID = 0;
 let edited = false;
 let pollingInterval = 1500;
@@ -68,7 +68,6 @@ modal.addEventListener('click', (e) => {
 
 snippetModal.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log(snippetSelectModal);  
   snippetSelectModal.style.display = "block";  
 });
 
