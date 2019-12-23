@@ -144,7 +144,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       }
       let stred = arr[3];
       edited = false;
-      snippetID = arr[0];
+      // snippetID = arr[0];
       // snippetTitle.value = stred;
       // snippetDescription.value = stred;
       input.value = stred;
