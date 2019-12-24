@@ -52,6 +52,7 @@
 .inputs#snippetDescription,
 .inputs#username,
 .inputs#password {  
+  padding-left: 3px;
   height: 1.4rem;
   background-color: rgba(97, 96, 96, 0.671);
   color: $mainFont;
@@ -69,6 +70,7 @@
 }
 
 .inputs::placeholder {
+  padding-left: 3px;
   font-family: cursive;
   color: $mainFontLt;
 }
