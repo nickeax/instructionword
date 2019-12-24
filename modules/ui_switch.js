@@ -72,7 +72,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       // onlineInfo.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
       stats.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
       allMembersArr.forEach(x => {
-        if (i > 0) content += '<span style="color:slategray;">, </span>';
+        if (i > 0) content += '<span style="color:rgba(102, 102, 102, 0.287);">, </span>';
         usersArr.forEach(y => {
           (x.username === y.username) ? status = "online" : status = "offline";
         });
