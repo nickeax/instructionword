@@ -307,9 +307,8 @@ tt {
 }
 
 .loggedInMembers {
-  color: rgba(41, 250, 34, 0.781);
   background-color: rgba(24, 21, 21, 0.322);
-  padding: 3px 38PX;
+  padding: 3px 38px;
   text-align: left;
   min-height: 50px;
   border: 2px solid rgba(36, 36, 36, 0.7);
@@ -319,11 +318,15 @@ tt {
   margin-bottom: 1rem;
 }
 
-.loggedInMembers .memberName {
-  background-color: #666;
+.online {
+  color: #4d9430;
 }
 
-.loggedInMembers tt {
+.offline {
+  color: rgba(178, 34, 34, 0.527);
+}
+
+tt {
   display: block;
   padding: 5px;
   color: #0077b8;
@@ -347,7 +350,8 @@ tt {
   margin-right: 3px;
 }
 
-.userInfo, .snippetInfo {
+.userInfo,
+.snippetInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -677,7 +681,9 @@ h3.usersSnippets {
   position: fixed;
   top: 0;
   left: 0;
-  display: none;
+  display: block;
+  -webkit-transform: scale(0);
+          transform: scale(0);
   width: 100vw;
   height: 100vh;
   background-color: rgba(36, 36, 36, 0.7);
@@ -734,7 +740,9 @@ h3.usersSnippets {
   overflow: scroll;
   top: 0;
   left: 0;
-  display: none;
+  display: block;
+  -webkit-transform: scale(0);
+          transform: scale(0);
   width: 100vw;
   height: 100vh;
   background-color: rgba(36, 36, 36, 0.7);

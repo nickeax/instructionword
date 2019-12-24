@@ -10,7 +10,7 @@ let snippetOwner = "";
 let snippetID;
 let editID = 0;
 let edited = false;
-let pollingInterval = 1500;
+let pollingInterval = 5500;
 var displayEdit = "hidden";
 const chatCurrentSnippet = document.querySelector('#chatCurrentSnippet');
 const output = document.querySelector('#output');
@@ -50,26 +50,27 @@ const input = document.querySelector('#input');
 input.addEventListener('keyup', keyPress);
 close.addEventListener('click', (e) => {
   e.preventDefault();
-  modal.style.display = "none";
+  modal.style.transform = "scale(0)";
 });
 
-closeSnippetModal.addEventListener('click', (e) => {
-  e.preventDefault();
-  modal.style.display = "none";
-});
 
 guide.addEventListener('click', (e) => {
   e.preventDefault();
-  modal.style.display = "block";
+  modal.style.transform = "scale(1)";
 });
 
 modal.addEventListener('click', (e) => {
-  modal.style.display = "none";
+  modal.style.transform = "scale(0)";
 })
+
+closeSnippetModal.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.style.transform = "scale(0)";
+});
 
 snippetModal.addEventListener('click', (e) => {
   e.preventDefault();
-  snippetSelectModal.style.display = "block";  
+  snippetSelectModal.style.transform = "scale(1)";  
 });
 
 snippetSelectModalContent.innerHTML = `<h2>snippets loading...</h2><div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>`;
@@ -117,7 +118,7 @@ btnRemoveSnippet.addEventListener('click', ev => {
 
 snippetSelectModalContent.addEventListener('click', (e) => {
   clearMessages();
-  snippetSelectModal.style.display = "none";
+  snippetSelectModal.style.transform = "scale(0)";
   if (e.target.dataset.snippet_snippet_id) {
     let snippetEditSnippetID = e.target.dataset.snippet_edit_id;
     let snippetUsername = e.target.dataset.snippet_edit_username;

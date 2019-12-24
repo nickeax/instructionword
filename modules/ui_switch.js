@@ -66,20 +66,23 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
     case 'countOnline':
       let i = 0;
       let content = "";
-      let status = "offline";
+      let status = "";
       onlineUsers = arr[2];
       let totalUsers = allMembersArr.length;
       // onlineInfo.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
       stats.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
       allMembersArr.forEach(x => {
-        if (i > 0) content += '<span style="color:rgba(102, 102, 102, 0.287);">, </span>';
+        if (i > 0) content += '<span style="color:rgba(102, 102, 102, 0.187);">, </span>';
         usersArr.forEach(y => {
-          (x.username === y.username) ? status = "online" : status = "offline";
+          status = "";
+          if(x.username === y.username) {
+            status = "online";
+           } else status = "offline";
         });
-        content += `<span class="${status}">${x.username}</span>`;
+        content += "<span class=" + status +">" + x.username + "</span>";
         i++;
       });
-      onlineInfo.innerHTML = `<div class="loggedInMembers">${content}</div>`;
+      onlineInfo.innerHTML = `<div class="status">${content}</div>`;
       break;
     case 'getEdits':
       let editsStr = JSON.parse(arr[3]);
