@@ -185,7 +185,7 @@ function getFormattedTime(timestamp) {
 
 function processMarkers(markers) {
   let lineNumber = 2;
-  let tmp = "<span class = 'lineNumber'>1: </span>";
+  let tmp = "<span class = 'lineNumber'>1 </span>";
   let inSingleQuotes = false;
   let inDoubleQuotes = false;
   // let language = detectLanguage(markers);
@@ -207,7 +207,7 @@ function processMarkers(markers) {
       }
     } else if (element.type == 'NWL') {
       tmp += "<br>";
-      tmp += `<span class='lineNumber'>${lineNumber}:</span>`;
+      tmp += `<span class='lineNumber'>${lineNumber} </span>`;
       lineNumber++;
     } else if (element.type == 'SPC') {
       tmp += "&nbsp;";

@@ -83,10 +83,10 @@ img.full {
 .output {
   color: $mainFont;
   background-color: $mainFontDk;
-  padding: 10px;
-  margin: 3rem auto 1rem auto;
+  padding: $paddingSml;
+  // margin: 3rem auto 1rem auto;
   overflow: scroll;
-  min-height: 20vh;
+  min-height: 1vh;
   max-height: 120vh;
 }
 
@@ -130,7 +130,7 @@ hr {
   .llLinks {
     font-size: 0.9rem;
     transform-origin: top right;
-    transform: translate(-80px, 410px) rotateZ(-90deg);
+    transform: translate(-73px, 410px) rotateZ(-90deg);
     z-index: 1666;
   }
 

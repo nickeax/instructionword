@@ -167,10 +167,9 @@ img.full {
 .output {
   color: #0077b8;
   background-color: rgba(0, 28, 42, 0.815);
-  padding: 10px;
-  margin: 3rem auto 1rem auto;
+  padding: 5px;
   overflow: scroll;
-  min-height: 20vh;
+  min-height: 1vh;
   max-height: 120vh;
 }
 
@@ -220,8 +219,8 @@ hr {
   font-size: 0.9rem;
   -webkit-transform-origin: top right;
           transform-origin: top right;
-  -webkit-transform: translate(-80px, 410px) rotateZ(-90deg);
-          transform: translate(-80px, 410px) rotateZ(-90deg);
+  -webkit-transform: translate(-73px, 410px) rotateZ(-90deg);
+          transform: translate(-73px, 410px) rotateZ(-90deg);
   z-index: 1666;
 }
 
