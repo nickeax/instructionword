@@ -2,12 +2,6 @@
   margin: 5px;
 }
 
-#snippetDescription,
-#snippetTitle {
-  width: 90%;
-  background-color: $background;
-}
-
 .snippetEditLink {
   background-color: $snippetLinkBG;
   color: white;
@@ -28,10 +22,6 @@
 .editListItem:hover, .editListItem:active {
   background-color: $mainFontDk;
   color: $lightest;
-}
-
-.headerInputs:hover {
-  opacity: 0.8;
 }
 
 #detectedLanguage {
@@ -70,16 +60,6 @@ h3.usersSnippets {
   margin: 2px 10px;
   border: 1px solid rgb(22, 22, 22);
   background-color: rgba(255, 214, 214, 0.376);
-}
-
-.snippetTitle {
-  color: $mainComp;
-}
-
-.snippetTitle:hover {
-  cursor: pointer;
-  color: $mainFont;
-  transition: color 0.2s ease-out;
 }
 
 .left {

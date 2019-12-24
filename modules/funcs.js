@@ -18,7 +18,7 @@ function autoLoad() { // Populate UI with available Project data (just snippets 
     window.location.href = "/";
   } else if (loc.indexOf('=') != -1) { // Don't poll if this is a 'share' operation
     language.classList.remove('hidden');
-    language.innerHTML = `Copy and paste the below link to share:<hr> ${loc}`;
+    // language.innerHTML = `Copy and paste the below link to share:<hr> ${loc}`;
     checkServer('getSnippet', loc.split("=")[1], setResp);
     elementActive(homeButton, true);
     sidebarL.innerHTML = "";
@@ -188,7 +188,7 @@ function processMarkers(markers) {
   let tmp = "<span class = 'lineNumber'>1: </span>";
   let inSingleQuotes = false;
   let inDoubleQuotes = false;
-  let language = detectLanguage(markers);
+  // let language = detectLanguage(markers);
 
   markers.forEach(element => {
     if (element.type == "SQT" && !inDoubleQuotes) {

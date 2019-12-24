@@ -1,103 +1,42 @@
-.buttons {
-  border-radius: $borderRadiusSml;
+ul.nav {
+  display: flex;
+  li {
+    list-style-type: none;
+  }
 }
 
-.shadowButtons li {
-  box-shadow: 0 0 5px $backgroundTrns;
-}
-
-.buttons ul,
-.links ul,
-.userControl ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;  
-}
-
-.buttons ul li,
-.links ul li,
-.userControl ul li {
+.button {
+  color: $mainFont;
+  padding: 2px 8px;
   margin: 2px;
-  padding: 2px;
-  text-transform: uppercase;
-  color: $lightest;
-  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid $mainFont;
+  transition: all 0.1s ease-in-out;
 }
-
-.userControlInfo {
-  background-color: green;
-}
-
-.buttons ul li a,
-.links ul li a,
-.userControl ul li a {
-  color: $lightest;
-}
-
-.normalButton {
-  background-color: $mainComp;
-}
-
-.normalButton:hover {
-  color: $mainFont;
-  background-color: $mainFont;
-}
-
-.importantButton {
-  background-color: $mainFontLt;
-}
-
-.selectSnippet {
-  background-color: $lightest;
-}
-
-.importantButton:hover,
-.importantButton:active {
-  box-shadow: 0 0 5px $boxShadow;
-  color: $mainFont;
-  background-color: $lightest;
+.button:hover {
   cursor: pointer;
+  color: $mainFontLt;
+  border: 1px solid $mainFontLt;
+  box-shadow: 0 0 5px $mainFontLtShadow, 0 0 3px inset $mainFontLtShadow;
 }
 
-.saveButton {
-  background-color: seagreen;
-}
-
-.userControlNormal {
-  background-color: $background;
-}
-
-.userControlNormal:hover,
-.userControlNormal:active {
-  color: $mainFont;
-  background-color: $lightest;
-  box-shadow: 0 0 5px $boxShadow;
+.button:active {
   cursor: pointer;
+  color: $mainFontLt;
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 0 15px $mainFontLtShadow;
 }
 
-.saveButton:hover {
-  color: $mainFont;
-  background-color: $background;
-  box-shadow: 0 0 5px $boxShadow;
+.button#guide {
+  float: right;
+  text-align: center;
+  color: white;
+  font-weight: 900;
+  width: 7rem;
+  border: 2px solid $mainFontLt;
+}
+
+#guide:hover {
   cursor: pointer;
-}
-
-.userControlJoin {
-  background-color: $background;
-}
-
-#selectSnippet {
-  background-color: $lightest;
-}
-
-li.userControlJoin:hover,
-li.userControlJoin:active {
-  color: $mainFont;
-  background-color: $background;
-  box-shadow: 0 0 5px $boxShadow;
-  cursor: pointer;
-}
-
-.userControlJoin {
-  background-color: #d34f5a;
+  color: white;
 }

@@ -63,38 +63,35 @@
   </div>
   <div class="wrapper">
     <header class="header" id="header">
-      <div class="links">
-        <input class="headerInputs" type="text" name="username" id="username" placeholder="username" required>
-        <input class="headerInputs" type="password" name="password" id="password" placeholder="password" required>
-        <ul>
-          <li id="login" class="userControlNormal">LOGIN</li>
-          <li id="join" class="userControlJoin"><a href="register.php" target="_blank">JOIN</a></li>
-          <li id="logout" class="hidden userControlNormal">LOGOUT</li>
-          <li id="guide" class="userControl userControlInfo"><a href="#">GUIDE</a></li>
+      <div class="userInfo">
+        <ul class="nav">
+        <input class="inputs" type="text" name="username" id="username" placeholder="username" required>
+        <input class="inputs" type="password" name="password" id="password" placeholder="password" required>
+        <li id="login" class="button"><a href="#">LOGIN</a></li>
+        <li id="join" class="button"><a href="register.php" target="_blank">JOIN</a></li>
+        <li id="logout" class="button">LOGOUT</li>
+        <li id="guide" class="button"><a href="#">GUIDE</a></li>
         </ul>
       </div>
-
-      <form action="#" autocomplete="off">
-        <div class="inputs">
-          <input class="headerInputs" type="text" name="snippetTitle" id="snippetTitle" placeholder="title"
-            required><br>
-          <input class="headerInputs" type="text" name="description" id="snippetDescription"
-            placeholder="quick description">
-        </div>
-      </form>
-      <div class="buttons">
-        <ul class="shadowButtons">
-          <li class="hidden importantButton" id="clearCode">clear</li>
-          <li class="hidden normalButton" id="homeButton"><a href="/">back</a></li>
-          <li class="hidden saveButton" id="saveCode">save</li>
-          <li class="hidden importantButton" id="removeSnippet">delete</li>
-        
-          <li id="snippetSelect" class="links snippetSelect"><a href="#">LOAD SNIPPET</a></li>
+      
+      <div class="snippetInfo">
+        <ul class="nav">
+          <input class="inputs" type="text" name="snippetTitle" id="snippetTitle" placeholder="snippet title" required><br>
+          <input class="inputs" type="text" name="description" id="snippetDescription" placeholder="snippet description">
+          <li class="button" id="clearCode"><a href="#">clear</a></li>
+          <!-- <li class="button" id="homeButton"><a href="/">back</a></li> -->
+          <li class="button" id="saveCode"><a href="#">save</a></li>
+          <li class="button" id="removeSnippet"><a href="#">delete</a></li>
+    
+          <li id="snippetSelect" class="button"><a href="#">SELECT A SNIPPET</a></li>
         </ul>
-      </div>
+      </div>      
+      
+      <ul class="nav">
+      </ul>
       <div id="detectedLanguage"></div>
       <div class="messages hidden" id="messages">nothing to report</div>
-      <div class="language hidden" id="language"></div>
+      <!-- <div class="language hidden" id="language"></div> -->
     </header>
 
     <div class="sidebarR" id="sidebarR">
@@ -123,12 +120,12 @@
     <div id="bgOutput"></div>
     <div class="footer">
       <div class="links">
-        <ul>
-          <li class="links"><a href="./string-manipulation" target="_blank">TOOLS</a></li>
-          <li class="links"><a href="./cidr-helper" target="_blank">CIDR</a></li>
-          <li class="links"><a href="./bat" target="_blank">Binary Adder Tutorial</a></li>
-          <li class="links"><a href="./track-iss" target="_blank">ISS Tracker</a></li>
-          <li class="links"><a href="./canvas-demo" target="_blank">CANVAS DEMO</a></li>
+        <ul class="nav">
+          <li class="button"><a href="./string-manipulation" target="_blank">TOOLS</a></li>
+          <li class="button"><a href="./cidr-helper" target="_blank">CIDR</a></li>
+          <li class="button"><a href="./bat" target="_blank">Binary Adder Tutorial</a></li>
+          <li class="button"><a href="./track-iss" target="_blank">ISS Tracker</a></li>
+          <li class="button"><a href="./canvas-demo" target="_blank">CANVAS DEMO</a></li>
         </ul>
       </div>
       <div id="onlineInfo"></div>

@@ -191,7 +191,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
           let hoursMinutes = `${h}:${m}`;
           snippetSelectModalContent.innerHTML += `
           <div class = 'availableSnippets'>
-            <span class="snippetTitle id="snippetSideBarTitle" data-snippet_snippet_id = "${str[i].snippet_id}" >
+            <span class="snippetTitle" id="snippetSideBarTitle" data-snippet_snippet_id = "${str[i].snippet_id}" >
               ${str[i].title} 
             </span>
             <em>${str[i].description.substring(0, 40)}...</em>
