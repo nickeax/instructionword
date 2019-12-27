@@ -34,14 +34,6 @@
   margin-bottom: 1rem;
 }
 
-.online {
-  color: rgb(77, 148, 48);
-}
-
-.offline {
-  color: rgba(178, 34, 34, 0.527);
-}
-
 tt {
   display: block;
   padding: $paddingSml;
@@ -64,6 +56,12 @@ tt {
   border-radius: 2px;
   border-style: none;
   margin-right: 3px;
+
+  @media only screen and (max-width: 500px) {
+    padding: 0;
+    height: 0.8rem;
+    margin: 0;
+  }
 }
 
 .userInfo,
@@ -71,6 +69,11 @@ tt {
   display: flex;
   align-items: flex-start;
   margin: 1rem auto;
+
+  @media only screen and (max-width: 500px) {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .inputs::placeholder {
@@ -102,6 +105,11 @@ tt {
   font-style: italic;
 }
 
+.links {
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
+}
 textarea {
   display: block;
   position: relative;

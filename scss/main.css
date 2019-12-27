@@ -100,6 +100,17 @@ body {
           box-shadow: 0 0 19px rgba(0, 0, 0, 0.4);
 }
 
+@media only screen and (max-width: 500px) {
+  .wrapper {
+    width: 100vw;
+    -ms-grid-columns: 100vw;
+        grid-template-columns: 100vw;
+    -ms-grid-rows: 30% 40% 20% 10%;
+        grid-template-rows: 30% 40% 20% 10%;
+        grid-template-areas: "header" "content" "sidebarR" "footer";
+  }
+}
+
 .header {
   position: relative;
   background-color: rgba(0, 28, 42, 0.815);
@@ -108,6 +119,13 @@ body {
   grid-area: header;
   -webkit-box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
           box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    padding: 0.1rem;
+    margin: 0.1rem;
+  }
 }
 
 .sidebarL,
@@ -201,6 +219,18 @@ hr {
   display: block;
   width: 100px;
   height: 100vh;
+}
+
+@media only screen and (max-width: 500px) {
+  .leftLogo {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .leftLogo {
+    display: none;
+  }
 }
 
 .leftLogo .llText {
@@ -318,14 +348,6 @@ tt {
   margin-bottom: 1rem;
 }
 
-.online {
-  color: #4d9430;
-}
-
-.offline {
-  color: rgba(178, 34, 34, 0.527);
-}
-
 tt {
   display: block;
   padding: 5px;
@@ -350,6 +372,17 @@ tt {
   margin-right: 3px;
 }
 
+@media only screen and (max-width: 500px) {
+  .inputs#snippetTitle,
+  .inputs#snippetDescription,
+  .inputs#username,
+  .inputs#password {
+    padding: 0;
+    height: 0.8rem;
+    margin: 0;
+  }
+}
+
 .userInfo,
 .snippetInfo {
   display: -webkit-box;
@@ -359,6 +392,14 @@ tt {
       -ms-flex-align: start;
           align-items: flex-start;
   margin: 1rem auto;
+}
+
+@media only screen and (max-width: 500px) {
+  .userInfo,
+  .snippetInfo {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .inputs::-webkit-input-placeholder {
@@ -407,6 +448,12 @@ tt {
   font-weight: 100;
   color: slategray;
   font-style: italic;
+}
+
+@media only screen and (max-width: 500px) {
+  .links {
+    display: none;
+  }
 }
 
 textarea {
@@ -469,6 +516,18 @@ ul.nav li {
   list-style-type: none;
 }
 
+@media only screen and (max-width: 500px) {
+  ul.nav {
+    display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  ul.nav {
+    display: inline-block;
+  }
+}
+
 .button {
   color: #0077b8;
   padding: 2px 8px;
@@ -477,6 +536,13 @@ ul.nav li {
   border: 1px solid #0077b8;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
+}
+
+@media only screen and (max-width: 500px) {
+  .button {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .button:hover {
@@ -644,6 +710,12 @@ h3.usersSnippets {
   margin-bottom: 2px;
 }
 
+@media only screen and (max-width: 1080px) {
+  .chatMessage {
+    font-size: 1rem;
+  }
+}
+
 .chatMessage .chatUsername {
   color: #b6945e;
 }
@@ -675,6 +747,27 @@ h3.usersSnippets {
 
 #chatInput::placeholder {
   color: #d34f5a;
+}
+
+@media only screen and (max-width: 880px) {
+  #chatOutput {
+    font-size: 1.6rem;
+    text-align: left;
+    width: 100%;
+    height: 6rem;
+    overflow-y: scroll;
+    background-color: #1f1e1e;
+  }
+  .chatMessage {
+    color: #449053;
+    font-size: 1.6rem;
+    font-family: monospace;
+    margin-bottom: 2px;
+  }
+  .chatMessage .chatTime {
+    font-size: 1rem;
+    color: rgba(212, 153, 153, 0.712);
+  }
 }
 
 .instructionsModal {
@@ -771,100 +864,5 @@ h3.usersSnippets {
 
 .instructionsModal-Content #close:hover {
   cursor: pointer;
-}
-
-@media only screen and (max-width: 1250px) {
-  body,
-  messages,
-  errors {
-    font-size: 17px;
-  }
-  .header {
-    border: none;
-  }
-  .wrapper {
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    font-family: Arial, Helvetica, sans-serif;
-    display: -ms-grid;
-    display: grid;
-    width: 100vw;
-    -ms-grid-columns: minmax(300px, 1250px);
-        grid-template-columns: minmax(300px, 1250px);
-    -ms-grid-rows: auto auto auto auto;
-        grid-template-rows: auto auto auto auto;
-        grid-template-areas: "header" "sidebarR" "content" "footer";
-  }
-  .leftLogo,
-  .instructions {
-    display: none;
-  }
-  .output {
-    padding: 2px;
-    margin: 3px auto 3px auto;
-    overflow: scroll;
-  }
-  form {
-    border-radius: 0;
-    margin: 0 auto;
-  }
-  #saveCode {
-    left: 0%;
-  }
-  #clearCode {
-    left: 55px;
-  }
-  #removeSnippet {
-    right: 0%;
-  }
-  .homeButton {
-    left: 0%;
-  }
-  #logout {
-    position: absolute;
-    left: 15%;
-    z-index: 10;
-  }
-  #username {
-    right: 17rem;
-  }
-  #password {
-    right: 5rem;
-  }
-  #snippetDescription,
-  #snippetTitle {
-    width: 27rem;
-  }
-  .messages {
-    position: absolute;
-    font-size: 1rem;
-    bottom: 5px;
-    min-width: 350px;
-    padding: 3px;
-  }
-  input::-webkit-input-placeholder,
-  input {
-    font-size: 1rem;
-  }
-  input:-ms-input-placeholder,
-  input {
-    font-size: 1rem;
-  }
-  input::-ms-input-placeholder,
-  input {
-    font-size: 1rem;
-  }
-  input::placeholder,
-  input {
-    font-size: 1rem;
-  }
-  #sendMessage {
-    margin: 0 auto;
-    text-align: center;
-    width: 50%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
 }
 /*# sourceMappingURL=main.css.map */

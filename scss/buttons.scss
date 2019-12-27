@@ -3,6 +3,14 @@ ul.nav {
   li {
     list-style-type: none;
   }
+
+  @media only screen and (max-width: 500px) {
+    display: inline-block;
+  }
+  
+  @media only screen and (max-width: 1080px) {
+    display: inline-block;
+  }
 }
 
 .button {
@@ -12,6 +20,12 @@ ul.nav {
   border-radius: 5px;
   border: 1px solid $mainFont;
   transition: all 0.1s ease-in-out;
+
+  @media only screen and (max-width: 500px) {
+    padding: 0;
+    margin: 0;
+  }
+
 }
 .button:hover {
   cursor: pointer;
@@ -40,3 +54,5 @@ ul.nav {
   cursor: pointer;
   color: white;
 }
+
+

@@ -20,6 +20,16 @@ body {
   grid-template-rows: auto auto auto auto;
   grid-template-areas: "header sidebarR" "content sidebarR" "content sidebarR" "footer footer";
   box-shadow: 0 0 19px $boxShadow;
+
+  @media only screen and (max-width: 500px) {
+    width: 100vw;
+    grid-template-columns: 100vw;
+    grid-template-rows: 30% 40% 20% 10%;
+    grid-template-areas: "header" "content" "sidebarR" "footer";
+  }
+  
+  @media only screen and (max-width: 1250px) {
+  }
 }
 
 .header {
@@ -27,13 +37,12 @@ body {
   background-color: $mainFontDk;
   grid-area: header;
   box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
-}
 
-// .navContainer {
-//   display: flex;
-//   justify-content: flex-start;
-//   flex-direction: row;
-// }
+  @media only screen and (max-width: 500px) {
+    padding: 0.1rem;
+    margin: 0.1rem;
+  }
+}
 
 .sidebarL,
 .sidebarR {
@@ -117,6 +126,14 @@ hr {
   width: 100px;
   height: 100vh;
 
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
+
+  @media only screen and (max-width: 1080px) {
+    display: none;
+  }
+
   .llText {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: $mainFont;
@@ -190,3 +207,5 @@ tt {
 ::-webkit-scrollbar-thumb:hover {
   background: $backgroundTrns;
 }
+
+

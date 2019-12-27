@@ -61,6 +61,8 @@ guide.addEventListener('click', (e) => {
 
 modal.addEventListener('click', (e) => {
   modal.style.transform = "scale(0)";
+  sidebarR.style.filter = greyscale(1);
+  header.style.filter = greyscale(1);
 })
 
 closeSnippetModal.addEventListener('click', (e) => {

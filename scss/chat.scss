@@ -15,6 +15,10 @@
   font-size: 0.8rem;
   font-family: monospace;
   margin-bottom: 2px;
+
+  @media only screen and (max-width: 1080px) {
+    font-size: 1rem;
+  }
 }
 
 .chatMessage .chatUsername {
@@ -36,4 +40,27 @@
 
 #chatInput::placeholder {
   color: #d34f5a;
+}
+
+@media only screen and (max-width: 880px) {
+  #chatOutput {
+    font-size: 1.6rem;
+    text-align: left;
+    width: 100%;
+    height: 6rem;
+    overflow-y: scroll;
+    background-color: rgb(31, 30, 30);
+  }
+
+  .chatMessage {
+    color: rgb(68, 144, 83);
+    font-size: 1.6rem;
+    font-family: monospace;
+    margin-bottom: 2px;
+  }
+
+  .chatMessage .chatTime {
+    font-size: 1rem;
+    color: rgba(212, 153, 153, 0.712);
+  }
 }
