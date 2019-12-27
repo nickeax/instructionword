@@ -102,8 +102,10 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       }
       editsList.innerHTML += `<p> <tt>(COPY THE LINK BELOW TO SHARE THIS SNIPPET)</tt></p>`;
       editsList.innerHTML += `<p id="snippetEditLink"><tt>https://instructionword.com/index.html?sid=${snippetID}</tt></p>`;
-      editsList.innerHTML += `<tt style="margin-top: 1rem;">edits (click to view in place)</tt>`
-      editsList.innerHTML += `<a href="#"><p class="editListItem" id="original">ORIGINAL</p></a>`;
+      if(editsStr.length > 0) {
+        editsList.innerHTML += `<tt style="margin-top: 1rem;">edits (click to view in place)</tt>`
+        editsList.innerHTML += `<a href="#"><p class="editListItem" id="original">ORIGINAL</p></a>`;
+      }
       for (let i = 0; i < editsStr.length; i++) {
         editsList.innerHTML += `<a href="#"><p class="editListItem">
             <strong class="snippetTitle id="snippetSideBarTitle"
