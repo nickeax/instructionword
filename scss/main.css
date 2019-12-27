@@ -173,6 +173,7 @@ body {
 
 .footer p {
   margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 img.full {
@@ -280,11 +281,6 @@ hr {
 
 .sidebarL h2 {
   color: #b84000;
-}
-
-.editsList {
-  margin-bottom: 2rem;
-  text-align: left;
 }
 
 tt {
@@ -464,11 +460,12 @@ textarea {
   display: block;
   position: relative;
   padding: 5px;
+  margin-bottom: 30px;
   border-style: none;
   color: lime;
   background-color: #242424;
   width: 99%;
-  min-height: 20vh;
+  min-height: 40vh;
   overflow: scroll;
   border-radius: 5px;
 }
@@ -523,19 +520,7 @@ ul.nav li {
   list-style-type: none;
 }
 
-@media only screen and (max-width: 500px) {
-  ul.nav {
-    display: inline-block;
-  }
-}
-
-@media only screen and (max-width: 1080px) {
-  ul.nav {
-    display: inline-block;
-  }
-}
-
-.button {
+ul.nav .button {
   padding: 2px 8px;
   margin: 2px;
   border-radius: 5px;
@@ -544,11 +529,31 @@ ul.nav li {
   transition: all 0.1s ease-in-out;
 }
 
+ul.nav .button ul li a {
+  color: lime;
+}
+
 @media only screen and (max-width: 500px) {
-  .button {
+  ul.nav .button {
     padding: 0;
     margin: 0;
   }
+}
+
+@media only screen and (max-width: 500px) {
+  ul.nav .button {
+    display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  ul.nav .button {
+    display: inline-block;
+  }
+}
+
+ul.nav #snippetSelect {
+  padding: 1rem;
 }
 
 #guide {
@@ -577,20 +582,29 @@ ul.nav li {
   margin: 5px;
 }
 
-.snippetEditLink {
-  background-color: rgba(167, 204, 167, 0.5);
-  color: white;
+#snippetEditLink {
+  background-color: #eeeeee;
   padding: 2px;
   border: 1px solid black;
+  margin-top: 5px;
   margin-bottom: 0.5rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
+#snippetEditLink tt {
+  color: #2a2a2a;
+}
+
+.editsList {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
 .editListItem {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 2px;
-  border: 1px dotted black;
+  border: 1px solid black;
   margin-bottom: 0.5rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -615,6 +629,18 @@ ul.nav li {
 
 .black {
   background-color: #242424;
+}
+
+.statItem {
+  background-color: rgba(255, 255, 255, 0.061);
+  margin: 0px 2px;
+  padding: 2px;
+}
+
+.memberList {
+  background-color: rgba(255, 255, 255, 0.13);
+  margin-top: 40px;
+  padding: 10px 40px;
 }
 
 tt.snippetsHeading {
@@ -689,6 +715,13 @@ h3.usersSnippets {
   text-align: center;
 }
 
+.linksSubtitle {
+  -webkit-transform: translateY(6px);
+          transform: translateY(6px);
+  color: white;
+  margin-right: 10px;
+}
+
 #sendMessage {
   display: none;
 }
@@ -729,6 +762,7 @@ h3.usersSnippets {
   background-color: #111;
   width: 100%;
   color: #449053;
+  margin-bottom: 20px;
 }
 
 #chatInput::-webkit-input-placeholder {

@@ -71,7 +71,8 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       onlineUsers = arr[2];
       let totalUsers = allMembersArr.length;
       // onlineInfo.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
-      stats.innerHTML = `<tt style="margin-left:6px;">[visiting: ${onlineUsers}][logged in: ${usersArr.length}][members: ${totalUsers}]</tt>`;
+      stats.innerHTML = `<tt style="margin-left:6px;">
+      <span class="statItem">visiting: ${onlineUsers}</span><span class="statItem">logged in: ${usersArr.length}</span><span class="statItem">members: ${totalUsers}</span></tt>`;
       allMembersArr.forEach(x => {
         if (i > 0) content += '<span style="color:rgba(102, 102, 102, 0.187);">, </span>';
         usersArr.forEach(y => {
@@ -80,10 +81,10 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
             status = "online";
            } else status = "offline";
         });
-        content += "<span class=" + status +">" + x.username + "</span>";
+        content += `<span class="${status}">${x.username}</span>`;
         i++;
       });
-      onlineInfo.innerHTML = `<div class="status">${content}</div>`;
+      onlineInfo.innerHTML = `<div class="memberList">${content}</div>`;
       break;
     case 'getEdits':
       let editsStr = JSON.parse(arr[3]);
@@ -99,8 +100,10 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         editsList.classList.add('editsList');
         editsList.classList.remove('noEdits');
       }
-      editsList.innerHTML += `<p class="snippetEditLink"><tt>https://instructionword.com/index.html?sid=${snippetID}</tt></p>
-      <a href="#"><p class="editListItem" id="original">ORIGINAL</p></a>`;
+      editsList.innerHTML += `<p> <tt>(COPY THE LINK BELOW TO SHARE THIS SNIPPET)</tt></p>`;
+      editsList.innerHTML += `<p id="snippetEditLink"><tt>https://instructionword.com/index.html?sid=${snippetID}</tt></p>`;
+      editsList.innerHTML += `<tt style="margin-top: 1rem;">edits (click to view in place)</tt>`
+      editsList.innerHTML += `<a href="#"><p class="editListItem" id="original">ORIGINAL</p></a>`;
       for (let i = 0; i < editsStr.length; i++) {
         editsList.innerHTML += `<a href="#"><p class="editListItem">
             <strong class="snippetTitle id="snippetSideBarTitle"

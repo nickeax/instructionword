@@ -82,6 +82,7 @@ body {
 
 .footer p {
   margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 img.full {
@@ -177,11 +178,6 @@ hr {
 
 .sidebarL h2 {
   color: $mainComp;
-}
-
-.editsList {
-  margin-bottom: 2rem;
-  text-align: left;
 }
 
 tt {

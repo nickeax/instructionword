@@ -2,19 +2,27 @@
   margin: 5px;
 }
 
-.snippetEditLink {
-  background-color: $snippetLinkBG;
-  color: white;
+#snippetEditLink {
+  background-color: rgb(238, 238, 238);
+  tt {
+    color: rgb(42, 42, 42);
+  }
   padding: 2px;
   border: 1px solid $darkest;
+  margin-top: 5px;
   margin-bottom: 0.5rem;
   transition: all 0.3s ease-in-out;
+}
+
+.editsList {
+  margin-bottom: 2rem;
+  text-align: left;
 }
 
 .editListItem {
   background-color: $lightestTrns;
   padding: 2px;
-  border: 1px dotted $darkest;
+  border: 1px solid $darkest;
   margin-bottom: 0.5rem;
   transition: all 0.3s ease-in-out;
 }
@@ -37,6 +45,18 @@
 
 .black {
   background-color: $background;
+}
+
+.statItem {
+  background-color: rgba(255, 255, 255, 0.061);
+  margin: 0px 2px;
+  padding: 2px;
+}
+
+.memberList {
+  background-color: rgba(255, 255, 255, 0.13);
+  margin-top: 40px;
+  padding: 10px 40px;
 }
 
 tt.snippetsHeading {
@@ -109,4 +129,10 @@ h3.usersSnippets {
   padding-top: 10rem;
   color: $mainComp;
   text-align: center;
+}
+
+.linksSubtitle {
+  transform: translateY(6px);
+  color: white;
+  margin-right: 10px;
 }

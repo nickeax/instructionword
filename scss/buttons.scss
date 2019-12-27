@@ -1,9 +1,26 @@
+
+
 ul.nav {
   display: flex;
   align-items: flex-start;
   li {
     list-style-type: none;
   }
+
+  .button {
+    ul li a {
+      color: lime;
+    }
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid $mainFont;
+    transition: all 0.1s ease-in-out;
+  
+    @media only screen and (max-width: 500px) {
+      padding: 0;
+      margin: 0;
+    }
 
   @media only screen and (max-width: 500px) {
     display: inline-block;
@@ -14,16 +31,8 @@ ul.nav {
   }
 }
 
-.button {
-  padding: 2px 8px;
-  margin: 2px;
-  border-radius: 5px;
-  border: 1px solid $mainFont;
-  transition: all 0.1s ease-in-out;
-
-  @media only screen and (max-width: 500px) {
-    padding: 0;
-    margin: 0;
+  #snippetSelect {
+    padding: 1rem;
   }
 }
 

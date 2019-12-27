@@ -118,11 +118,12 @@ textarea {
   display: block;
   position: relative;
   padding: 5px;
+  margin-bottom: 30px;
   border-style: none;
   color: lime;
   background-color: $background;
   width: 99%;
-  min-height: 20vh;
+  min-height: 40vh;
   overflow: scroll;
   border-radius: $borderRadiusSml;
 }
