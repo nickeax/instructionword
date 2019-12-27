@@ -7,6 +7,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         loggedIn = true;
         theUser = arr[3];
         updateUI('loggedIn');
+        messages.innerHTML = "";
       } else {
         showMessage(arr[2]);
       }

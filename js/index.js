@@ -10,7 +10,7 @@ let snippetOwner = "";
 let snippetID;
 let editID = 0;
 let edited = false;
-let pollingInterval = 5500;
+let pollingInterval = 1300;
 var displayEdit = "hidden";
 const chatCurrentSnippet = document.querySelector('#chatCurrentSnippet');
 const output = document.querySelector('#output');

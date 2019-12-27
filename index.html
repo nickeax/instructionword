@@ -62,74 +62,76 @@
     </div>
   </div>
   <div class="wrapper">
-    <header class="header" id="header">
-      <div class="userInfo">
-        <ul class="nav">
+  
+  <header class="header" id="header">
+    <div class="userInfo">
+      <ul class="nav">
         <input class="inputs" type="text" name="username" id="username" placeholder="username" required>
         <input class="inputs" type="password" name="password" id="password" placeholder="password" required>
         <li id="login" class="button"><a href="#">LOGIN</a></li>
         <li id="join" class="button"><a href="register.php" target="_blank">JOIN</a></li>
         <li id="logout" class="button">LOGOUT</li>
         <li id="guide" class="button"><a href="#">GUIDE</a></li>
-        </ul>
-      </div>
-      
-      <div class="snippetInfo">
-        <ul class="nav">
-          <input class="inputs" type="text" name="snippetTitle" id="snippetTitle" placeholder="snippet title" required><br>
-          <input class="inputs" type="text" name="description" id="snippetDescription" placeholder="snippet description">
-          <li class="button" id="clearCode"><a href="#">clear</a></li>
-          <!-- <li class="button" id="homeButton"><a href="/">back</a></li> -->
-          <li class="button" id="saveCode"><a href="#">save</a></li>
-          <li class="button" id="removeSnippet"><a href="#">delete</a></li>
-    
-          <li id="snippetSelect" class="button"><a href="#">SELECT A SNIPPET</a></li>
-        </ul>
-      </div>      
-      
+      </ul>
+    </div>
+
+    <div class="snippetInfo">
+      <ul class="nav">
+        <input class="inputs" type="text" name="snippetTitle" id="snippetTitle" placeholder="snippet title"
+          required><br>
+        <input class="inputs" type="text" name="description" id="snippetDescription" placeholder="snippet description">
+        <li class="button" id="clearCode"><a href="#">clear</a></li>
+        <!-- <li class="button" id="homeButton"><a href="/">back</a></li> -->
+        <li id="snippetSelect" class="button"><a href="#">SNIPPETS</a></li>
+        <li class="button" id="removeSnippet"><a href="#">delete</a></li>
+        <li class="button" id="saveCode"><a href="#">save</a></li>
+      </ul>
+    </div>
+    <div class="snippetInfo">
       <ul class="nav">
       </ul>
-      <div id="detectedLanguage"></div>
-      <div class="messages hidden" id="messages">nothing to report</div>
-      <!-- <div class="language hidden" id="language"></div> -->
-    </header>
-
-    <div class="sidebarR" id="sidebarR">
-      <div id="stats"></div>
-      <div id="chatCurrentSnippet"></div>
-      <div id="chatOutput"></div>
-      <form action="#" id="chatForm" autocomplete="off">
-        <div class="form-group">
-          <div class="chat"></div>
-          <input type="text" name="chatInput" id="chatInput" placeholder="Enter your message">
-          <button id="sendMessage">send</button>
-        </div>
-      </form>
-      <h3 style="margin-top: 1rem;">edits (click to view in place)</h3>
-      <div id="editsList" class="editsList"></div>
-      <div class="usersSnippets hidden"></div>
     </div>
 
-    <div class="content">
-      <form>
-        <textarea name="input" id="input" placeholder="
-        Paste or type your code here..."></textarea>
-      </form>
-      <div class="output " id="output" placeholder="Waiting for input"></div>
-    </div>
-    <div id="bgOutput"></div>
-    <div class="footer">
-      <div class="links">
-        <ul class="nav">
-          <li class="button"><a href="./string-manipulation" target="_blank">TOOLS</a></li>
-          <li class="button"><a href="./cidr-helper" target="_blank">CIDR</a></li>
-          <li class="button"><a href="./bat" target="_blank">Binary Adder Tutorial</a></li>
-          <li class="button"><a href="./track-iss" target="_blank">ISS Tracker</a></li>
-          <li class="button"><a href="./canvas-demo" target="_blank">CANVAS DEMO</a></li>
-        </ul>
+    <div id="detectedLanguage"></div>
+    <div class="messages hidden" id="messages">nothing to report</div>
+  </header>
+
+  <div class="sidebarR" id="sidebarR">
+    <div id="stats"></div>
+    <div id="chatCurrentSnippet"></div>
+    <div id="chatOutput"></div>
+    <form action="#" id="chatForm" autocomplete="off">
+      <div class="form-group">
+        <div class="chat"></div>
+        <input type="text" name="chatInput" id="chatInput" placeholder="Enter your message">
+        <button id="sendMessage">send</button>
       </div>
-      <div id="onlineInfo"></div>
+    </form>
+    <h3 style="margin-top: 1rem;">edits (click to view in place)</h3>
+    <div id="editsList" class="editsList"></div>
+    <div class="usersSnippets hidden"></div>
+  </div>
+
+  <div class="content">
+    <form>
+      <textarea name="input" id="input" placeholder="
+        Paste or type your code here..."></textarea>
+    </form>
+    <div class="output " id="output" placeholder="Waiting for input"></div>
+  </div>
+  <div id="bgOutput"></div>
+  <div class="footer">
+    <div class="links">
+      <ul class="nav">
+        <li class="button"><a href="./string-manipulation" target="_blank">TOOLS</a></li>
+        <li class="button"><a href="./cidr-helper" target="_blank">CIDR</a></li>
+        <li class="button"><a href="./bat" target="_blank">Binary Adder Tutorial</a></li>
+        <li class="button"><a href="./track-iss" target="_blank">ISS Tracker</a></li>
+        <li class="button"><a href="./canvas-demo" target="_blank">CANVAS DEMO</a></li>
+      </ul>
     </div>
+    <div id="onlineInfo"></div>
+  </div>
   </div>
 
   <div id="snippetSelectModal" class="snippetSelectModal">
