@@ -66,12 +66,12 @@
     <header class="header" id="header">
       <div class="userInfo">
         <ul class="nav">
+          <li id="guide" class="button"><a href="#">GUIDE</a></li>
           <input class="inputs" type="text" name="username" id="username" placeholder="username" required>
           <input class="inputs" type="password" name="password" id="password" placeholder="password" required>
           <li id="login" class="button"><a href="#">LOGIN</a></li>
           <li id="join" class="button"><a href="register.php" target="_blank">JOIN</a></li>
           <li id="logout" class="button">LOGOUT</li>
-          <li id="guide" class="button"><a href="#">GUIDE</a></li>
         </ul>
       </div>
 
@@ -94,7 +94,7 @@
       </div>
 
       <div id="detectedLanguage"></div>
-      <div class="messages hidden" id="messages">nothing to report</div>
+      <div class="messages hidden" id="messages"></div>
     </header>
 
     <div class="sidebarR" id="sidebarR">
@@ -108,14 +108,16 @@
           <button id="sendMessage">send</button>
         </div>
       </form>
+      <div class="loadClear">
+        <div class="snippetInfo">
+          <ul class="nav" > <!-- style="margin: 0 auto;" -->
+            <li id="snippetSelect" class="button"><a href="#">LOAD A SNIPPET</a></li>
+            <li class="button" id="clearCode"><a href="#">CLEAR</a></li>
+          </ul>
+        </div>
+      </div>
       <div id="editsList" class="editsList"></div>
       <div class="usersSnippets hidden"></div>
-      <div class="snippetInfo">
-        <ul class="nav" style="margin: 0 auto;">
-          <li id="snippetSelect" class="button"><a href="#">LOAD A SNIPPET</a></li>
-          <li class="button" id="clearCode"><a href="#">CLEAR</a></li>
-        </ul>
-      </div>
     </div>
 
     <div class="content">

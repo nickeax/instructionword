@@ -44,6 +44,11 @@ tt {
   background-image: url("../img/ajax-loader.gif");
 }
 
+.loadClear {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .inputs#snippetTitle,
 .inputs#snippetDescription,
 .inputs#username,
@@ -120,8 +125,8 @@ textarea {
   padding: 5px;
   margin-bottom: 30px;
   border-style: none;
-  color: lime;
-  background-color: $background;
+  color: rgb(108, 238, 108);
+  background-color: rgba(0, 0, 0, 0.137);
   width: 99%;
   min-height: 40vh;
   overflow: scroll;
@@ -129,7 +134,7 @@ textarea {
 }
 
 textarea::placeholder {
-  background-color: $background;
+  // background-color: rgba(0, 0, 0, 0.5);
   font-size: 1rem;
   font-family: monospace;
   color: limegreen;

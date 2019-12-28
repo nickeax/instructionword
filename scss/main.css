@@ -100,13 +100,35 @@ body {
           box-shadow: 0 0 19px rgba(0, 0, 0, 0.4);
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 370px) {
+  .wrapper {
+    width: 100vw;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -ms-grid-rows: 40% 30% 20% 10%;
+        grid-template-rows: 40% 30% 20% 10%;
+        grid-template-areas: "header" "content" "sidebarR" "footer";
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .wrapper {
+    width: 100vw;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -ms-grid-rows: (auto)[4];
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: "header" "content" "sidebarR" "footer";
+  }
+}
+
+@media only screen and (max-width: 1030px) {
   .wrapper {
     width: 100vw;
     -ms-grid-columns: 100vw;
         grid-template-columns: 100vw;
-    -ms-grid-rows: 30% 40% 20% 10%;
-        grid-template-rows: 30% 40% 20% 10%;
+    -ms-grid-rows: (auto)[4];
+        grid-template-rows: repeat(4, auto);
         grid-template-areas: "header" "content" "sidebarR" "footer";
   }
 }
@@ -121,7 +143,7 @@ body {
           box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .header {
     padding: 0.1rem;
     margin: 0.1rem;
@@ -176,6 +198,13 @@ body {
   padding-bottom: 10px;
 }
 
+@media only screen and (max-width: 660px) {
+  .footer p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 img.full {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -187,6 +216,7 @@ img.full {
   color: #0077b8;
   background-color: rgba(0, 28, 42, 0.815);
   padding: 5px;
+  margin-bottom: 15px;
   overflow: scroll;
   min-height: 1vh;
   max-height: 120vh;
@@ -205,7 +235,7 @@ hr {
   opacity: 0.45;
   position: fixed;
   top: 300px;
-  left: 20rem;
+  left: 15rem;
   top: -10rem;
   -webkit-transform: skew(30deg, 10deg);
           transform: skew(30deg, 10deg);
@@ -354,6 +384,11 @@ tt {
   background-image: url("../img/ajax-loader.gif");
 }
 
+.loadClear {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .inputs#snippetTitle,
 .inputs#snippetDescription,
 .inputs#username,
@@ -462,8 +497,8 @@ textarea {
   padding: 5px;
   margin-bottom: 30px;
   border-style: none;
-  color: lime;
-  background-color: #242424;
+  color: #6cee6c;
+  background-color: rgba(0, 0, 0, 0.137);
   width: 99%;
   min-height: 40vh;
   overflow: scroll;
@@ -471,28 +506,24 @@ textarea {
 }
 
 textarea::-webkit-input-placeholder {
-  background-color: #242424;
   font-size: 1rem;
   font-family: monospace;
   color: limegreen;
 }
 
 textarea:-ms-input-placeholder {
-  background-color: #242424;
   font-size: 1rem;
   font-family: monospace;
   color: limegreen;
 }
 
 textarea::-ms-input-placeholder {
-  background-color: #242424;
   font-size: 1rem;
   font-family: monospace;
   color: limegreen;
 }
 
 textarea::placeholder {
-  background-color: #242424;
   font-size: 1rem;
   font-family: monospace;
   color: limegreen;
@@ -533,27 +564,27 @@ ul.nav .button ul li a {
   color: lime;
 }
 
-@media only screen and (max-width: 500px) {
-  ul.nav .button {
+@media only screen and (max-width: 530px) {
+  ul.nav {
+    display: inline-block;
     padding: 0;
     margin: 0;
   }
 }
 
-@media only screen and (max-width: 500px) {
-  ul.nav .button {
+@media only screen and (max-width: 630px) {
+  ul.nav {
     display: inline-block;
+    padding: 0;
+    margin: 0;
   }
 }
 
-@media only screen and (max-width: 1080px) {
-  ul.nav .button {
-    display: inline-block;
-  }
-}
-
-ul.nav #snippetSelect {
-  padding: 1rem;
+ul.nav #snippetSelect,
+ul.nav #clearCode {
+  background-color: rgba(0, 0, 0, 0.979);
+  margin: 5px;
+  padding: 0.5rem;
 }
 
 #guide {
@@ -586,6 +617,7 @@ ul.nav #snippetSelect {
   background-color: #eeeeee;
   padding: 2px;
   border: 1px solid black;
+  border-radius: 5px;
   margin-top: 5px;
   margin-bottom: 0.5rem;
   -webkit-transition: all 0.3s ease-in-out;
@@ -603,8 +635,9 @@ ul.nav #snippetSelect {
 
 .editListItem {
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 2px;
+  padding: 4px;
   border: 1px solid black;
+  border-radius: 5px;
   margin-bottom: 0.5rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -762,7 +795,7 @@ h3.usersSnippets {
   background-color: #111;
   width: 100%;
   color: #449053;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #chatInput::-webkit-input-placeholder {

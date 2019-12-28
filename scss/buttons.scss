@@ -1,5 +1,3 @@
-
-
 ul.nav {
   display: flex;
   align-items: flex-start;
@@ -16,23 +14,25 @@ ul.nav {
     border-radius: 5px;
     border: 1px solid $mainFont;
     transition: all 0.1s ease-in-out;
-  
-    @media only screen and (max-width: 500px) {
-      padding: 0;
-      margin: 0;
-    }
-
-  @media only screen and (max-width: 500px) {
-    display: inline-block;
   }
 
-  @media only screen and (max-width: 1080px) {
+  @media only screen and (max-width: 530px) {
     display: inline-block;
+    padding: 0;
+    margin: 0;
   }
-}
 
-  #snippetSelect {
-    padding: 1rem;
+  @media only screen and (max-width: 630px) {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+
+  #snippetSelect,
+  #clearCode {
+    background-color: rgba(0, 0, 0, 0.979);
+    margin: 5px;
+    padding: 0.5rem;
   }
 }
 

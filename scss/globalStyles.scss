@@ -21,10 +21,24 @@ body {
   grid-template-areas: "header sidebarR" "content sidebarR" "content sidebarR" "footer footer";
   box-shadow: 0 0 19px $boxShadow;
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 370px) {
+    width: 100vw;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 30% 20% 10%;
+    grid-template-areas: "header" "content" "sidebarR" "footer";
+  }
+
+  @media only screen and (max-width: 570px) {
+    width: 100vw;
+    grid-template-columns: 100%;
+    grid-template-rows:repeat(4, auto);
+    grid-template-areas: "header" "content" "sidebarR" "footer";
+  }
+
+  @media only screen and (max-width: 1030px) {
     width: 100vw;
     grid-template-columns: 100vw;
-    grid-template-rows: 30% 40% 20% 10%;
+    grid-template-rows: repeat(4, auto);
     grid-template-areas: "header" "content" "sidebarR" "footer";
   }
   
@@ -38,7 +52,7 @@ body {
   grid-area: header;
   box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
     padding: 0.1rem;
     margin: 0.1rem;
   }
@@ -83,6 +97,10 @@ body {
 .footer p {
   margin-bottom: 10px;
   padding-bottom: 10px;
+  @media only screen and (max-width: 660px) {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 img.full {
@@ -94,7 +112,7 @@ img.full {
   color: $mainFont;
   background-color: $mainFontDk;
   padding: $paddingSml;
-  // margin: 3rem auto 1rem auto;
+  margin-bottom: 15px;
   overflow: scroll;
   min-height: 1vh;
   max-height: 120vh;
@@ -112,7 +130,7 @@ hr {
   opacity: 0.45;
   position: fixed;
   top: 300px;
-  left: 20rem;
+  left: 15rem;
   top: -10rem;
   transform: skew(30deg, 10deg);
   font-size: 2.5rem;
