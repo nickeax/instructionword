@@ -16,15 +16,16 @@
   text-align: left;
   width: 100%;
   height: 10rem;
+  padding-left: 2px;
   overflow-y: scroll;
   background-color: rgb(31, 30, 30);
+  line-height: 1.2;
 }
 
 .chatMessage {
   color: rgb(68, 144, 83);
   font-size: 0.8rem;
   font-family: monospace;
-  margin-bottom: 2px;
 
   @media only screen and (max-width: 1080px) {
     font-size: 1rem;
@@ -47,6 +48,8 @@
   width: 100%;
   color: rgb(68, 144, 83);
   margin-bottom: 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 #chatInput::placeholder {

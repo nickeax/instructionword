@@ -3,16 +3,35 @@ ul.nav {
   align-items: flex-start;
   li {
     list-style-type: none;
+
+    a {
+      color: $mainFontLt;
+    }
   }
 
   .button {
-    ul li a {
-      color: lime;
-    }
     padding: 2px 8px;
     margin: 2px;
     border-radius: 5px;
     border: 1px solid $mainFont;
+    transition: all 0.1s ease-in-out;
+  }
+}
+
+ul.nav2 {
+  display: flex;
+  li {
+    list-style-type: none;
+
+    a {
+      color: rgb(216, 216, 216);
+    }
+  }
+
+  .button {
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 5px;
     transition: all 0.1s ease-in-out;
   }
 
@@ -28,25 +47,33 @@ ul.nav {
     margin: 0;
   }
 
-  #snippetSelect,
-  #clearCode {
-    background-color: rgba(0, 0, 0, 0.979);
-    margin: 5px;
-    padding: 0.5rem;
+  li#guide {
+    color: rgb(218, 218, 218);
+    background-color: rgb(155, 155, 155);
+    border: 1px solid black;
+    padding: 0.2rem;
   }
-}
-
-#guide {
-  text-align: center;
-  color: rgb(243, 56, 56);
-  border: 1px solid rgb(1, 65, 1);
+  
+  #snippetSelect {
+    border: 1px solid rgba(11, 78, 20, 0.575);
+    background-color: rgb(11, 78, 20);
+    
+    :hover {
+      box-shadow: 0 0 5px rgba(11, 78, 20, 0.575), 0 0 3px inset rgba(11, 78, 20, 0.575);
+    }
+  }
+  
+  #clearCode {
+    background-color: rgb(82, 17, 6);
+    border: 1px solid rgba(82, 17, 6, 0.698);
+  }
 }
 
 .button:hover {
   cursor: pointer;
   color: $mainFontLt;
   border: 1px solid $mainFontLt;
-  box-shadow: 0 0 5px $mainFontLtShadow, 0 0 3px inset $mainFontLtShadow;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 0 3px inset $mainFontLtShadow;
 }
 
 .button:active {

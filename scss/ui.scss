@@ -45,8 +45,9 @@ tt {
 }
 
 .loadClear {
-  width: 100%;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 .inputs#snippetTitle,
@@ -75,10 +76,6 @@ tt {
 
 .userInfo,
 .snippetInfo {
-  display: flex;
-  align-items: flex-start;
-  margin: 1rem auto;
-
   @media only screen and (max-width: 500px) {
     margin: 0;
     padding: 0;
@@ -127,7 +124,7 @@ textarea {
   border-style: none;
   color: rgb(108, 238, 108);
   background-color: rgba(0, 0, 0, 0.137);
-  width: 99%;
+  width: 100%;
   min-height: 40vh;
   overflow: scroll;
   border-radius: $borderRadiusSml;
@@ -137,11 +134,11 @@ textarea::placeholder {
   // background-color: rgba(0, 0, 0, 0.5);
   font-size: 1rem;
   font-family: monospace;
-  color: limegreen;
+  color: rgba(50, 205, 50, 0.582);
 }
 
 a {
-  color: $mainFont;
+  // color: $mainFont;
   text-decoration: none;
 }
 
