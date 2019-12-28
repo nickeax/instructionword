@@ -91,7 +91,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       editsList.innerHTML = "";
       editsList.innerHTML = '<ul>';
       if (editsStr.length == 0) {
-        editsList.innerHTML = "";
+        chatOutput.innerHTML = `snippet: ${snippetTitle}`;
         editsList.innerHTML = 'no edits to display';
         // editsList.classList.add('noEdits');
         editsList.classList.remove('editsList');
@@ -122,7 +122,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       });
       break;
     case 'getChatMessages':
-      chatOutput.innerHTML = "";
+      chatOutput.innerHTML = ``;
       if (arr[1] == "success") {
         chatMessages = JSON.parse(arr[3]);
       }
@@ -171,6 +171,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         break;
       }
       let str = JSON.parse(arr[3]);
+      chatHeading.innerHTML = `<strong style="color: #ff9999;">CHATTING IN: </strong>${str[0].title}`;
       edited = false;
       snippetID = str[0].snippet_id;
       console.log(`[getSnippet] ${str[0].snippet_id}`);

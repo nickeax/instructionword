@@ -40,6 +40,10 @@ const closeSnippetModal = document.querySelector('#closeSnippetModal');
 const header = document.querySelector('#header');
 const onlineInfo = document.querySelector('#onlineInfo');
 const stats = document.querySelector('#stats');
+const wrapper = document.querySelector('#wrapper');
+const chatHeading = document.querySelector('#chatHeading');
+
+
 
 let snippetEditSnippetID;
 let snippetEditUsername;
@@ -56,13 +60,13 @@ close.addEventListener('click', (e) => {
 
 guide.addEventListener('click', (e) => {
   e.preventDefault();
+  wrapper.style.filter = "blur(5px)";
   modal.style.transform = "scale(1)";
 });
 
 modal.addEventListener('click', (e) => {
   modal.style.transform = "scale(0)";
-  sidebarR.style.filter = greyscale(1);
-  header.style.filter = greyscale(1);
+  wrapper.style.filter = "blur(0)";
 })
 
 closeSnippetModal.addEventListener('click', (e) => {
@@ -101,6 +105,7 @@ btnSaveCode.classList.add('hidden');
 const btnClearCode = document.querySelector('#clearCode');
 btnClearCode.addEventListener('click', ev => {
   snippetID = null;
+  chatHeading.innerHTML = "general chat";
   checkServer('getChatMessages', "", setResp);
   edited = false;
   snippetDescription.value = "";

@@ -61,7 +61,7 @@
       </a>
     </div>
   </div>
-  <div class="wrapper">
+  <div class="wrapper" id="wrapper">
 
     <header class="header" id="header">
       <div class="userInfo">
@@ -100,6 +100,7 @@
     <div class="sidebarR" id="sidebarR">
       <div id="stats"></div>
       <div id="chatCurrentSnippet"></div>
+      <div class="chatHeading" id="chatHeading">general chat</div>
       <div id="chatOutput"></div>
       <form action="#" id="chatForm" autocomplete="off">
         <div class="form-group">
@@ -130,9 +131,9 @@
     <div id="bgOutput"></div>
     <div class="footer">
       <div class="links">
-        <ul class="nav"><span class="linksSubtitle">LINKS</span>
-          <li class="button"><a href="./string-manipulation" target="_blank">TOOLS</a></li>
-          <li class="button"><a href="./cidr-helper" target="_blank">CIDR</a></li>
+        <ul class="nav"><span class="linksSubtitle">LINKS (<em>demos and tools</em>)</span>
+          <li class="button"><a href="./string-manipulation" target="_blank">Text Tools</a></li>
+          <li class="button"><a href="./cidr-helper" target="_blank">CIDR Calculator</a></li>
           <li class="button"><a href="./bat" target="_blank">Binary Adder Tutorial</a></li>
           <li class="button"><a href="./track-iss" target="_blank">ISS Tracker</a></li>
           <li class="button"><a href="./canvas-demo" target="_blank">CANVAS DEMO</a></li>
@@ -153,7 +154,10 @@
       <h3 class="instructions-subtitle">WHAT?</h3>
       <p>
         ↹instructionWO☈D is designed with learning as a focus. The main idea is to have a place to post your code, so
-        others can offer suggestions about improvements or solve issues. Below are listed the main units used on
+        others can offer suggestions about improvements or solve issues. If you post some code, others members can make changes
+        to your snippet without affecting your original. Each snippet posted also gets its own chat channel
+        
+        <br><br>Below are listed the main units used on
         ↹instructionWO☈D:
       </p>
       <ul>
@@ -168,6 +172,16 @@
       </ul>
       <ul>
         <li>
+          <h5 class="instructions-subtitle">CHAT</h5>
+          <ul>
+            <li>Every snippet has its own attached chat channel</li>
+            <li>The idea behind the chat is to quickly clarify anything about the snippet or the edits attached to the snippet</li>
+            <li>The chat channels for each snippet should refer to the snippet wherever possible</li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li>
           <h5 class="instructions-subtitle">EDIT</h5>
           <ul>
             <li>When you alter an existing snippet, an edit is attached to it. The original is left unchanged</li>
@@ -175,6 +189,16 @@
             <li>Please ensure that you also edit the description of the original snippet, this will explain why you are
               editing the original
             </li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h5 class="instructions-subtitle">EDITS LIST</h5>
+          <ul>
+            <li>On the right panel, any edits that have been made to the selected snippet will be listed</li>            
+            <li>Clicking on an edit from the snippet edits list will load that edit in place of the original snippet</li>
+            <li>At the top of the snippet edits list is a link back to the original snippet</li>
           </ul>
         </li>
       </ul>
@@ -194,22 +218,21 @@
 
       <h3 class="instructions-subtitle">HOW?</h3>
       <p>
+        <h4 class="instructions-subtitle">LOAD A SNIPPET:</h4>
+        In the right panel, click on the <span class="boxed">LOAD A SNIPPET</span> button. You'll then be able to select an existing snippet from the list
+      </p>
+      <p>
         <h4 class="instructions-subtitle">STORE A NEW SNIPPET:</h4>
         Log in and <strong>make sure you are not viewing any existing snippet</strong>. If you are viewing an existing
         snipper, press
         the
         <span class="boxed">CLEAR</span> button. Enter a title and description then enter the
-        actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered.
+        actual text for the snippet. Click <span class="boxed">SAVE</span> and your snippet will be entered
       </p>
       <p>
         <strong class="instructions-subtitle">MAKE AN EDIT:</strong>
         Select the snippet you want to edit. Change the description to inform visitors why you are making an edit.
-        Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet.
-
-      </p>
-      <p>
-
-      </p>
+        Click <span class="boxed">SAVE</span> and your edit will be attached to the snippet</p>
       <p>
         <strong class="instructions-subtitle">MAKE A PROJECT:</strong>
         Create a new snippet and give it the title of the project and a brief description. The snippet text should

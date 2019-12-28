@@ -21,17 +21,20 @@
 }
 
 .editListItem {
-  background-color: $lightestTrns;
-  padding: 4px;
+  font-family: monospace;
+  font-size: small;
+  background-color:$mainFontDk;
+  color: $lightest;;
+  padding: 2px;
   border: 1px solid $darkest;
   border-radius: $paddingSml;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
   transition: all 0.3s ease-in-out;
 }
 
 .editListItem:hover, .editListItem:active {
-  background-color: $mainFontDk;
-  color: $lightest;
+  background-color: $lightestTrns;
+  color: $mainFont;
 }
 
 #detectedLanguage {
@@ -123,7 +126,7 @@ h3.usersSnippets {
 
 .username {
   font-family: monospace;
-  color: $darkest;
+  color: grey;
 }
 
 

@@ -2,6 +2,16 @@
   display: none;
 }
 
+.chatHeading {
+  font-family: monospace;
+  font-size: 0.6rem;
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.719);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  color: rgba(255, 255, 255, 0.801);
+}
+
 #chatOutput {
   text-align: left;
   width: 100%;

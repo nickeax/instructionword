@@ -6,6 +6,7 @@
   transform: scale(0);
   width: 100vw;
   height: 100vh;
+  overflow-y: scroll;
   background-color: $backgroundTrns;
   z-index: 666;
   transition: all 0.4s ease-in-out;
@@ -84,10 +85,10 @@
   font-size: 2rem;
 }
 
-.instructionsModal-Content #close:hover {
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 880px) {
-
+.boxed {
+  padding: 0px 3px;
+  color: rgba(255, 255, 255, 0.281);
+  background-color: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.041);
+  border-radius: 3px;
 }
