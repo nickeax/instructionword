@@ -558,8 +558,8 @@ ul.nav .button {
   margin: 2px;
   border-radius: 5px;
   border: 1px solid #0077b8;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.06s ease-in-out;
+  transition: all 0.06s ease-in-out;
 }
 
 ul.nav2 {
