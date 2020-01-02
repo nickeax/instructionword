@@ -117,8 +117,8 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
           </p></a>`;
         editsList.innerHTML += "</ul>";
       }
-      document.querySelector('#original').addEventListener(`click`, (e) => {
-        checkServer('getSnippet', editsStr[0].snippet_id, setResp);
+      editsList.addEventListener(`click`, (e) => {
+        checkServer('getSnippet', editsList.dataset.snippet_snippet_id, setResp);
       });
       break;
     case 'getChatMessages':
@@ -178,7 +178,8 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
       snippetTitle.value = str[0].title;
       snippetDescription.value = str[0].description;
       input.value = str[0].snippet;
-      btnRemoveSnippet.setAttribute("data-snippet_snippet_id", snippetID);
+      btnRemoveSnippet.setAttribute("data-snippet_snippet_id", str[0].snippet_id);
+      console.log(`btnRemoveSnippet.dataset.snippet_snippet_id: ${btnRemoveSnippet.dataset.snippet_snippet_id}`);      
       elementActive(btnRemoveSnippet, "yes");
       showOutput();
       break;

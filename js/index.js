@@ -119,6 +119,15 @@ btnClearCode.addEventListener('click', ev => {
 
 const btnRemoveSnippet = document.querySelector('#removeSnippet');
 btnRemoveSnippet.addEventListener('click', ev => {
+  snippetID = null;
+  chatHeading.innerHTML = "general chat";
+  checkServer('getChatMessages', "", setResp);
+  edited = false;
+  snippetDescription.value = "";
+  snippetTitle.value = "";
+  input.value = "";
+  output.innerHTML = "";
+  editsList.innerHTML = ``;
   clearMessages();
   showOutput();
 })
@@ -155,9 +164,11 @@ sendMessage.addEventListener('click', (e) => {
 btnRemoveSnippet.addEventListener('click', (e) => {
   clearMessages();
   let resp = confirm("Are you sure you wish to DELETE this snippet?");
+  console.log(`btnRemoveSnippet: ${btnRemoveSnippet.dataset.snippet_snippet_id}`);
+  
   if (resp === true) {
-    if (e.target.dataset.snippet_snippet_id) {
-      checkServer('removeSnippet', e.target.dataset.snippet_snippet_id, setResp);
+    if (btnRemoveSnippet.dataset.snippet_snippet_id > 0) {
+      checkServer('removeSnippet', btnRemoveSnippet.dataset.snippet_snippet_id, setResp);
     } else {
       console.log("No snippet ID");
     }
