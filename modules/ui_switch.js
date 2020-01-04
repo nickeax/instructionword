@@ -118,7 +118,7 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         editsList.innerHTML += "</ul>";
       }
       editsList.addEventListener(`click`, (e) => {
-        checkServer('getSnippet', editsList.dataset.snippet_snippet_id, setResp);
+        checkServer('getSnippet', editsList.dataset.snippet_snippet_id || snippetID, setResp);
       });
       break;
     case 'getChatMessages':
@@ -171,10 +171,10 @@ function setResp(str) { // Process any UI changes here, certain that RESPONSE is
         break;
       }
       let str = JSON.parse(arr[3]);
+      console.log(`getSnippet() -> str[0].title: ${str[0].title}`);
       chatHeading.innerHTML = `<strong style="color: #ff9999;">CHATTING IN: </strong>${str[0].title}`;
       edited = false;
       snippetID = str[0].snippet_id;
-      console.log(`[getSnippet] ${str[0].snippet_id}`);
       snippetTitle.value = str[0].title;
       snippetDescription.value = str[0].description;
       input.value = str[0].snippet;
